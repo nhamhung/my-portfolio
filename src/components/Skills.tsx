@@ -27,6 +27,14 @@ function Skills() {
 
   const skillCategories = [
     {
+      category: 'Academic',
+      skills: ['Ielts 8.0', 'ACT 35/36 (STEM)', 'SAT 800/800 (Chemistry)'],
+    },
+    {
+      category: 'Professional',
+      skills: ['Couchbase Associate Developer', 'Certified Kubernetes App Developer', 'GCP Cloud Enginnering', 'AWS Cloud Practitioner'],
+    },
+    {
       category: 'Data Engineering',
       skills: ['GCP', 'Hadoop', 'Hive', 'Spark', 'Kafka', 'MySQL', 'MongoDB', 'Couchbase', 'Redis', 'dbt', 'Iceberg', 'Debezium'],
     },
@@ -37,7 +45,7 @@ function Skills() {
     {
       category: 'DevOps & MLOps',
       skills: ['Linux', 'Jenkins', 'Ansible', 'Docker', 'Kubernetes', 'Spring Cloud', 'ELK', 'Prometheus', 'Grafana', 'MLflow', 'Feature Store', 'Expectations'],
-    },
+    }
   ]
 
   return (

@@ -98,8 +98,6 @@ function Education() {
               boxShadow="0 4px 20px rgba(0, 0, 0, 0.08)"
               border="1px solid"
               borderColor="gray.100"
-              borderLeft="4px solid"
-              borderLeftColor="purple.500"
               _hover={{
                 transform: 'translateY(-4px)',
                 boxShadow: '0 12px 40px rgba(102, 126, 234, 0.15)',
