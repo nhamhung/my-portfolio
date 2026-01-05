@@ -112,7 +112,7 @@ function Education() {
                   h="70px"
                   borderRadius="full"
                   bg="white"
-                  display="flex"
+                  display={{ base: 'none', md: 'flex' }}
                   alignItems="center"
                   justifyContent="center"
                   flexShrink={0}
@@ -200,6 +200,7 @@ function Education() {
         onClick={() => scrollToSection('experience')}
         transition="all 0.3s"
         zIndex={2}
+        display={{ base: 'none', md: 'block' }}
       >
         <HiArrowDown size={32} />
       </Box>

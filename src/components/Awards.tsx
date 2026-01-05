@@ -160,6 +160,7 @@ function Awards() {
             onClick={() => scrollToSection('projects')}
             transition="all 0.3s"
             zIndex={2}
+            display={{ base: 'none', md: 'block' }}
           >
             <HiArrowDown size={32} />
           </Box>

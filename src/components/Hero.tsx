@@ -145,12 +145,11 @@ function Hero() {
             >
               <Text
                 fontSize={{ base: 'sm', md: 'md' }}
-                color="yellow.200"
+                color="white"
                 mb={2}
                 fontWeight={500}
                 letterSpacing="wide"
                 opacity={0.95}
-                textShadow="0 2px 10px rgba(0, 0, 0, 0.2)"
                 css={{
                   animation: 'fadeIn 1.2s ease-out',
                   '@keyframes fadeIn': {
@@ -159,17 +158,16 @@ function Hero() {
                   },
                 }}
               >
-                Hi there, I'm
+                Hello, I'm
               </Text>
               <Heading
                 as="h1"
                 fontSize={{ base: '3xl', md: '5xl', lg: '6xl' }}
                 fontWeight={800}
+                color="white"
                 mb={4}
                 lineHeight="shorter"
                 textShadow="0 4px 20px rgba(0, 0, 0, 0.3)"
-                bgGradient="linear(135deg, #fef3c7 0%, #fde68a 50%, #fbbf24 100%)"
-                color="cyan.300"
                 css={{
                   animation: 'fadeInUp 1s ease-out 0.2s both',
                   '@keyframes fadeInUp': {
@@ -184,9 +182,9 @@ function Hero() {
                 as="h2"
                 fontSize={{ base: 'xl', md: '2xl', lg: '3xl' }}
                 fontWeight={600}
+                color="white"
                 mb={6}
-                bgGradient="linear(135deg, #a5f3fc 0%, #67e8f9 50%, #22d3ee 100%)"
-                color="orange.200"
+                opacity={0.95}
                 css={{
                   animation: 'fadeInUp 1s ease-out 0.4s both',
                   '@keyframes fadeInUp': {
@@ -199,17 +197,15 @@ function Hero() {
               </Heading>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}
-                color="purple.100"
+                color="white"
                 maxW="600px"
                 lineHeight="tall"
-                opacity={0.95}
-                fontWeight={500}
-                textShadow="0 2px 8px rgba(0, 0, 0, 0.2)"
+                opacity={0.9}
                 css={{
                   animation: 'fadeInUp 1s ease-out 0.6s both',
                   '@keyframes fadeInUp': {
                     '0%': { opacity: 0, transform: 'translateY(30px)' },
-                    '100%': { opacity: 0.95, transform: 'translateY(0)' },
+                    '100%': { opacity: 0.9, transform: 'translateY(0)' },
                   },
                 }}
               >
@@ -396,6 +392,7 @@ function Hero() {
         onClick={() => scrollToSection('about')}
         transition="all 0.3s"
         zIndex={10}
+        display={{ base: 'none', md: 'block' }}
         css={{
           animation: 'bounce 2s infinite',
           '@keyframes bounce': {

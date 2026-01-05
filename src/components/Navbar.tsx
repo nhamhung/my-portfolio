@@ -181,11 +181,11 @@ function Navbar({ activeSection = 'home' }: NavbarProps) {
               borderBottom="1px solid"
               borderColor="gray.200"
               bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
-              color="white"
+              color="blue.600"
               py={6}
             >
               <Flex justify="space-between" align="center">
-                <Text fontSize="xl" fontWeight={700}>
+                <Text fontSize="xl" fontWeight={700} mr={1}>
                   Menu
                 </Text>
                 <IconButton
@@ -193,7 +193,7 @@ function Navbar({ activeSection = 'home' }: NavbarProps) {
                   variant="ghost"
                   onClick={onClose}
                   size="sm"
-                  color="white"
+                  color="blue.600"
                   _hover={{ bg: 'rgba(255, 255, 255, 0.2)' }}
                 >
                   <HiX />
@@ -216,8 +216,6 @@ function Navbar({ activeSection = 'home' }: NavbarProps) {
                       fontWeight={isActive ? 600 : 500}
                       fontSize="md"
                       bg={isActive ? 'purple.50' : 'transparent'}
-                      borderLeft={isActive ? '3px solid' : 'none'}
-                      borderColor="#667eea"
                       transition="all 0.2s"
                       _hover={{
                         color: '#667eea',
