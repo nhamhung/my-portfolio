@@ -1,7 +1,12 @@
-import { Box, Heading, Text, Link, HStack, SimpleGrid } from '@chakra-ui/react'
+import { Box, Heading, Text, Link, SimpleGrid, VStack } from '@chakra-ui/react'
 import { FiExternalLink } from 'react-icons/fi'
+import { HiArrowDown } from 'react-icons/hi'
 
 function Videos() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) element.scrollIntoView({ behavior: 'smooth' })
+  }
   const videos = [
     {
       id: 1,
@@ -12,24 +17,24 @@ function Videos() {
     },
     {
       id: 2,
-      title: 'Tutorial Video 2',
-      description: 'Building scalable data pipelines with modern tools',
-      videoId: 'dQw4w9WgXcQ',
-      thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+      title: 'Xử lý dữ liệu trong thời gian thực với Apache Kafka',
+      description: 'Ở trong video này, chúng ta sẽ cùng tìm hiểu cách sử dụng Apache Kafka để xử lý dữ liệu trong thời gian thực nhé!',
+      videoId: 'jfu4ORM8k9Q',
+      thumbnail: 'https://youtu.be/jfu4ORM8k9Q',
     },
     {
       id: 3,
-      title: 'Tutorial Video 3',
-      description: 'Advanced analytics and visualization techniques',
-      videoId: 'dQw4w9WgXcQ',
-      thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+      title: 'Mình có hối tiếc khi học Thạc sĩ Khoa học máy tính?',
+      description: 'Ở trong video này, mình sẽ chia sẻ những trải nghiệm và đúc kết được sau quá trình apply và học Thạc sĩ ngành Khoa học máy tính',
+      videoId: 'lBOcJR7QOMs',
+      thumbnail: 'https://youtu.be/lBOcJR7QOMs',
     },
     {
       id: 4,
-      title: 'Tutorial Video 4',
-      description: 'Machine Learning fundamentals for data engineers',
-      videoId: 'dQw4w9WgXcQ',
-      thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+      title: 'Cách mình tối ưu hoá thời gian cho việc học IT?',
+      description: 'Ở trong video này, mình muốn chia sẻ một số đúc kết về các cách mình đang làm để tối ưu hoá thời gian cho việc học IT.',
+      videoId: 'C7d0LEefUcw',
+      thumbnail: 'https://youtu.be/C7d0LEefUcw',
     },
   ]
 
@@ -51,25 +56,35 @@ function Videos() {
       position="relative"
     >
       <Box w="100%" px={{ base: 4, md: 8, lg: 12 }} maxW="1200px" mx="auto">
-        <Box textAlign="center" mb={12}>
+        <VStack gap={3} mb={12} textAlign="center">
+          <Box
+            as="span"
+            fontSize={{ base: 'md', md: 'lg' }}
+            fontWeight={700}
+            color="purple.600"
+            textTransform="uppercase"
+            letterSpacing="wide"
+            px={6}
+            py={3}
+            bg="white"
+            borderRadius="full"
+            boxShadow="md"
+          >
+            Educational Videos
+          </Box>
           <Heading
             as="h2"
-            fontSize={{ base: '4xl', md: '5xl' }}
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
             fontWeight={800}
-            color="gray.900"
-            mb={3}
+            textAlign="center"
+            lineHeight="shorter"
+            bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
+            bgClip="text"
             letterSpacing="tight"
           >
             Educational Videos
           </Heading>
-          <Box
-            w="80px"
-            h="4px"
-            bgGradient="linear(90deg, #667eea, #764ba2)"
-            mx="auto"
-            borderRadius="full"
-          />
-        </Box>
+        </VStack>
         <SimpleGrid columns={{ base: 1, md: 2 }} gap={8}>
           {videos.map((video) => (
             <Box
@@ -94,13 +109,15 @@ function Videos() {
                 overflow="hidden"
                 bg="gray.100"
               >
-                <Box
-                  as="iframe"
-                  position="absolute"
-                  top="0"
-                  left="0"
-                  width="100%"
-                  height="100%"
+                <iframe
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                  }}
                   src={getEmbedUrl(video.videoId)}
                   title={video.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -111,17 +128,17 @@ function Videos() {
                 <Heading as="h3" fontSize="lg" mb={3} color="gray.900" fontWeight={700}>
                   {video.title}
                 </Heading>
-                <Text color="gray.600" mb={4} lineHeight="tall" fontSize="sm">
+                <Text color="gray.800" mb={4} lineHeight="tall" fontSize="sm" fontWeight={500}>
                   {video.description}
                 </Text>
                 <Link
                   href={`https://www.youtube.com/watch?v=${video.videoId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  color="purple.600"
+                  color="purple.700"
                   fontWeight={600}
                   _hover={{
-                    color: 'purple.700',
+                    color: 'purple.800',
                     textDecoration: 'underline',
                   }}
                   display="flex"
@@ -135,6 +152,22 @@ function Videos() {
             </Box>
           ))}
         </SimpleGrid>
+
+        {/* Scroll Arrow */}
+        <Box
+          position="absolute"
+          bottom={8}
+          left="50%"
+          transform="translateX(-50%)"
+          color="purple.600"
+          _hover={{ color: 'purple.700', transform: 'translateX(-50%) translateY(4px)' }}
+          cursor="pointer"
+          onClick={() => scrollToSection('skills')}
+          transition="all 0.3s"
+          zIndex={2}
+        >
+          <HiArrowDown size={32} />
+        </Box>
       </Box>
     </Box>
   )

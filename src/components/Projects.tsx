@@ -1,7 +1,12 @@
-import { Box, Heading, Text, SimpleGrid, Badge, HStack, Button, Link } from '@chakra-ui/react'
+import { Box, Heading, Text, SimpleGrid, Badge, HStack, Button, Link, VStack } from '@chakra-ui/react'
 import { FiExternalLink } from 'react-icons/fi'
+import { HiArrowDown } from 'react-icons/hi'
 
 function Projects() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) element.scrollIntoView({ behavior: 'smooth' })
+  }
   const projects = [
     {
       title: 'E-Commerce Platform',
@@ -40,25 +45,35 @@ function Projects() {
       position="relative"
     >
       <Box w="100%" px={{ base: 4, md: 8, lg: 12 }} maxW="1200px" mx="auto">
-        <Box textAlign="center" mb={12}>
+        <VStack gap={3} mb={12} textAlign="center">
+          <Box
+            as="span"
+            fontSize={{ base: 'md', md: 'lg' }}
+            fontWeight={700}
+            color="purple.600"
+            textTransform="uppercase"
+            letterSpacing="wide"
+            px={6}
+            py={3}
+            bg="white"
+            borderRadius="full"
+            boxShadow="md"
+          >
+            Featured Projects
+          </Box>
           <Heading
             as="h2"
-            fontSize={{ base: '4xl', md: '5xl' }}
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
             fontWeight={800}
-            color="gray.900"
-            mb={3}
+            textAlign="center"
+            lineHeight="shorter"
+            bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
+            bgClip="text"
             letterSpacing="tight"
           >
             Featured Projects
           </Heading>
-          <Box
-            w="80px"
-            h="4px"
-            bgGradient="linear(90deg, #667eea, #764ba2)"
-            mx="auto"
-            borderRadius="full"
-          />
-        </Box>
+        </VStack>
         <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
           {projects.map((project, index) => (
             <Box
@@ -79,7 +94,7 @@ function Projects() {
               <Heading as="h3" fontSize="lg" mb={3} color="gray.900" fontWeight={700}>
                 {project.title}
               </Heading>
-              <Text color="gray.600" mb={4} lineHeight="tall" fontSize="sm">
+              <Text color="gray.800" mb={4} lineHeight="tall" fontSize="sm" fontWeight={500}>
                 {project.description}
               </Text>
               <HStack flexWrap="wrap" gap={2} mb={5}>
@@ -135,6 +150,22 @@ function Projects() {
             </Box>
           ))}
         </SimpleGrid>
+
+        {/* Scroll Arrow */}
+        <Box
+          position="absolute"
+          bottom={8}
+          left="50%"
+          transform="translateX(-50%)"
+          color="purple.600"
+          _hover={{ color: 'purple.700', transform: 'translateX(-50%) translateY(4px)' }}
+          cursor="pointer"
+          onClick={() => scrollToSection('gallery')}
+          transition="all 0.3s"
+          zIndex={2}
+        >
+          <HiArrowDown size={32} />
+        </Box>
       </Box>
     </Box>
   )

@@ -1,8 +1,13 @@
-import { Box, Heading, Text, SimpleGrid, Badge, Image } from '@chakra-ui/react'
+import { Box, Heading, Text, SimpleGrid, Badge, Image, VStack } from '@chakra-ui/react'
+import { HiArrowDown } from 'react-icons/hi'
 import saLogo from '../assets/sa.png'
 import nusLogo from '../assets/nus.svg'
 
 function Awards() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) element.scrollIntoView({ behavior: 'smooth' })
+  }
   const awards = [
     {
       title: 'ASEAN Secondary Scholarship',
@@ -11,14 +16,6 @@ function Awards() {
       description: 'Full-ride scholarship for 4 years of secondary and junior college education',
       logo: saLogo,
       icon: '⭐',
-    },
-    {
-      title: 'Jacob Ballas Awards for Outstanding Performance',
-      organization: 'Saint Andrew\'s Junior College',
-      year: '2018',
-      description: 'Straight A\'s across 6 subjects in GCE A-Level Examination',
-      logo: saLogo,
-      icon: '🏅',
     },
     {
       title: 'ASEAN Undergraduate Scholarship',
@@ -52,40 +49,36 @@ function Awards() {
       position="relative"
     >
       <Box w="100%" px={{ base: 4, md: 8, lg: 12 }} maxW="1200px" mx="auto">
-        <Box textAlign="center" mb={12}>
+        <VStack gap={3} mb={12} textAlign="center">
+          <Box
+            as="span"
+            fontSize={{ base: 'md', md: 'lg' }}
+            fontWeight={700}
+            color="purple.600"
+            textTransform="uppercase"
+            letterSpacing="wide"
+            px={6}
+            py={3}
+            bg="white"
+            borderRadius="full"
+            boxShadow="md"
+          >
+            Awards & Achievements
+          </Box>
           <Heading
             as="h2"
-            fontSize={{ base: '4xl', md: '5xl' }}
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
             fontWeight={800}
-            color="gray.900"
-            mb={3}
+            textAlign="center"
+            lineHeight="shorter"
+            bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
+            bgClip="text"
             letterSpacing="tight"
           >
             Awards & Achievements
           </Heading>
-          <Box
-            w="80px"
-            h="4px"
-            bgGradient="linear(90deg, #667eea, #764ba2)"
-            mx="auto"
-            borderRadius="full"
-          />
-        </Box>
-        <Box position="relative">
-          {/* Timeline line for Awards */}
-          <Box
-            position="absolute"
-            left="50%"
-            top={0}
-            bottom={0}
-            w="4px"
-            transform="translateX(-50%)"
-            bgGradient="linear(180deg, #667eea 0%, #764ba2 100%)"
-            borderRadius="full"
-            boxShadow="0 0 10px rgba(102, 126, 234, 0.3)"
-            display={{ base: 'none', md: 'block' }}
-          />
-          <SimpleGrid columns={{ base: 1, md: 3 }} gap={8} position="relative">
+        </VStack>
+        <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
             {awards.map((award, index) => (
               <Box
                 key={index}
@@ -105,29 +98,6 @@ function Awards() {
                 }}
                 transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
               >
-                <Box
-                  position="absolute"
-                  top={0}
-                  left={0}
-                  right={0}
-                  h="4px"
-                  bgGradient="linear(90deg, #667eea, #764ba2)"
-                />
-                {/* Timeline dot */}
-                <Box
-                  position="absolute"
-                  top={{ base: '-16px', md: '-20px' }}
-                  left="50%"
-                  transform="translateX(-50%)"
-                  w={{ base: '32px', md: '36px' }}
-                  h={{ base: '32px', md: '36px' }}
-                  borderRadius="full"
-                  bgGradient="linear(135deg, #667eea, #764ba2)"
-                  border="5px solid white"
-                  boxShadow="0 0 0 5px rgba(102, 126, 234, 0.3), 0 6px 20px rgba(102, 126, 234, 0.4)"
-                  zIndex={2}
-                  display={{ base: 'none', md: 'block' }}
-                />
                 <Box
                   w="90px"
                   h="90px"
@@ -156,7 +126,7 @@ function Awards() {
                 <Heading as="h3" fontSize="lg" mb={3} color="gray.900" fontWeight={700}>
                   {award.title}
                 </Heading>
-                <Text fontSize="md" color="purple.600" fontWeight={600} mb={3}>
+                <Text fontSize="md" color="purple.700" fontWeight={600} mb={3}>
                   {award.organization}
                 </Text>
                 <Badge
@@ -171,13 +141,28 @@ function Awards() {
                 >
                   {award.year}
                 </Badge>
-                <Text color="gray.600" lineHeight="tall" fontSize="sm">
+                <Text color="gray.800" lineHeight="tall" fontSize="sm" fontWeight={500}>
                   {award.description}
                 </Text>
               </Box>
             ))}
           </SimpleGrid>
-        </Box>
+
+          {/* Scroll Arrow */}
+          <Box
+            position="absolute"
+            bottom={8}
+            left="50%"
+            transform="translateX(-50%)"
+            color="purple.600"
+            _hover={{ color: 'purple.700', transform: 'translateX(-50%) translateY(4px)' }}
+            cursor="pointer"
+            onClick={() => scrollToSection('projects')}
+            transition="all 0.3s"
+            zIndex={2}
+          >
+            <HiArrowDown size={32} />
+          </Box>
       </Box>
     </Box>
   )

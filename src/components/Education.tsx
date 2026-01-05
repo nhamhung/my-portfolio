@@ -1,9 +1,14 @@
 import { Box, Heading, Text, Flex, VStack, HStack, Image } from '@chakra-ui/react'
+import { HiArrowDown } from 'react-icons/hi'
 import utLogo from '../assets/ut.png'
 import nusLogo from '../assets/nus.svg'
 import saLogo from '../assets/sa.png'
 
 function Education() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) element.scrollIntoView({ behavior: 'smooth' })
+  }
   const education = [
     {
       degree: 'Master\'s of Science in Computer Science',
@@ -54,25 +59,35 @@ function Education() {
       position="relative"
     >
       <Box w="100%" px={{ base: 4, md: 8, lg: 12 }} maxW="1200px" mx="auto">
-        <Box textAlign="center" mb={12}>
+        <VStack gap={3} mb={12} textAlign="center">
+          <Box
+            as="span"
+            fontSize={{ base: 'md', md: 'lg' }}
+            fontWeight={700}
+            color="purple.600"
+            textTransform="uppercase"
+            letterSpacing="wide"
+            px={6}
+            py={3}
+            bg="white"
+            borderRadius="full"
+            boxShadow="md"
+          >
+            Education
+          </Box>
           <Heading
             as="h2"
-            fontSize={{ base: '4xl', md: '5xl' }}
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
             fontWeight={800}
-            color="gray.900"
-            mb={3}
+            textAlign="center"
+            lineHeight="shorter"
+            bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
+            bgClip="text"
             letterSpacing="tight"
           >
             Education
           </Heading>
-          <Box
-            w="80px"
-            h="4px"
-            bgGradient="linear(90deg, #667eea, #764ba2)"
-            mx="auto"
-            borderRadius="full"
-          />
-        </Box>
+        </VStack>
         <VStack align="stretch" gap={8}>
           {education.map((edu, index) => (
             <Box
@@ -122,7 +137,7 @@ function Education() {
                     <Heading as="h3" fontSize={{ base: 'lg', md: 'xl' }} mb={2} color="gray.900" fontWeight={700}>
                       {edu.degree}
                     </Heading>
-                    <Text fontSize={{ base: 'md', md: 'lg' }} color="purple.600" fontWeight={600}>
+                    <Text fontSize={{ base: 'md', md: 'lg' }} color="purple.700" fontWeight={600}>
                       {edu.institution}
                     </Text>
                   </Box>
@@ -134,17 +149,17 @@ function Education() {
                     <VStack align="stretch" gap={3}>
                       {edu.specialization && (
                         <HStack>
-                          <Text fontWeight={600} color="purple.600" minW="120px" flexShrink={0}>
+                          <Text fontWeight={600} color="purple.700" minW="120px" flexShrink={0}>
                             Specialization:
                           </Text>
-                          <Text color="gray.700">{edu.specialization}</Text>
+                          <Text color="gray.800" fontWeight={500}>{edu.specialization}</Text>
                         </HStack>
                       )}
                       <HStack>
-                        <Text fontWeight={600} color="purple.600" minW="120px" flexShrink={0}>
+                        <Text fontWeight={600} color="purple.700" minW="120px" flexShrink={0}>
                           Period:
                         </Text>
-                        <Text color="gray.700">{edu.period}</Text>
+                        <Text color="gray.800" fontWeight={500}>{edu.period}</Text>
                       </HStack>
                     </VStack>
                   </Box>
@@ -152,7 +167,7 @@ function Education() {
                     <Box pt={4} borderTop="1px solid" borderColor="gray.200">
                       <VStack align="stretch" gap={2}>
                         {edu.description.map((item, i) => (
-                          <Box key={i} color="gray.600" pl={6} position="relative">
+                          <Box key={i} color="gray.800" pl={6} position="relative" fontWeight={500}>
                             <Box
                               as="span"
                               position="absolute"
@@ -173,6 +188,22 @@ function Education() {
             </Box>
           ))}
         </VStack>
+      </Box>
+
+      {/* Scroll Arrow */}
+      <Box
+        position="absolute"
+        bottom={8}
+        left="50%"
+        transform="translateX(-50%)"
+        color="purple.600"
+        _hover={{ color: 'purple.700', transform: 'translateX(-50%) translateY(4px)' }}
+        cursor="pointer"
+        onClick={() => scrollToSection('experience')}
+        transition="all 0.3s"
+        zIndex={2}
+      >
+        <HiArrowDown size={32} />
       </Box>
     </Box>
   )

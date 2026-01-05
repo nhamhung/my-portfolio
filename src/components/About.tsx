@@ -1,6 +1,11 @@
 import { Box, Heading, Text, VStack, SimpleGrid } from '@chakra-ui/react'
+import { HiArrowDown } from 'react-icons/hi'
 
 function About() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) element.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <Box
       id="about"
@@ -43,25 +48,30 @@ function About() {
         <VStack align="stretch" gap={6}>
           {/* Header Section */}
           <VStack gap={3} mb={2}>
-            <Heading
-                as="h2"
-                fontSize={{ base: '4xl', md: '5xl' }}
-                fontWeight={800}
-                color="gray.900"
-                mb={3}
-                letterSpacing="tight"
+            <Box
+              as="span"
+              fontSize={{ base: 'md', md: 'lg' }}
+              fontWeight={700}
+              color="purple.600"
+              textTransform="uppercase"
+              letterSpacing="wide"
+              px={6}
+              py={3}
+              bg="white"
+              borderRadius="full"
+              boxShadow="md"
             >
-                About Me
-            </Heading>
+              About Me
+            </Box>
             <Heading
               as="h2"
               fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
               fontWeight={800}
-              color="gray.800"
               textAlign="center"
               lineHeight="shorter"
               bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
               bgClip="text"
+              letterSpacing="tight"
             >
               About Me
             </Heading>
@@ -85,14 +95,15 @@ function About() {
                 }}
                 transition="all 0.3s"
               >
-                <Text
-                  fontSize={{ base: 'lg', md: 'xl' }}
-                  color="gray.700"
-                  lineHeight="tall"
-                  textAlign="center"
-                >
-                  I'm a passionate <Text as="span" fontWeight={700} color="purple.600">Data Engineer</Text> with a love for building reliable and efficient data pipelines. With a deep expertise in <Text as="span" fontWeight={700} color="blue.600">Big Data and Analytics</Text>, I enjoy transforming raw data into actionable insights, hence enabling organizations to make data-driven decisions.
-                </Text>
+              <Text
+                fontSize={{ base: 'lg', md: 'xl' }}
+                color="gray.800"
+                lineHeight="tall"
+                textAlign="center"
+                fontWeight={500}
+              >
+                I'm a passionate <Text as="span" fontWeight={700} color="purple.600">Data Engineer</Text> with a love for building reliable and efficient data pipelines. With a deep expertise in <Text as="span" fontWeight={700} color="blue.600">Big Data and Analytics</Text>, I enjoy transforming raw data into actionable insights, hence enabling organizations to make data-driven decisions.
+              </Text>
               </Box>
 
               <Box
@@ -108,14 +119,15 @@ function About() {
                 }}
                 transition="all 0.3s"
               >
-                <Text
-                  fontSize={{ base: 'lg', md: 'xl' }}
-                  color="gray.700"
-                  lineHeight="tall"
-                  textAlign="center"
-                >
-                  When I'm not coding, you can find me doing <Text as="span" fontWeight={700} color="cyan.600">3 things simultaneously</Text>: pursuing higher studies, exploring new technologies and mentoring students on all things education-related and in various formats.
-                </Text>
+              <Text
+                fontSize={{ base: 'lg', md: 'xl' }}
+                color="gray.800"
+                lineHeight="tall"
+                textAlign="center"
+                fontWeight={500}
+              >
+                When I'm not coding, you can find me doing <Text as="span" fontWeight={700} color="cyan.600">3 things simultaneously</Text>: pursuing higher studies, exploring new technologies and mentoring students on all things education-related and in various formats.
+              </Text>
               </Box>
             </VStack>
           </Box>
@@ -254,6 +266,22 @@ function About() {
             </Box>
           </SimpleGrid>
         </VStack>
+      </Box>
+
+      {/* Scroll Arrow */}
+      <Box
+        position="absolute"
+        bottom={8}
+        left="50%"
+        transform="translateX(-50%)"
+        color="purple.600"
+        _hover={{ color: 'purple.700', transform: 'translateX(-50%) translateY(4px)' }}
+        cursor="pointer"
+        onClick={() => scrollToSection('education')}
+        transition="all 0.3s"
+        zIndex={2}
+      >
+        <HiArrowDown size={32} />
       </Box>
     </Box>
   )

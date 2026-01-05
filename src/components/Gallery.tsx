@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Box, Heading, SimpleGrid, Image, Text, Dialog } from '@chakra-ui/react'
+import { Box, Heading, SimpleGrid, Image, Text, Dialog, VStack } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
+import { HiArrowDown } from 'react-icons/hi'
 import photo1 from '../assets/photo_1.jpg'
 import photo2 from '../assets/photo_2.jpg'
 import photo4 from '../assets/photo_4.jpg'
@@ -11,6 +12,11 @@ import photo6 from '../assets/photo_6.jpg'
 function Gallery() {
   const { open, onOpen, onClose } = useDisclosure()
   const [selectedImage, setSelectedImage] = useState<any>(null)
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) element.scrollIntoView({ behavior: 'smooth' })
+  }
 
   const images = [
     {
@@ -76,25 +82,35 @@ function Gallery() {
       position="relative"
     >
       <Box w="100%" px={{ base: 4, md: 8, lg: 12 }} maxW="1200px" mx="auto">
-        <Box textAlign="center" mb={12}>
+        <VStack gap={3} mb={12} textAlign="center">
+          <Box
+            as="span"
+            fontSize={{ base: 'md', md: 'lg' }}
+            fontWeight={700}
+            color="purple.600"
+            textTransform="uppercase"
+            letterSpacing="wide"
+            px={6}
+            py={3}
+            bg="white"
+            borderRadius="full"
+            boxShadow="md"
+          >
+            Project Gallery
+          </Box>
           <Heading
             as="h2"
-            fontSize={{ base: '4xl', md: '5xl' }}
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
             fontWeight={800}
-            color="gray.900"
-            mb={3}
+            textAlign="center"
+            lineHeight="shorter"
+            bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
+            bgClip="text"
             letterSpacing="tight"
           >
             Project Gallery
           </Heading>
-          <Box
-            w="80px"
-            h="4px"
-            bgGradient="linear(90deg, #667eea, #764ba2)"
-            mx="auto"
-            borderRadius="full"
-          />
-        </Box>
+        </VStack>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
           {images.map((image) => (
             <Box
@@ -125,7 +141,7 @@ function Gallery() {
                 <Heading as="h3" fontSize="md" mb={2} fontWeight={600} color="gray.900">
                   {image.title}
                 </Heading>
-                <Text fontSize="sm" color="gray.600" lineHeight="tall">
+                <Text fontSize="sm" color="gray.800" lineHeight="tall" fontWeight={500}>
                   {image.description}
                 </Text>
               </Box>
@@ -148,10 +164,10 @@ function Gallery() {
                   mb={4}
                   borderRadius="md"
                 />
-                <Heading as="h3" fontSize="md" mb={2}>
+                <Heading as="h3" fontSize="md" mb={2} color="gray.900">
                   {selectedImage.title}
                 </Heading>
-                <Text color="gray.600">
+                <Text color="gray.800" fontWeight={500}>
                   {selectedImage.description}
                 </Text>
               </Box>
@@ -159,6 +175,22 @@ function Gallery() {
           </Dialog.Content>
         </Dialog.Positioner>
       </Dialog.Root>
+
+      {/* Scroll Arrow */}
+      <Box
+        position="absolute"
+        bottom={8}
+        left="50%"
+        transform="translateX(-50%)"
+        color="purple.600"
+        _hover={{ color: 'purple.700', transform: 'translateX(-50%) translateY(4px)' }}
+        cursor="pointer"
+        onClick={() => scrollToSection('videos')}
+        transition="all 0.3s"
+        zIndex={2}
+      >
+        <HiArrowDown size={32} />
+      </Box>
     </Box>
   )
 }

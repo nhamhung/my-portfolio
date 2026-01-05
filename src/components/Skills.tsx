@@ -1,4 +1,5 @@
 import { Box, Heading, SimpleGrid, Badge, VStack } from '@chakra-ui/react'
+import { HiArrowDown } from 'react-icons/hi'
 
 function Skills() {
   const skillCategories = [
@@ -30,25 +31,35 @@ function Skills() {
       position="relative"
     >
       <Box w="100%" px={{ base: 4, md: 8, lg: 12 }} maxW="1200px" mx="auto">
-        <Box textAlign="center" mb={12}>
+        <VStack gap={3} mb={12} textAlign="center">
+          <Box
+            as="span"
+            fontSize={{ base: 'md', md: 'lg' }}
+            fontWeight={700}
+            color="purple.600"
+            textTransform="uppercase"
+            letterSpacing="wide"
+            px={6}
+            py={3}
+            bg="white"
+            borderRadius="full"
+            boxShadow="md"
+          >
+            Technical Skills
+          </Box>
           <Heading
             as="h2"
-            fontSize={{ base: '4xl', md: '5xl' }}
+            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
             fontWeight={800}
-            color="gray.900"
-            mb={3}
+            textAlign="center"
+            lineHeight="shorter"
+            bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
+            bgClip="text"
             letterSpacing="tight"
           >
             Technical Skills
           </Heading>
-          <Box
-            w="80px"
-            h="4px"
-            bgGradient="linear(90deg, #667eea, #764ba2)"
-            mx="auto"
-            borderRadius="full"
-          />
-        </Box>
+        </VStack>
         <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
           {skillCategories.map((category, index) => (
             <Box
@@ -74,7 +85,7 @@ function Skills() {
                 fontWeight={700}
                 pb={3}
                 borderBottom="2px solid"
-                borderColor="purple.100"
+                borderColor="purple.200"
               >
                 {category.category}
               </Heading>
@@ -83,7 +94,7 @@ function Skills() {
                   <Badge
                     key={i}
                     bg="purple.50"
-                    color="purple.700"
+                    color="purple.800"
                     px={4}
                     py={2.5}
                     borderRadius="lg"
@@ -93,6 +104,7 @@ function Skills() {
                     _hover={{
                       bg: 'purple.100',
                       transform: 'scale(1.02)',
+                      color: 'purple.900',
                     }}
                     transition="all 0.2s"
                   >
@@ -103,6 +115,29 @@ function Skills() {
             </Box>
           ))}
         </SimpleGrid>
+
+        {/* Scroll Arrow - Optional, can scroll to contact or top */}
+        <Box
+          position="absolute"
+          bottom={8}
+          left="50%"
+          transform="translateX(-50%)"
+          color="purple.600"
+          _hover={{ color: 'purple.700', transform: 'translateX(-50%) translateY(4px)' }}
+          cursor="pointer"
+          onClick={() => {
+            const contactSection = document.getElementById('contact')
+            if (contactSection) {
+              contactSection.scrollIntoView({ behavior: 'smooth' })
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+          }}
+          transition="all 0.3s"
+          zIndex={2}
+        >
+          <HiArrowDown size={32} />
+        </Box>
       </Box>
     </Box>
   )
