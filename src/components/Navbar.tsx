@@ -166,6 +166,7 @@ function Navbar({ activeSection = 'home' }: NavbarProps) {
               color: '#667eea',
             }}
             transition="all 0.2s"
+            backgroundColor="gray.100"
           >
             {open ? <HiX size={24} /> : <HiMenu size={24} />}
           </IconButton>
@@ -195,6 +196,7 @@ function Navbar({ activeSection = 'home' }: NavbarProps) {
                   size="sm"
                   color="blue.600"
                   _hover={{ bg: 'rgba(255, 255, 255, 0.2)' }}
+                  backgroundColor="gray.100"
                 >
                   <HiX />
                 </IconButton>

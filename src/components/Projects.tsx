@@ -103,6 +103,7 @@ function Projects() {
                     key={i}
                     bg="purple.50"
                     color="purple.700"
+                    backgroundColor="gray.100"
                     px={3}
                     py={1}
                     borderRadius="md"
@@ -118,6 +119,7 @@ function Projects() {
                   onClick={() => window.open(project.github, '_blank')}
                   size="sm"
                   variant="outline"
+                  backgroundColor="gray.100"
                   borderColor="purple.300"
                   color="purple.600"
                   fontWeight={600}
@@ -139,6 +141,7 @@ function Projects() {
                   bgGradient="linear(135deg, #667eea, #764ba2)"
                   color="blue.600"
                   fontWeight={600}
+                  backgroundColor="gray.100"
                   _hover={{
                     transform: 'translateY(-2px)',
                     boxShadow: '0 8px 20px rgba(102, 126, 234, 0.4)',

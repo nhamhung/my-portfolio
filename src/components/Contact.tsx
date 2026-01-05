@@ -249,6 +249,7 @@ function Contact() {
                   bgGradient="linear(135deg, #667eea 0%, #764ba2 100%)"
                   color="blue.600"
                   fontWeight={600}
+                  backgroundColor="gray.100"
                   px={8}
                   py={6}
                   fontSize={{ base: 'md', md: 'lg' }}

@@ -238,6 +238,7 @@ function Hero() {
                   boxShadow: '0 12px 40px rgba(0, 0, 0, 0.4)',
                   bg: 'gray.50',
                 }}
+                backgroundColor="gray.100"
                 transition="all 0.3s"
                 css={{
                   '@keyframes pulse': {
@@ -265,6 +266,7 @@ function Hero() {
                   transform: 'translateY(-4px) scale(1.05)',
                   borderColor: 'white',
                 }}
+                backgroundColor="gray.100"
                 transition="all 0.3s"
               >
                 Get In Touch
