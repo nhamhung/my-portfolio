@@ -11,7 +11,7 @@ import {
 
 import ExternalAction from "../../components/shared/ExternalAction";
 import LogoMark from "../../components/shared/LogoMark";
-import { gallery, projects, sectionContent } from "../../data/portfolio";
+import { projects, sectionContent } from "../../data/portfolio";
 
 function BusinessProjects() {
   return (
@@ -31,11 +31,16 @@ function BusinessProjects() {
           borderColor="var(--text-100)"
         >
           <Box>
-            <Text color="var(--accent-300)" fontSize="xs" fontWeight={800} textTransform="uppercase">
+            <Text
+              color="var(--accent-300)"
+              fontSize="xs"
+              fontWeight={800}
+              textTransform="uppercase"
+            >
               Chapter 06
             </Text>
             <Text mt={2} color="var(--text-300)" fontSize="sm">
-              Case recommendations
+              Project collection
             </Text>
           </Box>
           <Box>
@@ -55,10 +60,14 @@ function BusinessProjects() {
           </Box>
         </Box>
 
-        <VStack align="stretch" gap={0} mt={{ base: 10, md: 14 }} borderTop="1px solid" borderColor="var(--line-700)">
+        <VStack
+          align="stretch"
+          gap={0}
+          mt={{ base: 10, md: 14 }}
+          borderTop="1px solid"
+          borderColor="var(--line-700)"
+        >
           {projects.map((project, index) => {
-            const image = gallery[index % gallery.length];
-
             return (
               <Box
                 key={project.id}
@@ -72,8 +81,17 @@ function BusinessProjects() {
                 borderBottom="1px solid"
                 borderColor="var(--line-700)"
               >
-                <Box py={{ base: 5, md: 8 }} pr={{ base: 0, md: 5 }}>
-                  <Text color="var(--accent-300)" fontSize="xs" fontWeight={800}>
+                <Box
+                  py={{ base: 5, md: 8 }}
+                  px={{ base: 4, md: 3 }}
+                  data-inline-clearance="16px"
+                  data-testid={`business-case-label-${project.id}`}
+                >
+                  <Text
+                    color="var(--accent-300)"
+                    fontSize="xs"
+                    fontWeight={800}
+                  >
                     CASE
                     <br />
                     {String(index + 1).padStart(2, "0")}
@@ -98,24 +116,42 @@ function BusinessProjects() {
                       logoAccent={project.logoAccent}
                       size="lg"
                     />
-                    <Text color="var(--text-300)" fontSize="xs" textTransform="uppercase">
-                      Reviewed evidence
+                    <Text
+                      color="var(--text-300)"
+                      fontSize="xs"
+                      textTransform="uppercase"
+                    >
+                      Project snapshot
                     </Text>
                   </Flex>
-                  <Heading as="h3" fontSize={{ base: "2xl", md: "4xl" }} color="var(--text-100)">
+                  <Heading
+                    as="h3"
+                    fontSize={{ base: "2xl", md: "4xl" }}
+                    color="var(--text-100)"
+                  >
                     {project.title}
                   </Heading>
                   <Box>
-                    <Text color="var(--accent-300)" fontSize="xs" fontWeight={800} textTransform="uppercase">
-                      Context and contribution
+                    <Text
+                      color="var(--accent-300)"
+                      fontSize="xs"
+                      fontWeight={800}
+                      textTransform="uppercase"
+                    >
+                      What I made
                     </Text>
                     <Text mt={3} color="var(--text-300)" lineHeight="1.9">
                       {project.description}
                     </Text>
                   </Box>
                   <Box>
-                    <Text color="var(--accent-300)" fontSize="xs" fontWeight={800} textTransform="uppercase">
-                      Evidence base
+                    <Text
+                      color="var(--accent-300)"
+                      fontSize="xs"
+                      fontWeight={800}
+                      textTransform="uppercase"
+                    >
+                      Skills practised
                     </Text>
                     <Flex gap={2} wrap="wrap" mt={3}>
                       {project.technologies.map((technology) => (
@@ -134,12 +170,22 @@ function BusinessProjects() {
                       ))}
                     </Flex>
                   </Box>
-                  <Box pt={5} borderTop="1px solid" borderColor="var(--line-700)">
-                    <Text color="var(--accent-300)" fontSize="xs" fontWeight={800} textTransform="uppercase">
-                      Recommended next review
+                  <Box
+                    pt={5}
+                    borderTop="1px solid"
+                    borderColor="var(--line-700)"
+                  >
+                    <Text
+                      color="var(--accent-300)"
+                      fontSize="xs"
+                      fontWeight={800}
+                      textTransform="uppercase"
+                    >
+                      Explore the project
                     </Text>
                     <Text mt={2} color="var(--text-300)" fontSize="sm">
-                      Inspect the direct project evidence and implementation details.
+                      Open the project links to see the code, notes, and how it
+                      came together.
                     </Text>
                     <HStack gap={3} mt={4} wrap="wrap">
                       {project.actions.map((action, actionIndex) => (
@@ -164,14 +210,15 @@ function BusinessProjects() {
                 >
                   <Image
                     className="business-case-image"
-                    src={image.src}
-                    alt={image.alt}
+                    src={project.image}
+                    alt={project.imageAlt}
                     w="100%"
                     aspectRatio={{ base: "16 / 9", xl: "4 / 5" }}
                     objectFit="cover"
                   />
                   <Text mt={3} color="var(--text-300)" fontSize="xs">
-                    Exhibit {String(index + 1).padStart(2, "0")} / {image.title}
+                    Project cover {String(index + 1).padStart(2, "0")} /{" "}
+                    {project.title}
                   </Text>
                 </Box>
               </Box>

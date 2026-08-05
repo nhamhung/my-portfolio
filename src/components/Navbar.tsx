@@ -16,25 +16,31 @@ import { HiMenu, HiX } from 'react-icons/hi'
 
 import { navigation, profile } from '../data/portfolio'
 import type { LayoutMode } from '../hooks/usePortfolioLayout'
+import type { PortfolioTemplateId } from '../templates/types'
 import type { NavigationItem, SectionId } from '../types/portfolio'
 import { getEnabledNavigationItems } from '../utils/scroll'
+import { PortfolioStyleSelector } from './shared/PortfolioStyleSelector'
 import { ColorModeButton } from './ui/color-mode'
 
 type NavbarProps = {
   activeSection?: SectionId
+  activeTemplateId: PortfolioTemplateId
   getNavigationHref?: (sectionId: SectionId) => string
   layoutMode?: LayoutMode
   navigationItems?: NavigationItem[]
   onNavigate?: (sectionId: SectionId) => void
+  onSelectTemplate: (templateId: PortfolioTemplateId) => void
   onToggleLayoutMode?: () => void
 }
 
 function Navbar({
   activeSection = 'home',
+  activeTemplateId,
   getNavigationHref = (sectionId) => `#${sectionId}`,
   layoutMode = 'single',
   navigationItems = getEnabledNavigationItems(navigation),
   onNavigate = () => undefined,
+  onSelectTemplate,
   onToggleLayoutMode = () => undefined,
 }: NavbarProps) {
   const { open, onOpen, onClose } = useDisclosure()
@@ -151,6 +157,12 @@ function Navbar({
           ) : null}
 
           <Flex align="center" gap={2}>
+            <PortfolioStyleSelector
+              activeTemplateId={activeTemplateId}
+              onSelectTemplate={onSelectTemplate}
+              testIdPrefix="navbar"
+            />
+
             <ColorModeButton
               color="var(--text-100)"
               border="1px solid"

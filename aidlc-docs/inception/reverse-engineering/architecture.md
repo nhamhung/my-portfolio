@@ -2,7 +2,7 @@
 
 ## System Overview
 
-This project is a static React 19 and TypeScript portfolio built with Vite. `App` combines a template registry, typed portfolio data, hash-based layout routing, local journal routing, and shared navigation. The engineering and artistic templates consume the same data model and can substitute section components without duplicating student content. Chakra UI supplies responsive primitives, custom CSS variables define template themes, and GitHub Actions deploys the Vite build to GitHub Pages.
+This project is a static React 19 and TypeScript portfolio built with Vite. `PortfolioApp` combines a three-template registry, browser-persisted runtime style selection, typed portfolio data, hash-based layout routing, local journal routing, and shared navigation. Engineering, Neutral, and Business consume the same data model while supplying distinct shells and selected section components. Chakra UI supplies responsive primitives, custom CSS variables define template themes, and GitHub Actions deploys the Vite build to GitHub Pages.
 
 ## Architecture Diagram
 
@@ -10,10 +10,12 @@ This project is a static React 19 and TypeScript portfolio built with Vite. `App
 flowchart TD
     Browser["Browser"]
     App["App Shell"]
+    Selection["Template Selection State"]
     Layout["Layout and Hash Routing"]
     Registry["Template Registry"]
     Engineering["Engineering Template"]
-    Artistic["Artistic Template"]
+    Neutral["Neutral Template"]
+    Business["Business Template"]
     Shared["Shared Section Components"]
     Data["Typed Portfolio Data"]
     Journal["Markdown Journal Content"]
@@ -23,14 +25,18 @@ flowchart TD
     Pages["GitHub Pages"]
 
     Browser --> App
+    App --> Selection
     App --> Layout
     App --> Registry
     Registry --> Engineering
-    Registry --> Artistic
+    Registry --> Neutral
+    Registry --> Business
     Engineering --> Shared
-    Artistic --> Shared
+    Neutral --> Shared
+    Business --> Shared
     Engineering --> Data
-    Artistic --> Data
+    Neutral --> Data
+    Business --> Data
     Data --> Journal
     Data --> Assets
     Actions --> Build
@@ -40,19 +46,19 @@ flowchart TD
 
 ### Text Alternative
 
-The browser loads the App shell. App resolves navigation and hash routing, selects a registered template, and renders that template's section mapping. Both templates consume shared typed data, Markdown journal content, and bundled assets. GitHub Actions runs Vite and deploys the output to GitHub Pages.
+The browser loads the App shell. App restores a valid visitor style or uses the student-configured default, resolves navigation and hash routing, and renders the selected registry entry. All three templates consume shared typed data, Markdown journal content, and bundled assets. GitHub Actions runs Vite and deploys the output to GitHub Pages.
 
 ## Component Descriptions
 
 ### Application Package
 - **Purpose**: Static student portfolio frontend.
-- **Responsibilities**: Resolve journal routes, layout mode, navigation state, template selection, and visible section rendering.
+- **Responsibilities**: Own runtime template selection, resolve journal routes, layout mode, navigation state, and visible section rendering.
 - **Dependencies**: React, Chakra UI, template registry, layout hook, typed data, and browser history APIs.
 - **Type**: Application.
 
 ### Template Registry
 - **Purpose**: Provide swappable presentation strategies.
-- **Responsibilities**: Register engineering and artistic templates, resolve `selectedTemplateId`, fall back to engineering, and expose complete section mappings.
+- **Responsibilities**: Register Engineering, Neutral, and Business; resolve valid IDs; fall back to Engineering; and expose complete shell, journal, chapter, and section mappings.
 - **Dependencies**: Template definitions and shared `SectionId` contract.
 - **Type**: Application model.
 
@@ -62,11 +68,23 @@ The browser loads the App shell. App resolves navigation and hash routing, selec
 - **Dependencies**: Shared section components and portfolio data.
 - **Type**: Presentation.
 
-### Artistic Template
-- **Purpose**: Present the same evidence with stronger visual and editorial emphasis.
-- **Responsibilities**: Supply artistic Hero, Projects, Gallery, and section shell components while currently reusing the remaining shared sections and shared navigation.
-- **Dependencies**: Shared data, shared components, gallery media, and artistic CSS variables.
+### Neutral Template
+- **Purpose**: Present multidisciplinary evidence through a balanced editorial format.
+- **Responsibilities**: Supply a magazine masthead, editorial Hero, About, and Projects while reusing compatible shared sections.
+- **Dependencies**: Shared data, shared components, media, and Neutral CSS variables.
 - **Type**: Presentation.
+
+### Business Template
+- **Purpose**: Present evidence through a professional consulting-report format.
+- **Responsibilities**: Supply a report header and contents rail plus executive Hero, About, and Projects while reusing compatible shared sections.
+- **Dependencies**: Shared data, shared components, media, and Business CSS variables.
+- **Type**: Presentation.
+
+### Runtime Template Selection
+- **Purpose**: Let each visitor choose how the same portfolio content is presented.
+- **Responsibilities**: Validate stored IDs, use `src/data/template.ts` as the no-preference default, persist valid choices, and expose one shared selector in every shell header.
+- **Dependencies**: Browser local storage, the template registry, Chakra Menu, and React state.
+- **Type**: Application behavior.
 
 ### Layout and Journal Routing
 - **Purpose**: Support continuous, section-routed, and local-post experiences without a server router.
@@ -92,15 +110,20 @@ The browser loads the App shell. App resolves navigation and hash routing, selec
 sequenceDiagram
     participant Visitor
     participant App
+    participant Selection
     participant Layout
     participant Template
     participant Data
 
     Visitor->>App: Open portfolio or hash URL
+    App->>Selection: Restore saved style or source default
     App->>Layout: Resolve layout and active route
-    App->>Template: Resolve configured template
+    App->>Template: Resolve active template
     Template->>Data: Read shared portfolio content
     Template-->>Visitor: Render selected presentation
+    Visitor->>Selection: Choose another portfolio style
+    Selection-->>App: Persist valid template ID
+    App-->>Visitor: Replace shell and presentation in place
     Visitor->>Layout: Navigate or switch layout mode
     Layout-->>App: Update hash and visible section
     App-->>Visitor: Render section or journal post
@@ -108,14 +131,14 @@ sequenceDiagram
 
 ### Text Alternative
 
-A visitor opens the site, App resolves the URL and chosen template, and the template reads shared portfolio data. Navigation updates the URL and visible content. Local journal hashes render a dedicated post page; other section hashes render one or all template sections depending on layout mode.
+A visitor opens the site, App restores a valid saved style or uses the source default, resolves the URL, and renders the matching template over shared data. A style change replaces the presentation while route and layout state stay owned by App. Navigation updates the URL and visible content. Local journal hashes render a dedicated post page; other section hashes render one or all template sections depending on layout mode.
 
 ## Integration Points
 
 - **External APIs**: None.
 - **Databases**: None.
 - **Third-party Services**: GitHub and GitHub Pages, LinkedIn, WordPress, YouTube embeds, Google Fonts, and the visitor's email client through `mailto:`.
-- **Browser APIs**: History, hash changes, local storage, scrolling, and media/dialog interactions.
+- **Browser APIs**: History, hash changes, local storage for layout and template preferences, scrolling, and media/dialog interactions.
 
 ## Infrastructure Components
 

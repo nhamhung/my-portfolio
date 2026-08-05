@@ -12,7 +12,7 @@ import {
 
 import ExternalAction from "../../components/shared/ExternalAction";
 import LogoMark from "../../components/shared/LogoMark";
-import { gallery, projects, sectionContent } from "../../data/portfolio";
+import { projects, sectionContent } from "../../data/portfolio";
 
 function ProjectActions({
   projectId,
@@ -39,7 +39,6 @@ function ProjectActions({
 
 function NeutralProjects() {
   const [featuredProject, ...remainingProjects] = projects;
-  const featuredImage = gallery[0];
 
   return (
     <Box
@@ -58,8 +57,12 @@ function NeutralProjects() {
           borderBottom="1px solid"
           borderColor="var(--line-700)"
         >
-          <Text color="var(--accent-300)" fontSize="xs" textTransform="uppercase">
-            Portfolio / Selected work
+          <Text
+            color="var(--accent-300)"
+            fontSize="xs"
+            textTransform="uppercase"
+          >
+            Projects / Things I made
           </Text>
           <Box>
             <Heading
@@ -83,15 +86,18 @@ function NeutralProjects() {
           <Box
             className="neutral-project-feature"
             display="grid"
-            gridTemplateColumns={{ base: "1fr", lg: "minmax(0, 1.25fr) minmax(320px, 0.75fr)" }}
+            gridTemplateColumns={{
+              base: "1fr",
+              lg: "minmax(0, 1.25fr) minmax(320px, 0.75fr)",
+            }}
             mt={{ base: 10, md: 14 }}
             borderBottom="1px solid"
             borderColor="var(--line-700)"
           >
             <Box position="relative" minW={0} overflow="hidden">
               <Image
-                src={featuredImage.src}
-                alt={featuredImage.alt}
+                src={featuredProject.image}
+                alt={featuredProject.imageAlt}
                 w="100%"
                 h="100%"
                 minH={{ base: "320px", md: "520px" }}
@@ -107,7 +113,7 @@ function NeutralProjects() {
                 color="var(--caption-text)"
                 fontSize="xs"
               >
-                Lead feature / {featuredImage.title}
+                Featured project / {featuredProject.title}
               </Text>
             </Box>
             <VStack
@@ -126,7 +132,7 @@ function NeutralProjects() {
                     size="lg"
                   />
                   <Text color="var(--accent-300)" fontSize="xs">
-                    Story 01
+                    Project 01
                   </Text>
                 </Flex>
                 <Heading
@@ -175,8 +181,6 @@ function NeutralProjects() {
           borderColor="var(--line-700)"
         >
           {remainingProjects.map((project, index) => {
-            const image = gallery[(index + 1) % gallery.length];
-
             return (
               <Box
                 key={project.id}
@@ -189,13 +193,18 @@ function NeutralProjects() {
                 borderColor="var(--line-700)"
               >
                 <Image
-                  src={image.src}
-                  alt={image.alt}
+                  src={project.image}
+                  alt={project.imageAlt}
                   w="100%"
                   aspectRatio="16 / 9"
                   objectFit="cover"
                 />
-                <VStack align="stretch" justify="space-between" gap={7} p={{ base: 6, md: 8 }}>
+                <VStack
+                  align="stretch"
+                  justify="space-between"
+                  gap={7}
+                  p={{ base: 6, md: 8 }}
+                >
                   <VStack align="stretch" gap={5}>
                     <Flex justify="space-between" align="center" gap={5}>
                       <LogoMark
@@ -205,7 +214,7 @@ function NeutralProjects() {
                         size="sm"
                       />
                       <Text color="var(--accent-300)" fontSize="xs">
-                        Story {String(index + 2).padStart(2, "0")}
+                        Project {String(index + 2).padStart(2, "0")}
                       </Text>
                     </Flex>
                     <Heading
@@ -236,7 +245,10 @@ function NeutralProjects() {
                       ))}
                     </Flex>
                   </VStack>
-                  <ProjectActions projectId={project.id} actions={project.actions} />
+                  <ProjectActions
+                    projectId={project.id}
+                    actions={project.actions}
+                  />
                 </VStack>
               </Box>
             );

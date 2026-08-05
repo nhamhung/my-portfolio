@@ -7,18 +7,31 @@ No REST APIs are implemented. The portfolio is a static client-side application 
 ## Internal APIs
 
 ### Template Registry
-- **`getPortfolioTemplate(templateId: PortfolioTemplateId): PortfolioTemplate`**: Resolves a registered template and falls back to engineering.
-- **`activePortfolioTemplate: PortfolioTemplate`**: The template selected by `src/data/template.ts`.
-- **`portfolioTemplates: PortfolioTemplate[]`**: Registered engineering and artistic templates.
+- **`getPortfolioTemplate(templateId: PortfolioTemplateId | string): PortfolioTemplate`**: Resolves a registered template and falls back to Engineering.
+- **`activePortfolioTemplate: PortfolioTemplate`**: Compatibility export for the source default selected by `src/data/template.ts`; runtime App rendering derives its active template from state.
+- **`portfolioTemplates: PortfolioTemplate[]`**: Registered Engineering, Neutral, and Business templates.
 
 ### `PortfolioTemplate`
-- **Fields**: `id`, `label`, `description`, and `sectionComponents`.
+- **Fields**: `id`, `label`, `description`, `ShellComponent`, `JournalPostComponent`, `chapterLabels`, and `sectionComponents`.
 - **Section Contract**: `sectionComponents` is a complete `Record<SectionId, ComponentType>`.
-- **Current IDs**: `engineering` and `artistic`.
+- **Current IDs**: `engineering`, `neutral`, and `business`.
 
 ### App Shell
-- **`App(): JSX.Element`**: Resolves enabled navigation, active template sections, layout mode, current hash, and local journal routes.
+- **`PortfolioApp({ initialTemplate? }): JSX.Element`**: Owns the active runtime template ID and resolves enabled navigation, template sections, layout mode, current hash, and local journal routes.
+- **`App(): JSX.Element`**: Renders `PortfolioApp` with the source default and any valid saved visitor preference.
 - **Journal Behavior**: A `#/journal/{slug}` hash renders `JournalPostPage`; otherwise App renders all enabled sections or the active multi-page section.
+
+### Runtime Template Selection
+- **`isPortfolioTemplateId(value): value is PortfolioTemplateId`**: Accepts only the three registered IDs.
+- **`getInitialPortfolioTemplateId(defaultTemplateId, storage?): PortfolioTemplateId`**: Restores a valid visitor choice, uses the source default when no choice exists, falls back to Engineering for corrupted state, and tolerates unavailable storage.
+- **`persistPortfolioTemplateId(templateId, storage?): void`**: Saves a valid visitor choice without allowing storage failures to block rendering.
+- **`PortfolioStyleSelector`**: Shared Chakra Menu radio selector rendered by every template shell.
+- **Storage key**: `portfolio-template-id`.
+
+### `PortfolioShellProps`
+- **State**: `activeSection`, `activeTemplateId`, and `layoutMode`.
+- **Actions**: Section navigation, layout toggling, and typed template selection.
+- **Content**: Enabled navigation items, navigation-href resolver, and rendered section children.
 
 ### Layout Hook
 - **`usePortfolioLayout(enabledSectionIds, scrollActiveSection): PortfolioLayoutState`**: Coordinates layout mode and navigation.
@@ -40,9 +53,10 @@ No REST APIs are implemented. The portfolio is a static client-side application 
 
 ### Shared UI APIs
 - **`ExternalAction`**: Renders accessible internal, external, mail, and download actions.
-- **`SectionShell` / `ArtisticSectionShell`**: Frame section headings, content, and next-section navigation.
+- **`SectionShell`**: Frames shared section headings, descriptions, content, and next-section navigation.
 - **`ContentCard`**: Provides shared card surface behavior.
 - **`LogoMark`**: Resolves configured logo keys into visual marks.
+- **`PortfolioStyleSelector`**: Displays the current portfolio style and emits one of the three typed IDs.
 
 ## Data Models
 
@@ -66,7 +80,7 @@ No REST APIs are implemented. The portfolio is a static client-side application 
 ## External Browser APIs
 
 - `window.history.pushState` and hash events for static routing.
-- `window.localStorage` for layout preference.
+- `window.localStorage` for layout and portfolio-style preferences.
 - `document.getElementById` and `scrollIntoView` for single-page navigation.
 - `window.location.href` with `mailto:` for contact submission.
 - Dialog, iframe, image, and PDF browser capabilities for media previews.

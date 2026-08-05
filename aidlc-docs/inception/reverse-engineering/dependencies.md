@@ -7,6 +7,7 @@ flowchart TD
     Main["main.tsx"]
     Provider["UI Provider"]
     App["App Shell"]
+    Selection["Template Selection"]
     Registry["Template Registry"]
     Templates["Template Definitions"]
     Components["Section Components"]
@@ -18,6 +19,7 @@ flowchart TD
 
     Main --> Provider
     Provider --> App
+    App --> Selection
     App --> Registry
     App --> Hooks
     Registry --> Templates
@@ -30,15 +32,16 @@ flowchart TD
 
 ### Text Alternative
 
-The entrypoint mounts the UI provider and App. App resolves the registry and layout hook. The registry loads template definitions; templates select section components. Components consume typed data and utilities, while data modules import local content and assets.
+The entrypoint mounts the UI provider and App. App owns template selection and resolves the registry and layout hook. The registry loads three template definitions; templates provide shells and select section components. Components consume typed data and utilities, while data modules import local content and assets.
 
 ### Key Internal Relationships
 
-- `src/App.tsx` depends on navigation data, layout behavior, journal parsing, the shared Navbar, and active template.
-- `src/templates/index.ts` depends on the configured template ID and both template definitions.
+- `src/App.tsx` depends on navigation data, layout behavior, journal parsing, template-selection persistence, and the three-template registry.
+- `src/templates/index.ts` depends on the configured source-default ID and all three template definitions.
 - Every template depends on the complete `SectionId` contract.
-- Artistic components depend on shared portfolio data, shared actions/logo helpers, and artistic section framing.
-- Shared and engineering components depend on the same typed data modules and shared utilities.
+- Engineering, Neutral, and Business shells depend on the shared `PortfolioStyleSelector`.
+- Neutral and Business components depend on shared portfolio data, actions, and their scoped presentation rules.
+- Shared and Engineering components depend on the same typed data modules and shared utilities.
 - Journal data depends on Markdown content and journal hash helpers.
 - Tests depend on the registry, data contracts, App behavior, and jsdom provider setup.
 
@@ -51,6 +54,7 @@ The entrypoint mounts the UI provider and App. App resolves the registry and lay
 - **`next-themes` ^0.4.6** - Theme state; MIT.
 - **`react` and `react-dom` ^19.2.0** - UI framework and DOM renderer; MIT.
 - **`react-icons` ^5.5.0** - Icon components; MIT.
+- **`react-markdown` ^10.1.0** - Safe CommonMark rendering for local journal posts; MIT.
 - **`vite` ^7.2.4 and `@vitejs/plugin-react-swc` ^4.2.2** - Development and build pipeline; MIT.
 - **`vitest` ^4.1.9, Testing Library, and jsdom** - Automated tests; MIT.
 - **ESLint, TypeScript ESLint, and Prettier** - Static quality and formatting tools; MIT.
@@ -59,5 +63,5 @@ The entrypoint mounts the UI provider and App. App resolves the registry and lay
 
 - The stack is current and compatible with the documented Node 20 workflow.
 - The project has both `eslint.config.js` and `eslint.config.ts`; the active configuration should be clarified or consolidated later.
-- Animation work can be implemented with CSS and React already present; a new animation library should only be added if the approved interaction design requires capabilities that CSS cannot provide cleanly.
+- Runtime template selection reuses Chakra Menu, React state, and browser storage; no additional selector dependency is required.
 - There is no router package. The current hash-routing utilities deliberately avoid server rewrite requirements on GitHub Pages.

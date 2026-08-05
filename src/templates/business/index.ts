@@ -6,6 +6,7 @@ import Gallery from "../../components/Gallery";
 import Journal from "../../components/Journal";
 import JournalPostPage from "../../components/JournalPostPage";
 import Skills from "../../components/Skills";
+import { portfolioTemplateOptions } from "../options";
 import type { PortfolioTemplate } from "../types";
 import BusinessAbout from "./BusinessAbout";
 import BusinessHero from "./BusinessHero";
@@ -13,23 +14,20 @@ import BusinessProjects from "./BusinessProjects";
 import BusinessShell from "./BusinessShell";
 
 export const businessChapterLabels = {
-  home: "Overview",
-  about: "Profile",
+  home: "Welcome",
+  about: "My Story",
   education: "Education",
   experience: "Experience",
-  awards: "Recognition",
-  projects: "Case Studies",
-  gallery: "Portfolio",
-  journal: "Insights",
-  skills: "Capabilities",
-  contact: "Contact",
+  awards: "Highlights",
+  projects: "Projects",
+  gallery: "Gallery",
+  journal: "Journal",
+  skills: "Skills",
+  contact: "Say Hello",
 } satisfies PortfolioTemplate["chapterLabels"];
 
 export const businessTemplate = {
-  id: "business",
-  label: "Business",
-  description:
-    "An executive portfolio focused on value, evidence, capabilities, and decision-ready project summaries.",
+  ...portfolioTemplateOptions.business,
   ShellComponent: BusinessShell,
   JournalPostComponent: JournalPostPage,
   chapterLabels: businessChapterLabels,

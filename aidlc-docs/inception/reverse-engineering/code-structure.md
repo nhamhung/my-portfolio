@@ -17,9 +17,9 @@ flowchart TD
     Main["src/main.tsx"]
     Provider["UI Provider"]
     App["App Shell"]
-    Navbar["Shared Navbar"]
+    Selector["Shared Style Selector"]
     Registry["Template Registry"]
-    Templates["Engineering and Artistic Templates"]
+    Templates["Engineering, Neutral, and Business Templates"]
     Sections["Section Components"]
     Hooks["Layout Hook"]
     Utils["Scroll, Journal, Media, and Animation Utilities"]
@@ -29,7 +29,7 @@ flowchart TD
 
     Main --> Provider
     Provider --> App
-    App --> Navbar
+    App --> Selector
     App --> Registry
     App --> Hooks
     Registry --> Templates
@@ -42,7 +42,7 @@ flowchart TD
 
 ### Text Alternative
 
-`main.tsx` mounts the provider and App. App uses the shared Navbar, layout hook, and template registry. Templates map section IDs to section components. Components consume typed data and utilities; data modules import journal Markdown and static assets.
+`main.tsx` mounts the provider and App. App owns the active runtime template and uses the layout hook, selection utility, and template registry. Each template supplies its shell and maps section IDs to components. Components consume typed data and utilities; data modules import journal Markdown and static assets.
 
 ## Existing Files Inventory
 
@@ -53,18 +53,16 @@ flowchart TD
 - `src/index.css` - Global variables, document styles, font import, and color mode values.
 
 ### Templates
-- `src/data/template.ts` - Student-editable active template selection.
-- `src/templates/types.ts` - Template ID and complete section-map contract.
-- `src/templates/index.ts` - Registry, active template resolution, and fallback.
+- `src/data/template.ts` - Student-editable initial template selection.
+- `src/templates/types.ts` - Template ID, shell, journal, chapter, and complete section-map contracts.
+- `src/templates/index.ts` - Three-template registry, source-default compatibility export, resolution, and fallback.
 - `src/templates/engineering/index.ts` - Engineering section mapping.
-- `src/templates/artistic/index.ts` - Artistic section mapping.
-- `src/templates/artistic/ArtisticHero.tsx` - Artistic first viewport.
-- `src/templates/artistic/ArtisticProjects.tsx` - Editorial project studies.
-- `src/templates/artistic/ArtisticGallery.tsx` - Artistic image collection and modal.
-- `src/templates/artistic/ArtisticSectionShell.tsx` - Artistic section framing.
+- `src/templates/engineering/EngineeringShell.tsx` - Engineering shell and Navbar integration.
+- `src/templates/neutral/*` - Neutral magazine shell plus editorial Hero, About, and Projects.
+- `src/templates/business/*` - Business report shell plus executive Hero, About, and Projects.
 
 ### Shared and Baseline Components
-- `src/components/Navbar.tsx` - Shared fixed desktop/mobile navigation, layout switch, and color mode control.
+- `src/components/Navbar.tsx` - Engineering fixed desktop/mobile navigation and display controls.
 - `src/components/Hero.tsx` - Engineering hero.
 - `src/components/About.tsx` - Biography and metrics.
 - `src/components/Education.tsx` - Education records.
@@ -76,7 +74,8 @@ flowchart TD
 - `src/components/JournalPostPage.tsx` - Local post detail and not-found states.
 - `src/components/Skills.tsx` - Skills and certificate previews.
 - `src/components/Contact.tsx` - Contact form and social actions.
-- `src/components/shared/*` - Shared section, card, action, and logo primitives.
+- `src/components/shared/PortfolioStyleSelector.tsx` - Shared runtime template menu used by all three shell headers.
+- `src/components/shared/*` - Shared section, card, action, logo, and template-selection primitives.
 - `src/components/ui/*` - Chakra provider, color mode, tooltip, and toaster helpers.
 
 ### Data, Content, Types, and Utilities
@@ -88,23 +87,25 @@ flowchart TD
 - `src/utils/journal.ts` - Local journal route creation and parsing.
 - `src/utils/media.ts` - YouTube URL helpers.
 - `src/utils/animation.ts` - Staggered reveal class selection.
+- `src/utils/templateSelection.ts` - Typed template-ID validation and guarded browser persistence.
 
 ### Tests and Delivery
-- `src/App.test.tsx` - App rendering, layout mode, navigation, and journal route smoke tests.
-- `src/data/navigation.test.ts` - Section/navigation configuration tests.
-- `src/data/portfolio.test.ts` - Portfolio content and link validation tests.
+- `src/App.test.tsx` - App rendering, runtime template selection, persistence, route, layout, navigation, and journal tests.
+- `src/test/data/navigation.test.ts` - Section/navigation configuration tests.
+- `src/test/data/portfolio.test.ts` - Portfolio content and link validation tests.
 - `src/hooks/usePortfolioLayout.test.ts` - Layout helper tests.
 - `src/templates/templateRegistry.test.ts` - Template resolution and section completeness tests.
+- `src/utils/templateSelection.test.ts` - Template validation, fallback, persistence, and storage-failure tests.
 - `.github/workflows/deploy.yml` - GitHub Pages deployment workflow.
 - `README.md` - Student customization and publishing manual.
 - `DEPLOYMENT.md` - Detailed deployment guidance.
 
 ## Design Patterns
 
-### Registry and Strategy Pattern
+### Registry, Strategy, and Runtime Selection
 - **Location**: `src/templates/`.
-- **Purpose**: Swap presentation while preserving one content model.
-- **Implementation**: Each `PortfolioTemplate` supplies a `Record<SectionId, ComponentType>` and the registry resolves the configured ID.
+- **Purpose**: Swap presentation while preserving one content model and current visitor context.
+- **Implementation**: Each `PortfolioTemplate` supplies a shell and complete section map; App derives a registry entry from validated runtime state and every shell emits typed choices through one selector.
 
 ### Typed Content Configuration
 - **Location**: `src/data/` and `src/types/portfolio.ts`.
@@ -118,7 +119,7 @@ flowchart TD
 
 ### Shared Section and Action Primitives
 - **Location**: `src/components/shared/`.
-- **Purpose**: Keep recurring layout, links, logos, and accessibility behavior consistent.
+- **Purpose**: Keep recurring layout, links, logos, template selection, and accessibility behavior consistent.
 - **Implementation**: Shared React components receive typed props and CSS-variable styling.
 
 ## Critical Dependencies
@@ -131,8 +132,8 @@ flowchart TD
 
 ## Maintainability Risks
 
-- The template contract only varies section components; the shared Navbar and App-level layout behavior cannot yet differ by template.
-- The artistic template still reuses most engineering section components, limiting visual and interaction differentiation.
+- The shared selector imports registry metadata while shells are registered by that same index; the current ESM cycle is render-safe but should be watched if template definitions gain module-level side effects.
+- Neutral and Business intentionally reuse several shared sections, so deep changes to those shared components affect all three presentations.
 - `SectionId` and `sectionIds` are maintained separately and require tests to prevent drift.
 - There are two ESLint configuration files, which can confuse contributors about the active configuration.
-- Animation classes are CSS-driven and do not yet centralize reduced-motion behavior for template-specific interactions.
+- Template and layout preferences use separate local-storage keys and require regression tests whenever App ownership changes.

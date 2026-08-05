@@ -14,18 +14,22 @@ npm run test
 
 Expected current result:
 
-- 3 test files pass.
-- 9 tests pass.
+- 7 test files pass.
+- 84 tests pass.
 - 0 failures.
 
 ## Test Files
 
-| File | Purpose |
-|---|---|
-| `src/App.test.tsx` | Smoke-renders the app with provider context and validates stable visible content. |
-| `src/data/navigation.test.ts` | Validates section IDs, navigation labels, and baseline section availability. |
-| `src/data/portfolio.test.ts` | Validates profile, hero actions, links, gallery entries, certificates, and visible section arrays. |
-| `src/test/setup.ts` | Registers jest-dom and minimal JSDOM shims. |
+| File                                     | Purpose                                                                                                                                            |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/App.test.tsx`                       | Covers app rendering, four-style selection, Artistic composition, persistence, layout modes, routes, journal pages, and responsive-shell controls. |
+| `src/templates/templateRegistry.test.ts` | Validates exactly four complete templates, Artistic sparse sections, and Engineering fallback behavior.                                            |
+| `src/utils/templateSelection.test.ts`    | Validates template IDs, source default, persistence, invalid fallback, and storage failures.                                                       |
+| `src/hooks/usePortfolioLayout.test.ts`   | Covers layout preference, route parsing, hidden-section fallback, and section resolution.                                                          |
+| `src/test/data/navigation.test.ts`       | Validates section IDs, navigation labels, baseline availability, and template visibility filtering.                                                |
+| `src/test/data/portfolio.test.ts`        | Validates profile, actions, links, content, media, Artistic data, and visible section arrays.                                                      |
+| `src/themeAccessibility.test.ts`         | Guards contrast, control spacing, and responsive styling constraints.                                                                              |
+| `src/test/setup.ts`                      | Registers jest-dom and minimal JSDOM shims.                                                                                                        |
 
 ## What These Tests Do Not Do
 
@@ -59,6 +63,6 @@ Run tests:
 - After editing `src/data/`.
 - After replacing assets.
 - After changing navigation IDs or labels.
+- After changing a template shell, selector, source default, or persistence behavior.
 - Before pushing important changes.
 - Before publishing to GitHub Pages.
-

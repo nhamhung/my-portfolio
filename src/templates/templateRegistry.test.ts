@@ -3,6 +3,11 @@ import { describe, expect, it } from "vitest";
 import { selectedTemplateId } from "../data/template";
 import { sectionIds } from "../data/portfolio";
 import {
+  artisticTemplate,
+  createArtisticSectionVisibility,
+  isArtisticSectionVisible,
+} from "./artistic";
+import {
   activePortfolioTemplate,
   getPortfolioTemplate,
   portfolioTemplates,
@@ -14,11 +19,12 @@ describe("portfolio template registry", () => {
     expect(activePortfolioTemplate.id).toBe(selectedTemplateId);
   });
 
-  it("exposes exactly the three supported template ids", () => {
+  it("exposes exactly the four supported template ids", () => {
     expect(portfolioTemplates.map((template) => template.id)).toEqual([
       "engineering",
       "neutral",
       "business",
+      "artistic",
     ]);
   });
 
@@ -58,5 +64,22 @@ describe("portfolio template registry", () => {
     expect(
       getPortfolioTemplate("missing" as PortfolioTemplateId | string).id,
     ).toBe("engineering");
+  });
+
+  it("keeps Artistic complete and hides only genuinely empty formal sections", () => {
+    expect(artisticTemplate.isSectionVisible).toBe(isArtisticSectionVisible);
+    expect(isArtisticSectionVisible("home")).toBe(true);
+    expect(isArtisticSectionVisible("experience")).toBe(true);
+    expect(isArtisticSectionVisible("awards")).toBe(true);
+
+    const sparseVisibility = createArtisticSectionVisibility({
+      activities: [],
+      experiences: [],
+      awards: [],
+    });
+
+    expect(sparseVisibility("home")).toBe(true);
+    expect(sparseVisibility("experience")).toBe(false);
+    expect(sparseVisibility("awards")).toBe(false);
   });
 });

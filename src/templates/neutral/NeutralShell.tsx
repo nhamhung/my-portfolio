@@ -11,16 +11,19 @@ import {
 } from "@chakra-ui/react";
 import { LuMenu, LuPanelLeft, LuX } from "react-icons/lu";
 
+import { PortfolioStyleSelector } from "../../components/shared/PortfolioStyleSelector";
 import { ColorModeButton } from "../../components/ui/color-mode";
 import { profile } from "../../data/portfolio";
 import type { PortfolioShellProps } from "../types";
 
 function NeutralShell({
   activeSection,
+  activeTemplateId,
   layoutMode,
   navigationItems,
   getNavigationHref,
   onNavigate,
+  onSelectTemplate,
   onToggleLayoutMode,
   children,
 }: PortfolioShellProps) {
@@ -103,7 +106,7 @@ function NeutralShell({
           fontSize="xs"
           color="var(--text-300)"
         >
-          <Text textTransform="uppercase">Portfolio review / Issue 01</Text>
+          <Text textTransform="uppercase">Learning journal / Issue 01</Text>
           <Text textAlign="right">
             {activeLabel} / {profile.location}
           </Text>
@@ -153,6 +156,11 @@ function NeutralShell({
           </Link>
 
           <Flex align="center" gap={2} flex="none">
+            <PortfolioStyleSelector
+              activeTemplateId={activeTemplateId}
+              onSelectTemplate={onSelectTemplate}
+              testIdPrefix="neutral"
+            />
             <ColorModeButton
               color="var(--text-100)"
               border="1px solid"
@@ -197,7 +205,7 @@ function NeutralShell({
         >
           <Flex
             as="nav"
-            aria-label="Neutral magazine contents"
+            aria-label="Neutral learning journal contents"
             maxW="1520px"
             mx="auto"
             px={8}
@@ -240,10 +248,10 @@ function NeutralShell({
                     fontSize="lg"
                     fontWeight={700}
                   >
-                    Contents
+                    Explore
                   </Text>
                   <Text mt={1} color="var(--text-300)" fontSize="xs">
-                    Portfolio review / Issue 01
+                    Learning journal / Issue 01
                   </Text>
                 </Box>
                 <IconButton
@@ -258,13 +266,8 @@ function NeutralShell({
             </Drawer.Header>
             <Drawer.Body py={5}>
               <VStack align="stretch" gap={5}>
-                <Box as="nav" aria-label="Neutral mobile portfolio navigation">
-                  <VStack
-                    as="ul"
-                    align="stretch"
-                    gap={1}
-                    listStyleType="none"
-                  >
+                <Box as="nav" aria-label="Neutral mobile journal navigation">
+                  <VStack as="ul" align="stretch" gap={1} listStyleType="none">
                     {navigationLinks("mobile")}
                   </VStack>
                 </Box>

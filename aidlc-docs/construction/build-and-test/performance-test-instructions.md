@@ -26,7 +26,7 @@ npm run test
 Expected current result:
 
 - The suite completes in a few seconds on a normal development machine.
-- Current baseline observed during code generation: 3 test files and 9 tests passed.
+- Current baseline observed during code generation: 7 test files and 84 tests passed.
 
 ### Production Build
 
@@ -38,6 +38,7 @@ Expected current result:
 
 - Build succeeds.
 - Vite may warn about large chunks or large assets because the portfolio includes images and PDFs.
+- Current main JavaScript output is approximately 997 kB before gzip and 299 kB after gzip.
 
 ## Asset Size Review
 
@@ -62,4 +63,3 @@ The following are intentionally not part of the baseline performance test strate
 - API throughput testing.
 - Stress testing.
 - Browser automation performance metrics.
-

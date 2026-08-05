@@ -1,6 +1,6 @@
 # Reverse Engineering Metadata
 
-**Analysis Date**: 2026-07-16T18:08:43Z
+**Analysis Date**: 2026-07-23T12:18:16Z
 **Analyzer**: AI-DLC
 **Workspace**: /Users/nhamhhung/my-portfolio
 **Total Files Analyzed**: 274
@@ -19,4 +19,4 @@
 
 ## Refresh Scope
 
-This refresh incorporates typed student data, local journal posts, the single/multi-page layout hook, template registry, engineering and artistic templates, shared component utilities, automated tests, environment-driven GitHub Pages paths, and the current artistic template constraints.
+This refresh incorporates typed student data, local journal posts, the single/multi-page layout hook, Engineering/Neutral/Business shells, App-owned runtime style selection, guarded browser persistence, shared component utilities, automated tests, and environment-driven GitHub Pages paths.

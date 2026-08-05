@@ -3,10 +3,10 @@
 ## Test Coverage
 
 - **Overall**: Focused automated coverage; no measured line/branch percentage.
-- **Unit and Data Tests**: Navigation contracts, portfolio data, template registry, and layout helpers are covered.
-- **Integration/DOM Tests**: App rendering, layout switching, hash navigation, local journal detail, and not-found behavior are covered.
+- **Unit and Data Tests**: Navigation contracts, portfolio data, template registry, template-selection persistence, and layout helpers are covered.
+- **Integration/DOM Tests**: App rendering, all-three-style switching, persistence, layout switching, hash navigation, local journal detail, and not-found behavior are covered.
 - **End-to-End Tests**: Not configured.
-- **Latest Recorded Result**: 5 test files and 23 tests passing after the artistic template refinement.
+- **Latest Recorded Result**: 7 test files and 70 tests pass after the runtime template-selector implementation.
 
 ## Code Quality Indicators
 
@@ -14,43 +14,40 @@
 - **Linting**: Configured and passing at the latest recorded verification.
 - **Formatting**: Prettier is configured.
 - **Documentation**: Good for student customization and AI-DLC traceability, though reverse-engineering artifacts required this refresh.
-- **Accessibility**: Generally good labels, image alternatives, keyboard actions, and test IDs; template-specific motion still needs an explicit reduced-motion policy.
+- **Accessibility**: Good labels, image alternatives, semantic menu radio items, keyboard-capable controls, focus treatment, reduced-motion styling, and stable test IDs.
 - **Maintainability**: Improved through typed data, shared utilities, shared UI primitives, and the template registry.
 
 ## Good Patterns
 
-- Shared typed data supports both templates without content duplication.
+- Shared typed data supports all three templates without content duplication.
 - Template completeness is enforced by TypeScript and registry tests.
 - Hash routing avoids GitHub Pages rewrite dependencies.
 - Layout storage failures have safe fallbacks and tests.
+- Template storage uses typed validation, an Engineering fallback, and storage-failure tests.
 - Local and external writing use a discriminated union.
 - Resume and certificate assets are bundled through Vite.
 - Student-facing README instructions identify safe customization locations.
 
 ## Technical Debt and Risks
 
-- `src/templates/types.ts` only models section-component substitution; it cannot define a template-specific Navbar, section order, section grouping, or shell-level interaction model.
-- `src/templates/artistic/index.ts` reuses seven of ten engineering-oriented section components, so the artistic outlook is still structurally similar.
-- `src/components/Navbar.tsx` contains engineering-specific wording (`PROFILE.NODE`) and presentation but is shared by both templates.
-- `src/hooks/usePortfolioLayout.ts` assumes both templates use the same single/multi-page behavior and section-by-section navigation.
-- `src/App.css` contains shared and template-specific styling in one file, which may become difficult to maintain as artistic interactions grow.
-- Existing reveal animations do not yet document or consistently enforce `prefers-reduced-motion` behavior.
-- No browser-level visual regression or end-to-end coverage verifies horizontal scrolling, focus management, responsive composition, or animation states.
+- The shared selector reads template metadata from the registry imported by the same shell graph; this render-safe ESM cycle should be revisited if template modules gain side effects.
+- Neutral and Business intentionally reuse several shared sections, so shared-component changes have a three-template regression surface.
+- `src/hooks/usePortfolioLayout.ts` deliberately gives every template the same single/multi-page and route model; future template-specific routing would require a new contract.
+- `src/App.css` and `src/index.css` contain substantial shared and template-scoped styling that require disciplined selector isolation.
+- No browser-level visual regression or end-to-end suite automatically verifies responsive composition or menu focus behavior.
 - Duplicate ESLint configs remain.
 
-## Redesign-Relevant Constraints
+## Runtime-Selector Constraints
 
-- The artistic redesign should preserve all shared information and direct-link behavior.
-- Horizontal galleries must remain keyboard accessible and usable on touch devices.
-- Motion must not block reading, navigation, or reduced-motion users.
-- Template-specific navigation will require widening the template contract or introducing a template shell component.
-- New sections should derive from existing data where possible so students do not need to maintain duplicate content.
-- Static hosting, responsive behavior, theme switching, resume downloads, journal routes, and layout modes require explicit compatibility decisions.
+- Keep exactly Engineering, Neutral, and Business.
+- `src/data/template.ts` remains the first-visit source default.
+- Runtime choice must preserve route, journal, layout, and color-mode state.
+- Every responsive shell header must expose the same accessible choice.
+- Static hosting must remain free of backend, URL-selection, and selector-specific dependency requirements.
 
 ## Recommended Next Improvements
 
-- Extend the template contract to support a template-specific shell and navigation component.
-- Define a genuinely distinct artistic information architecture before adding visual effects.
-- Add interaction tests for the artistic Navbar and horizontal galleries.
-- Add responsive screenshot checks for desktop and mobile during construction.
-- Add a reduced-motion test or deterministic motion abstraction.
+- Extract template display metadata from the registry graph if future module side effects make the current selector import cycle risky.
+- Add Playwright screenshot and keyboard-flow checks for all three responsive headers when browser automation is available.
+- Consolidate the duplicate ESLint configuration files.
+- Keep future presentation options within the existing shell/registry contract unless requirements justify a wider routing model.

@@ -13,7 +13,7 @@ import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 
 import ExternalAction from "../../components/shared/ExternalAction";
-import { gallery, hero, profile } from "../../data/portfolio";
+import { hero, profile, projects } from "../../data/portfolio";
 import type { ExternalLink } from "../../types/portfolio";
 import { scrollToSection } from "../../utils/scroll";
 
@@ -26,7 +26,7 @@ const socialIcon = (link: ExternalLink) => {
 };
 
 function NeutralHero() {
-  const supportingImage = gallery[0];
+  const supportingProject = projects[0];
 
   return (
     <Box
@@ -51,10 +51,10 @@ function NeutralHero() {
               fontSize="xs"
               textTransform="uppercase"
             >
-              Cover story / Profile
+              Student journal / Hello
             </Text>
             <Text mt={2} color="var(--text-300)" fontSize="sm">
-              Technology, education, and independent practice
+              Projects, classes, and things I am learning
             </Text>
           </Box>
           <Text color="var(--text-300)" fontSize="xs" textAlign="right">
@@ -83,19 +83,26 @@ function NeutralHero() {
           display="grid"
           gridTemplateColumns={{
             base: "1fr",
-            lg: "minmax(0, 1.3fr) minmax(320px, 0.7fr)",
+            lg: "minmax(280px, 420px) minmax(0, 1fr)",
           }}
           gap={{ base: 8, lg: 12 }}
-          alignItems="stretch"
+          alignItems="start"
         >
-          <Box className="neutral-feature-media" position="relative" minW={0}>
+          <Box
+            className="neutral-feature-media neutral-profile-portrait"
+            data-testid="neutral-profile-portrait"
+            position="relative"
+            w="100%"
+            maxW="420px"
+            mx="auto"
+            minW={0}
+            overflow="hidden"
+          >
             <Image
               src={profile.profileImage}
               alt={`${profile.name} portrait`}
               w="100%"
-              h="100%"
-              minH={{ base: "420px", md: "620px" }}
-              maxH="760px"
+              aspectRatio="4 / 4.5"
               objectFit="cover"
             />
             <Flex
@@ -109,7 +116,7 @@ function NeutralHero() {
               color="var(--caption-text)"
               fontSize="xs"
             >
-              <Text>Portrait / 001</Text>
+              <Text>Portrait / Hello</Text>
               <Text textAlign="right">{profile.role}</Text>
             </Flex>
           </Box>
@@ -128,7 +135,7 @@ function NeutralHero() {
                 fontWeight={700}
                 textTransform="uppercase"
               >
-                Editor's introduction
+                A little about me
               </Text>
               <Heading
                 as="h2"
@@ -158,7 +165,7 @@ function NeutralHero() {
                   }}
                   data-testid="neutral-hero-primary-action"
                 >
-                  Read selected work
+                  See my projects
                 </Button>
                 <Button
                   onClick={() => scrollToSection("contact")}
@@ -168,7 +175,7 @@ function NeutralHero() {
                   _hover={{ bg: "var(--control-bg-soft)" }}
                   data-testid="neutral-hero-secondary-action"
                 >
-                  Start a conversation
+                  Say hello
                 </Button>
                 <ExternalAction
                   href={profile.resume.href}
@@ -205,21 +212,21 @@ function NeutralHero() {
               borderColor="var(--line-700)"
             >
               <Image
-                src={supportingImage.src}
-                alt={supportingImage.alt}
+                src={supportingProject.image}
+                alt={supportingProject.imageAlt}
                 w="112px"
                 aspectRatio="1 / 1"
                 objectFit="cover"
               />
               <Box minW={0}>
                 <Text color="var(--accent-300)" fontSize="xs">
-                  Inside this issue
+                  Start here
                 </Text>
                 <Text mt={2} color="var(--text-100)" fontWeight={700}>
-                  {supportingImage.title}
+                  {supportingProject.title}
                 </Text>
                 <Text mt={1} color="var(--text-300)" fontSize="sm">
-                  Projects, learning notes, and the evidence behind the work.
+                  A mix of projects, learning notes, and moments along the way.
                 </Text>
               </Box>
             </Box>
@@ -248,7 +255,12 @@ function NeutralHero() {
                   0{index + 1}
                 </Text>
               </Flex>
-              <Text mt={1} fontSize="lg" fontWeight={700} color="var(--text-100)">
+              <Text
+                mt={1}
+                fontSize="lg"
+                fontWeight={700}
+                color="var(--text-100)"
+              >
                 {stat.value}
               </Text>
             </Box>

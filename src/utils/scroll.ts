@@ -1,25 +1,31 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-import type { NavigationItem, SectionId } from '../types/portfolio'
+import type { NavigationItem, SectionId } from "../types/portfolio";
 
-export type EnabledNavigationItem = NavigationItem & { enabled: true }
+export type EnabledNavigationItem = NavigationItem & { enabled: true };
 
-const DEFAULT_SECTION_ID: SectionId = 'home'
+const DEFAULT_SECTION_ID: SectionId = "home";
 
 export const getEnabledNavigationItems = (
   items: readonly NavigationItem[],
+  isSectionVisible: (sectionId: SectionId) => boolean = () => true,
 ): EnabledNavigationItem[] =>
-  items.filter((item): item is EnabledNavigationItem => item.enabled)
+  items.filter(
+    (item): item is EnabledNavigationItem =>
+      item.enabled && isSectionVisible(item.id),
+  );
 
 export const getEnabledSectionIds = (
   items: readonly NavigationItem[],
-): SectionId[] => getEnabledNavigationItems(items).map((item) => item.id)
+  isSectionVisible?: (sectionId: SectionId) => boolean,
+): SectionId[] =>
+  getEnabledNavigationItems(items, isSectionVisible).map((item) => item.id);
 
 export const scrollToSection = (sectionId: SectionId): void => {
-  const section = document.getElementById(sectionId)
+  const section = document.getElementById(sectionId);
 
-  section?.scrollIntoView({ behavior: 'smooth' })
-}
+  section?.scrollIntoView({ behavior: "smooth" });
+};
 
 export const useActiveSection = (
   sectionIds: readonly SectionId[],
@@ -27,32 +33,32 @@ export const useActiveSection = (
 ): SectionId => {
   const [activeSection, setActiveSection] = useState<SectionId>(
     sectionIds[0] ?? DEFAULT_SECTION_ID,
-  )
+  );
 
   useEffect(() => {
     const handleScroll = () => {
       const currentSection = sectionIds.find((sectionId) => {
-        const element = document.getElementById(sectionId)
+        const element = document.getElementById(sectionId);
 
         if (!element) {
-          return false
+          return false;
         }
 
-        const rect = element.getBoundingClientRect()
+        const rect = element.getBoundingClientRect();
 
-        return rect.top <= offset && rect.bottom >= offset
-      })
+        return rect.top <= offset && rect.bottom >= offset;
+      });
 
       if (currentSection) {
-        setActiveSection(currentSection)
+        setActiveSection(currentSection);
       }
-    }
+    };
 
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [offset, sectionIds])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [offset, sectionIds]);
 
-  return activeSection
-}
+  return activeSection;
+};

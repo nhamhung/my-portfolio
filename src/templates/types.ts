@@ -3,7 +3,11 @@ import type { ComponentType, ReactNode } from "react";
 import type { LayoutMode } from "../hooks/usePortfolioLayout";
 import type { NavigationItem, SectionId } from "../types/portfolio";
 
-export type PortfolioTemplateId = "engineering" | "neutral" | "business";
+export type PortfolioTemplateId =
+  | "engineering"
+  | "neutral"
+  | "business"
+  | "artistic";
 
 export type JournalPostPageProps = {
   slug: string;
@@ -11,10 +15,12 @@ export type JournalPostPageProps = {
 
 export type PortfolioShellProps = {
   activeSection: SectionId;
+  activeTemplateId: PortfolioTemplateId;
   layoutMode: LayoutMode;
   navigationItems: readonly NavigationItem[];
   getNavigationHref: (sectionId: SectionId) => string;
   onNavigate: (sectionId: SectionId) => void;
+  onSelectTemplate: (templateId: PortfolioTemplateId) => void;
   onToggleLayoutMode: () => void;
   children: ReactNode;
 };
@@ -27,4 +33,5 @@ export type PortfolioTemplate = {
   JournalPostComponent: ComponentType<JournalPostPageProps>;
   chapterLabels: Record<SectionId, string>;
   sectionComponents: Record<SectionId, ComponentType>;
+  isSectionVisible?: (sectionId: SectionId) => boolean;
 };

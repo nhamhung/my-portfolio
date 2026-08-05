@@ -1,18 +1,19 @@
-import type { Portfolio } from '../types/portfolio'
-import { about } from './about'
-import { awards } from './awards'
-import { blog } from './blog'
-import { certificates } from './certificates'
-import { education } from './education'
-import { experience } from './experience'
-import { gallery } from './gallery'
-import { journalPosts, writing } from './journalPosts'
-import { navigation, sectionIds } from './navigation'
-import { hero, profile } from './profile'
-import { projects } from './projects'
-import { sectionContent } from './sectionContent'
-import { skills } from './skills'
-import { videos } from './videos'
+import type { Portfolio } from "../types/portfolio";
+import { about } from "./about";
+import { artisticContent } from "./artistic";
+import { awards } from "./awards";
+import { blog } from "./blog";
+import { certificates } from "./certificates";
+import { education } from "./education";
+import { experience } from "./experience";
+import { gallery } from "./gallery";
+import { journalPosts, writing } from "./journalPosts";
+import { navigation, sectionIds } from "./navigation";
+import { hero, profile } from "./profile";
+import { projects } from "./projects";
+import { sectionContent } from "./sectionContent";
+import { skills } from "./skills";
+import { videos } from "./videos";
 
 export const portfolio = {
   profile,
@@ -20,6 +21,7 @@ export const portfolio = {
   navigation,
   sectionContent,
   about,
+  artistic: artisticContent,
   education,
   experience,
   awards,
@@ -31,10 +33,11 @@ export const portfolio = {
   writing,
   skills,
   certificates,
-} satisfies Portfolio
+} satisfies Portfolio;
 
 export {
   about,
+  artisticContent,
   awards,
   blog,
   certificates,
@@ -51,4 +54,4 @@ export {
   skills,
   videos,
   writing,
-}
+};

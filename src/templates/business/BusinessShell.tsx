@@ -11,16 +11,19 @@ import {
 } from "@chakra-ui/react";
 import { LuLayoutGrid, LuMenu, LuX } from "react-icons/lu";
 
+import { PortfolioStyleSelector } from "../../components/shared/PortfolioStyleSelector";
 import { ColorModeButton } from "../../components/ui/color-mode";
 import { profile } from "../../data/portfolio";
 import type { PortfolioShellProps } from "../types";
 
 function BusinessShell({
   activeSection,
+  activeTemplateId,
   layoutMode,
   navigationItems,
   getNavigationHref,
   onNavigate,
+  onSelectTemplate,
   onToggleLayoutMode,
   children,
 }: PortfolioShellProps) {
@@ -140,11 +143,16 @@ function BusinessShell({
               NQH
             </Box>
             <Box minW={0}>
-              <Text fontSize={{ base: "sm", md: "md" }} fontWeight={800} color="var(--text-100)" truncate>
+              <Text
+                fontSize={{ base: "sm", md: "md" }}
+                fontWeight={800}
+                color="var(--text-100)"
+                truncate
+              >
                 {profile.name}
               </Text>
               <Text color="var(--text-300)" fontSize="xs" truncate>
-                Professional record / {profile.role}
+                Student showcase / {profile.role}
               </Text>
             </Box>
           </Link>
@@ -165,6 +173,11 @@ function BusinessShell({
                 {activeLabel}
               </Text>
             </Box>
+            <PortfolioStyleSelector
+              activeTemplateId={activeTemplateId}
+              onSelectTemplate={onSelectTemplate}
+              testIdPrefix="business"
+            />
             <ColorModeButton
               color="var(--text-100)"
               border="1px solid"
@@ -209,11 +222,18 @@ function BusinessShell({
       >
         <Drawer.Backdrop bg="var(--modal-overlay-bg)" />
         <Drawer.Positioner>
-          <Drawer.Content maxW="340px" bg="var(--surface-800)" color="var(--text-100)">
-            <Drawer.Header borderBottom="1px solid" borderColor="var(--line-700)">
+          <Drawer.Content
+            maxW="340px"
+            bg="var(--surface-800)"
+            color="var(--text-100)"
+          >
+            <Drawer.Header
+              borderBottom="1px solid"
+              borderColor="var(--line-700)"
+            >
               <Flex justify="space-between" align="center" w="100%">
                 <Box>
-                  <Text fontWeight={800}>Report contents</Text>
+                  <Text fontWeight={800}>Project showcase</Text>
                   <Text mt={1} color="var(--text-300)" fontSize="xs">
                     {profile.name}
                   </Text>
@@ -230,7 +250,7 @@ function BusinessShell({
             </Drawer.Header>
             <Drawer.Body py={5}>
               <VStack align="stretch" gap={5}>
-                <Box as="nav" aria-label="Business mobile report contents">
+                <Box as="nav" aria-label="Business mobile showcase navigation">
                   <VStack as="ul" align="stretch" gap={1} listStyleType="none">
                     {navigationLinks("mobile")}
                   </VStack>
@@ -279,13 +299,18 @@ function BusinessShell({
           bg="var(--surface-800)"
         >
           <Box>
-            <Text color="var(--accent-300)" fontSize="xs" fontWeight={800} textTransform="uppercase">
+            <Text
+              color="var(--accent-300)"
+              fontSize="xs"
+              fontWeight={800}
+              textTransform="uppercase"
+            >
               Contents
             </Text>
             <Text mt={2} color="var(--text-300)" fontSize="sm" lineHeight="1.6">
-              A structured record of experience, evidence, and selected work.
+              A clear collection of projects, classes, and things I am learning.
             </Text>
-            <Box as="nav" aria-label="Business report contents" mt={6}>
+            <Box as="nav" aria-label="Business showcase contents" mt={6}>
               <VStack as="ul" align="stretch" gap={0} listStyleType="none">
                 {navigationLinks("contents")}
               </VStack>

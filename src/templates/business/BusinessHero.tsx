@@ -32,15 +32,20 @@ function BusinessHero() {
           borderColor="var(--line-700)"
         >
           <Box>
-            <Text color="var(--accent-300)" fontSize="xs" fontWeight={800} textTransform="uppercase">
-              Independent professional record
+            <Text
+              color="var(--accent-300)"
+              fontSize="xs"
+              fontWeight={800}
+              textTransform="uppercase"
+            >
+              Student project showcase
             </Text>
             <Text mt={2} color="var(--text-300)" fontSize="sm">
-              Executive brief and selected evidence
+              A quick introduction and a few things I have made
             </Text>
           </Box>
           <Text color="var(--text-300)" fontSize="xs" textAlign="right">
-            Document 01
+            Showcase 01
             <br />
             Current edition
           </Text>
@@ -49,14 +54,22 @@ function BusinessHero() {
         <Box
           className="business-cover-grid"
           display="grid"
-          gridTemplateColumns={{ base: "1fr", xl: "minmax(0, 1.18fr) minmax(300px, 0.62fr)" }}
+          gridTemplateColumns={{
+            base: "1fr",
+            xl: "minmax(0, 1.18fr) minmax(300px, 0.62fr)",
+          }}
           gap={{ base: 10, xl: 14 }}
           py={{ base: 10, md: 14 }}
           alignItems="start"
         >
           <VStack align="stretch" gap={7} minW={0}>
             <Box>
-              <Text color="var(--text-300)" fontSize="sm" fontWeight={700} textTransform="uppercase">
+              <Text
+                color="var(--text-300)"
+                fontSize="sm"
+                fontWeight={700}
+                textTransform="uppercase"
+              >
                 {profile.role}
               </Text>
               <Heading
@@ -79,8 +92,13 @@ function BusinessHero() {
               borderLeft={{ base: "0", md: "4px solid" }}
               borderColor="var(--accent-500)"
             >
-              <Text color="var(--accent-300)" fontSize="xs" fontWeight={800} textTransform="uppercase">
-                Executive brief
+              <Text
+                color="var(--accent-300)"
+                fontSize="xs"
+                fontWeight={800}
+                textTransform="uppercase"
+              >
+                Hello, here is what I am learning
               </Text>
               <Heading
                 as="h2"
@@ -114,7 +132,7 @@ function BusinessHero() {
                 }}
                 data-testid="business-hero-primary-action"
               >
-                Review case evidence
+                Explore my projects
               </Button>
               <Button
                 onClick={() => scrollToSection("contact")}
@@ -124,7 +142,7 @@ function BusinessHero() {
                 _hover={{ bg: "var(--control-bg-soft)" }}
                 data-testid="business-hero-secondary-action"
               >
-                Discuss opportunities
+                Get in touch
               </Button>
               <ExternalAction
                 href={profile.resume.href}
@@ -137,7 +155,11 @@ function BusinessHero() {
             </Flex>
           </VStack>
 
-          <Box className="business-subject-record" borderTop="4px solid" borderColor="var(--accent-500)">
+          <Box
+            className="business-subject-record"
+            borderTop="4px solid"
+            borderColor="var(--accent-500)"
+          >
             <Image
               src={profile.profileImage}
               alt={`${profile.name} profile`}
@@ -145,11 +167,15 @@ function BusinessHero() {
               aspectRatio="4 / 4.4"
               objectFit="cover"
             />
-            <Box borderLeft="1px solid" borderRight="1px solid" borderColor="var(--line-700)">
+            <Box
+              borderLeft="1px solid"
+              borderRight="1px solid"
+              borderColor="var(--line-700)"
+            >
               {[
-                ["Subject", profile.name],
-                ["Role", profile.role],
-                ["Location", profile.location],
+                ["Student", profile.name],
+                ["Current focus", profile.role],
+                ["Based in", profile.location],
               ].map(([label, value]) => (
                 <Box
                   key={label}
@@ -161,10 +187,19 @@ function BusinessHero() {
                   borderBottom="1px solid"
                   borderColor="var(--line-700)"
                 >
-                  <Text color="var(--text-300)" fontSize="xs" textTransform="uppercase">
+                  <Text
+                    color="var(--text-300)"
+                    fontSize="xs"
+                    textTransform="uppercase"
+                  >
                     {label}
                   </Text>
-                  <Text color="var(--text-100)" fontSize="sm" fontWeight={700} overflowWrap="anywhere">
+                  <Text
+                    color="var(--text-100)"
+                    fontSize="sm"
+                    fontWeight={700}
+                    overflowWrap="anywhere"
+                  >
                     {value}
                   </Text>
                 </Box>
@@ -181,9 +216,19 @@ function BusinessHero() {
           borderBottom="1px solid"
           borderColor="var(--line-700)"
         >
-          <Box py={5} pr={{ base: 0, md: 6 }} borderRight={{ base: "0", md: "1px solid" }} borderColor="var(--line-700)">
-            <Text color="var(--accent-300)" fontSize="xs" fontWeight={800} textTransform="uppercase">
-              Capability register
+          <Box
+            py={5}
+            pr={{ base: 0, md: 6 }}
+            borderRight={{ base: "0", md: "1px solid" }}
+            borderColor="var(--line-700)"
+          >
+            <Text
+              color="var(--accent-300)"
+              fontSize="xs"
+              fontWeight={800}
+              textTransform="uppercase"
+            >
+              Learning toolkit
             </Text>
           </Box>
           <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }}>
@@ -207,18 +252,31 @@ function BusinessHero() {
           </SimpleGrid>
         </Box>
 
-        <SimpleGrid className="business-evidence-register" columns={{ base: 1, sm: 3 }} mt={8}>
+        <SimpleGrid
+          className="business-evidence-register"
+          columns={{ base: 1, sm: 3 }}
+          mt={8}
+        >
           {hero.stats.map((stat, index) => (
             <Box key={stat.label} py={5} px={{ base: 0, sm: 5 }}>
               <Flex justify="space-between" gap={4}>
-                <Text color="var(--text-300)" fontSize="xs" textTransform="uppercase">
+                <Text
+                  color="var(--text-300)"
+                  fontSize="xs"
+                  textTransform="uppercase"
+                >
                   {stat.label}
                 </Text>
                 <Text color="var(--accent-300)" fontSize="xs">
-                  E{String(index + 1).padStart(2, "0")}
+                  {String(index + 1).padStart(2, "0")}
                 </Text>
               </Flex>
-              <Text mt={2} color="var(--text-100)" fontSize="xl" fontWeight={800}>
+              <Text
+                mt={2}
+                color="var(--text-100)"
+                fontSize="xl"
+                fontWeight={800}
+              >
                 {stat.value}
               </Text>
             </Box>

@@ -1,34 +1,33 @@
-import About from '../../components/About'
-import Awards from '../../components/Awards'
-import Contact from '../../components/Contact'
-import Education from '../../components/Education'
-import Experience from '../../components/Experience'
-import Gallery from '../../components/Gallery'
-import Hero from '../../components/Hero'
-import Journal from '../../components/Journal'
-import JournalPostPage from '../../components/JournalPostPage'
-import Projects from '../../components/Projects'
-import Skills from '../../components/Skills'
-import type { PortfolioTemplate } from '../types'
-import EngineeringShell from './EngineeringShell'
+import About from "../../components/About";
+import Awards from "../../components/Awards";
+import Contact from "../../components/Contact";
+import Education from "../../components/Education";
+import Experience from "../../components/Experience";
+import Gallery from "../../components/Gallery";
+import Hero from "../../components/Hero";
+import Journal from "../../components/Journal";
+import JournalPostPage from "../../components/JournalPostPage";
+import Projects from "../../components/Projects";
+import Skills from "../../components/Skills";
+import { portfolioTemplateOptions } from "../options";
+import type { PortfolioTemplate } from "../types";
+import EngineeringShell from "./EngineeringShell";
 
 export const engineeringChapterLabels = {
-  home: 'Home',
-  about: 'About',
-  education: 'Education',
-  experience: 'Experience',
-  awards: 'Awards',
-  projects: 'Projects',
-  gallery: 'Gallery',
-  journal: 'Journal',
-  skills: 'Skills',
-  contact: 'Contact',
-} satisfies PortfolioTemplate['chapterLabels']
+  home: "Home",
+  about: "About",
+  education: "Education",
+  experience: "Experience",
+  awards: "Awards",
+  projects: "Projects",
+  gallery: "Gallery",
+  journal: "Journal",
+  skills: "Skills",
+  contact: "Contact",
+} satisfies PortfolioTemplate["chapterLabels"];
 
 export const engineeringTemplate = {
-  id: 'engineering',
-  label: 'Engineering',
-  description: 'A structured portfolio template for technical projects, systems work, and career evidence.',
+  ...portfolioTemplateOptions.engineering,
   ShellComponent: EngineeringShell,
   JournalPostComponent: JournalPostPage,
   chapterLabels: engineeringChapterLabels,
@@ -44,4 +43,4 @@ export const engineeringTemplate = {
     skills: Skills,
     contact: Contact,
   },
-} satisfies PortfolioTemplate
+} satisfies PortfolioTemplate;

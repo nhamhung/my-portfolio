@@ -1,4 +1,5 @@
 import { selectedTemplateId } from "../data/template";
+import { artisticTemplate } from "./artistic";
 import { businessTemplate } from "./business";
 import { engineeringTemplate } from "./engineering";
 import { neutralTemplate } from "./neutral";
@@ -8,6 +9,7 @@ export const portfolioTemplates = [
   engineeringTemplate,
   neutralTemplate,
   businessTemplate,
+  artisticTemplate,
 ] satisfies PortfolioTemplate[];
 
 export const getPortfolioTemplate = (

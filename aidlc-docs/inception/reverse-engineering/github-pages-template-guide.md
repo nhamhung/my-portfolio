@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This guide records the deployment and template-readiness requirements discovered during reverse engineering. It is not yet the final student-facing guide; that should be produced during the approved implementation/documentation stage.
+This guide records deployment and template-readiness findings from the current application. The student-facing instructions live in `README.md` and `DEPLOYMENT.md`.
 
 ## Current Deployment Flow
 
@@ -22,29 +22,15 @@ This guide records the deployment and template-readiness requirements discovered
 
 ## Current Base Path Requirement
 
-The app currently has:
+The app reads an environment-controlled base path:
 
 ```ts
-base: '/my-portfolio/',
+base: process.env.VITE_BASE_PATH ?? "/",
 ```
 
-That works only when the repository is deployed at:
+The GitHub Actions workflow derives `VITE_BASE_PATH` from the repository name. Local development falls back to `/`, so students do not need to hardcode a repository name in `vite.config.ts`.
 
-```text
-https://USERNAME.github.io/my-portfolio/
-```
-
-Students using a different repository name must change the base path to match:
-
-```text
-base: '/REPOSITORY_NAME/',
-```
-
-Students using a user site named `USERNAME.github.io` should use:
-
-```text
-base: '/'
-```
+For deployment details and URL troubleshooting, use `DEPLOYMENT.md`.
 
 ## Student-Friendly Setup Guide Requirements
 
@@ -63,14 +49,14 @@ The final guide should include:
 - How to verify the deployed URL.
 - Troubleshooting for 404 pages, missing assets, failed builds, and wrong Node versions.
 
-## Recommended Code Changes Before Finalizing Template
+## Implemented Template Features
 
-- Move content data out of React components.
-- Create a single navigation/section configuration.
-- Make deployment base path easier to configure.
-- Remove Vite starter content from README.
-- Replace personal-specific instructions with student-template instructions.
-- Add a checklist-based customization guide.
+- Student-editable content is organized under `src/data/`.
+- Navigation and section descriptions have typed central configuration.
+- Engineering, Neutral, and Business render the same content through distinct structures.
+- `src/data/template.ts` chooses the first-visit default.
+- A shared `Portfolio style` control lets visitors switch in place and persists their browser choice.
+- README and deployment guidance describe customization, verification, and publishing.
 
 ## Manual Deployment Verification Checklist
 
@@ -83,4 +69,6 @@ The final guide should include:
 - [ ] Published site URL loads without 404 errors.
 - [ ] Images, PDFs, and YouTube embeds load correctly.
 - [ ] Navigation links scroll to the right sections.
+- [ ] Engineering, Neutral, and Business can be selected from desktop and mobile widths.
+- [ ] Style switching preserves the current section or journal route and layout mode.
 - [ ] Contact form opens the expected email client.

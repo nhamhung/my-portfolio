@@ -16,6 +16,7 @@
 - **Emotion React 11.14.0** - Chakra styling dependency.
 - **next-themes 0.4.6** - Color mode support.
 - **React Icons 5.5.0** - Interface and social icons.
+- **React Markdown 10.1.0** - CommonMark rendering for in-site journal content.
 - **Tailwind CSS 4.1.18** - Utility CSS layer integrated through Vite.
 
 ## Build Tools
@@ -46,4 +47,5 @@
 - Static browser application only.
 - No backend, database, authentication, or runtime secrets.
 - Hash-based client navigation is compatible with GitHub Pages.
+- Template and layout preferences persist independently in browser local storage.
 - Local content and assets are bundled by Vite; external media and links remain third-party dependencies.

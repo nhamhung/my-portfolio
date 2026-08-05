@@ -1,9 +1,9 @@
 import { Box, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
 
-import { about, gallery, sectionContent } from "../../data/portfolio";
+import { about, projects, sectionContent } from "../../data/portfolio";
 
 function NeutralAbout() {
-  const editorialImage = gallery[1] ?? gallery[0];
+  const editorialProject = projects[1] ?? projects[0];
 
   return (
     <Box
@@ -22,8 +22,12 @@ function NeutralAbout() {
           borderBottom="1px solid"
           borderColor="var(--line-700)"
         >
-          <Text color="var(--accent-300)" fontSize="xs" textTransform="uppercase">
-            Feature / Perspective
+          <Text
+            color="var(--accent-300)"
+            fontSize="xs"
+            textTransform="uppercase"
+          >
+            Journal note / My story
           </Text>
           <Heading
             as="h2"
@@ -52,8 +56,8 @@ function NeutralAbout() {
         >
           <Box as="figure" m={0}>
             <Image
-              src={editorialImage.src}
-              alt={editorialImage.alt}
+              src={editorialProject.image}
+              alt={editorialProject.imageAlt}
               w="100%"
               aspectRatio="4 / 5"
               objectFit="cover"
@@ -65,7 +69,7 @@ function NeutralAbout() {
               fontSize="xs"
               lineHeight="1.6"
             >
-              Fig. 02 / {editorialImage.title}
+              Project note / {editorialProject.title}
             </Text>
           </Box>
 
@@ -133,8 +137,13 @@ function NeutralAbout() {
           borderTop="1px solid"
           borderColor="var(--line-700)"
         >
-          {["Curiosity", "Craft", "Community"].map((value, index) => (
-            <Box key={value} py={5} px={{ base: 0, md: 5 }} className="neutral-value-cell">
+          {["Curiosity", "Practice", "Community"].map((value, index) => (
+            <Box
+              key={value}
+              py={5}
+              px={{ base: 0, md: 5 }}
+              className="neutral-value-cell"
+            >
               <Text color="var(--accent-300)" fontSize="xs">
                 0{index + 1}
               </Text>

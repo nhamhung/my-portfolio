@@ -5,10 +5,12 @@ import type { PortfolioShellProps } from '../types'
 
 function EngineeringShell({
   activeSection,
+  activeTemplateId,
   layoutMode,
   navigationItems,
   getNavigationHref,
   onNavigate,
+  onSelectTemplate,
   onToggleLayoutMode,
   children,
 }: PortfolioShellProps) {
@@ -21,10 +23,12 @@ function EngineeringShell({
     >
       <Navbar
         activeSection={activeSection}
+        activeTemplateId={activeTemplateId}
         getNavigationHref={getNavigationHref}
         layoutMode={layoutMode}
         navigationItems={[...navigationItems]}
         onNavigate={onNavigate}
+        onSelectTemplate={onSelectTemplate}
         onToggleLayoutMode={onToggleLayoutMode}
       />
       <Box
