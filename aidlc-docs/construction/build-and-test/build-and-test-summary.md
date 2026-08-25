@@ -1,75 +1,96 @@
 # Build and Test Summary
 
-## Project
+## Scope
 
-Student Portfolio Template
+Verified the completed static React/Vite portfolio redesign, including the Engineering default, Business presentation, preserved Artistic implementation, two-option visible style selector, shared content, routes, layouts, persistence, accessibility safeguards, and GitHub Pages production output.
 
-## Current Scope
+## Build Status
 
-The current application provides one shared portfolio dataset through Engineering, Neutral, Business, and Artistic presentations. A visitor can select any style from every responsive header, and the browser persists the choice without changing the current route, journal post, layout mode, or color mode. Neutral and Business use youthful accessible palettes, Artistic provides a sparse-content-aware Creative Notebook, and the student README documents cross-platform onboarding plus all Artistic fields.
+| Item                  | Result                                                    |
+| --------------------- | --------------------------------------------------------- |
+| Build command         | `npm run build`                                           |
+| TypeScript            | Passed                                                    |
+| Vite production build | Passed in approximately 3.00 seconds                      |
+| Build artifacts       | `dist/index.html` and bundled assets under `dist/assets/` |
+| Production preview    | Passed; `/` returned HTTP 200                             |
+| Overall build status  | Success                                                   |
 
-## Verification Results
+The only build warning is the existing non-blocking Vite large-chunk notice. The main JavaScript is 998.90 kB minified and 300.39 kB gzip.
 
-| Command or check                      | Result                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `npm run test`                        | Passed: 7 test files and 84 tests                                                                                         |
-| `npm run lint`                        | Passed                                                                                                                    |
-| `npm run build`                       | Passed: TypeScript and Vite production build                                                                              |
-| `git diff --check`                    | Passed                                                                                                                    |
-| Duplicate generated-file scan         | Passed: no `_modified`, `_new`, or `_revised` source copies                                                               |
-| Focused four-template suite           | Passed: 69 tests across App, registry, selection, layout, and navigation                                                  |
-| Responsive headless Chrome inspection | Passed: all four styles at 1440 by 900 and 390 by 844 in light/dark modes                                                 |
-| Artistic collage inspection           | Passed: 692 by 520px desktop and 358 by 251px mobile, all 27 images loaded, no caption escape or positive overflow        |
-| Contrast computation                  | Passed: critical solid-token pairs range from 5.26:1 to 17.39:1                                                           |
-| README structure and links            | Passed: balanced fences, current package scripts and local paths, Prettier, and 12 external references returning HTTP 200 |
+## Test Execution Summary
 
-Vite retains its existing non-blocking warning for a JavaScript chunk larger than 500 kB. The static build completes successfully.
+### Complete Automated Suite
 
-## Runtime Selector And Artistic Coverage
+| Measure      | Result              |
+| ------------ | ------------------- |
+| Test command | `npm run test`      |
+| Test files   | 10 passed           |
+| Tests        | 98 passed, 0 failed |
+| Duration     | 11.83 seconds       |
+| Status       | Pass                |
 
-- Exactly four supported IDs: `engineering`, `neutral`, `business`, and `artistic`.
-- `src/data/template.ts` remains the first-visit source default.
-- A valid visitor choice persists under `portfolio-template-id`.
-- Missing preference uses the source default; corrupted preference falls back to Engineering.
-- Storage failures do not prevent in-memory switching.
-- All four shells expose the same accessible Chakra Menu selector.
-- Automated tests preserve section routes, journal routes, color mode, and layout mode while switching through all four styles.
-- Artistic hides Experience or Awards only when their real shared or student substitute content is empty.
-- Empty Artistic notebook groups are omitted without blank panels or fabricated placeholders.
+### Unit-Oriented Checks
 
-## Recommended Student Verification
+- 6 files and 46 tests passed.
+- Coverage includes data contracts, navigation, layout helpers, selection persistence, template registry, selector availability, fallback behavior, contrast tokens, isolation, and reduced motion.
+- Code-coverage percentage is N/A because coverage instrumentation is not configured.
 
-```bash
-npm run test
-npm run lint
-npm run build
-npm run preview
-```
+### Integration-Oriented Checks
 
-In the preview, inspect all four styles at mobile and desktop widths. Confirm the header controls fit, each menu item is readable, keyboard focus is visible, Artistic media loads, and switching keeps the current page context.
+- 4 files and 52 tests passed.
+- Coverage includes rendered app behavior, theme switching, direct Artistic rendering, Business and Artistic section ownership, canonical naming, certificate previews, Journal pages, routes, layouts, color mode, and persistence.
+
+### Additional Checks
+
+| Check                         | Result                                                                |
+| ----------------------------- | --------------------------------------------------------------------- |
+| ESLint                        | Passed                                                                |
+| Production preview smoke test | Passed with HTTP 200                                                  |
+| Static performance check      | Passed with the existing tracked large-chunk warning                  |
+| API contract tests            | N/A; no API or service boundary                                       |
+| Server load and stress tests  | N/A; static GitHub Pages application                                  |
+| Security extension tests      | N/A; extension disabled and no new security boundary                  |
+| Formal browser E2E suite      | N/A; component integration and production-preview smoke coverage used |
+
+## Requirement Evidence
+
+- The runtime registry retains Engineering, Business, and Artistic.
+- The visible Portfolio style selector offers only Engineering and Business.
+- Artistic source, metadata, registry entry, direct rendering, routes, Journal view, canonical labels, persistence compatibility, and tests remain preserved.
+- Neutral is absent from active source and an obsolete saved Neutral value resolves to Engineering.
+- Business Certificate Gallery displays PDF previews and accessible source actions.
+- The application remains a static GitHub Pages-compatible Vite build.
 
 ## Generated Instruction Files
 
-| File                               | Purpose                                                                 |
-| ---------------------------------- | ----------------------------------------------------------------------- |
-| `build-instructions.md`            | Dependency installation, build, preview, artifacts, and troubleshooting |
-| `unit-test-instructions.md`        | Current test inventory and execution guidance                           |
-| `integration-test-instructions.md` | Runtime selector, route, layout, preview, and deployment scenarios      |
-| `performance-test-instructions.md` | Static-site performance guidance and asset-size notes                   |
-| `build-and-test-summary.md`        | Current verified outcomes and residual manual checks                    |
+| File                               | Purpose                                                                          |
+| ---------------------------------- | -------------------------------------------------------------------------------- |
+| `build-instructions.md`            | Reproducible install, build, preview, artifact, and troubleshooting guidance     |
+| `unit-test-instructions.md`        | Complete and unit-oriented Vitest commands and inventory                         |
+| `integration-test-instructions.md` | Cross-component automated coverage and manual visitor scenarios                  |
+| `performance-test-instructions.md` | Static output baselines, warning interpretation, and future measurement guidance |
+| `build-and-test-summary.md`        | Final build, test, applicability, and requirement evidence                       |
+
+## Overall Status
+
+- **Build**: Success
+- **Automated tests**: Pass
+- **Integration verification**: Pass
+- **Ready for Operations**: Yes
 
 ## Content Validation
 
-| Check            | Result                   |
-| ---------------- | ------------------------ |
-| Mermaid diagrams | Not used                 |
-| ASCII diagrams   | Not used                 |
-| Markdown tables  | Valid simple pipe tables |
-| Code fences      | Balanced Bash fence      |
+| Check              | Result                                        |
+| ------------------ | --------------------------------------------- |
+| Mermaid diagrams   | Not used                                      |
+| ASCII diagrams     | Not used                                      |
+| Markdown tables    | Valid simple pipe tables                      |
+| Code fences        | Balanced Bash fences                          |
+| Special characters | Markdown-safe inline code and escaped content |
 
 ## Extension Compliance
 
-| Extension              | Status   | Rationale                              |
-| ---------------------- | -------- | -------------------------------------- |
-| Security Baseline      | Disabled | Confirmed during Requirements Analysis |
-| Property-Based Testing | Disabled | Confirmed during Requirements Analysis |
+| Extension              | Status | Rationale                                                                               |
+| ---------------------- | ------ | --------------------------------------------------------------------------------------- |
+| Security Baseline      | N/A    | Disabled in the active workflow; no new identity, data, network, or deployment boundary |
+| Property-Based Testing | N/A    | Disabled in the active workflow; approved deterministic tests passed                    |

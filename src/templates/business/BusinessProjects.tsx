@@ -17,7 +17,8 @@ function BusinessProjects() {
   return (
     <Box
       id="projects"
-      className="business-projects business-report-chapter"
+      className="business-projects business-casebook-section business-case-study-series"
+      data-presentation="business-projects"
       py={{ base: 16, md: 24 }}
       data-testid="projects-section"
     >
@@ -40,7 +41,7 @@ function BusinessProjects() {
               Chapter 06
             </Text>
             <Text mt={2} color="var(--text-300)" fontSize="sm">
-              Project collection
+              {sectionContent.projects.eyebrow}
             </Text>
           </Box>
           <Box>
@@ -48,6 +49,7 @@ function BusinessProjects() {
               as="h2"
               tabIndex={-1}
               data-chapter-heading
+              className="business-section-title"
               fontSize={{ base: "4xl", md: "6xl" }}
               lineHeight="1"
               color="var(--text-100)"

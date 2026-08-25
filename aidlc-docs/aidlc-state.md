@@ -3,21 +3,26 @@
 ## Active Workflow
 
 - **Project**: Brownfield React/Vite static portfolio
-- **Workspace**: `/Users/nhamhhung/my-portfolio`
-- **Change**: Youthful Theme Refresh and Artistic Student Template
-- **Current phase**: CONSTRUCTION
-- **Current stage**: Code Generation Part 2 Review - Youthful Themes and Artistic Template
-- **Active requirement questions**: `aidlc-docs/inception/requirements/youthful-artistic-template-requirement-questions.md`
-- **Active requirements**: `aidlc-docs/inception/requirements/youthful-artistic-template-requirements.md`
-- **Active story assessment**: `aidlc-docs/inception/plans/youthful-artistic-template-user-stories-assessment.md`
-- **Active story plan**: `aidlc-docs/inception/plans/youthful-artistic-template-story-generation-plan.md`
-- **Active personas**: `aidlc-docs/inception/user-stories/youthful-artistic-template-personas.md`
-- **Active user stories**: `aidlc-docs/inception/user-stories/youthful-artistic-template-stories.md`
-- **Active execution plan**: `aidlc-docs/inception/plans/youthful-artistic-template-execution-plan.md`
-- **Active application-design plan**: `aidlc-docs/inception/plans/youthful-artistic-template-application-design-plan.md`
-- **Active application design**: `aidlc-docs/inception/application-design/youthful-artistic-template/`
-- **Active code-generation plan**: `aidlc-docs/construction/plans/youthful-artistic-template-code-generation-plan.md`
-- **Active code-generation summary**: `aidlc-docs/construction/youthful-artistic-template/code/code-generation-summary.md`
+- **Workspace**: `/Users/nhamhhung/nhamhung.github.io`
+- **Change**: Sleek Three-Theme Redesign
+- **Current phase**: OPERATIONS
+- **Current stage**: Operations placeholder acknowledged - Workflow complete
+- **Workflow status**: Complete
+- **Active requirement questions**: `aidlc-docs/inception/requirements/sleek-three-theme-redesign-requirement-questions.md`
+- **Active requirements**: `aidlc-docs/inception/requirements/sleek-three-theme-redesign-requirements.md`
+- **Previous active requirements**: `aidlc-docs/inception/requirements/youthful-artistic-template-requirements.md`
+- **Active story assessment**: `aidlc-docs/inception/plans/sleek-three-theme-redesign-user-stories-assessment.md`
+- **Active story plan**: `aidlc-docs/inception/plans/sleek-three-theme-redesign-story-generation-plan.md`
+- **Active personas**: `aidlc-docs/inception/user-stories/sleek-three-theme-redesign-personas.md`
+- **Active user stories**: `aidlc-docs/inception/user-stories/sleek-three-theme-redesign-stories.md`
+- **Active execution plan**: `aidlc-docs/inception/plans/sleek-three-theme-redesign-execution-plan.md`
+- **Active application-design plan**: `aidlc-docs/inception/plans/sleek-three-theme-redesign-application-design-plan.md`
+- **Active application design**: `aidlc-docs/inception/application-design/sleek-three-theme-redesign/`
+- **Active code-generation plan**: `aidlc-docs/construction/plans/sleek-three-theme-redesign-code-generation-plan.md`
+- **Active code-generation summary**: `aidlc-docs/construction/sleek-three-theme-redesign/code/code-generation-summary.md`
+- **Active amendment execution plan**: `aidlc-docs/inception/plans/artistic-data-module-removal-execution-plan.md`
+- **Active amendment code-generation plan**: `aidlc-docs/construction/plans/artistic-data-module-removal-code-generation-plan.md`
+- **Active amendment code-generation summary**: `aidlc-docs/construction/artistic-data-module-removal/code/code-generation-summary.md`
 - **Requirement questions**: `aidlc-docs/inception/requirements/neutral-business-layout-variety-requirement-questions.md`
 - **Requirement amendment questions**: `aidlc-docs/inception/requirements/runtime-template-selector-requirement-questions.md`
 - **Student-friendly amendment questions**: `aidlc-docs/inception/requirements/student-friendly-template-refresh-requirement-questions.md`
@@ -32,24 +37,57 @@
 - **Application design**: `aidlc-docs/inception/application-design/runtime-template-selector/application-design.md`
 - **Code plan**: `aidlc-docs/construction/plans/neutral-business-layout-variety-code-generation-plan.md`
 - **Code summary**: `aidlc-docs/construction/neutral-business-layout-variety/code/code-generation-summary.md`
-- **Next action**: Obtain explicit Code Generation approval, then proceed to Build and Test
+- **Next action**: None required; deployment remains a separate user-controlled action
 
 ## Proposed Scope
 
-- Expand the selector to four templates: Engineering, Neutral, Business, and Artistic.
-- Refresh Neutral and Business with youthful, energetic, accessible palettes while preserving their established layout structures.
-- Add a straightforward Artistic layout for secondary and high school students with limited formal experience.
-- Preserve Engineering and reuse shared portfolio content, routes, actions, layout modes, persistence, and static deployment.
-- Keep all alternatives easy for students to edit and avoid the superseded complex exhibition and custom-scrolling direction.
+- Retain Engineering as the established visual-quality baseline.
+- Remove Neutral from the active theme set and resolve old Neutral preferences safely.
+- Redesign Business and Artistic to match Engineering's level of polish while remaining distinct.
+- Remove extra Artistic prose that is not sourced from the shared portfolio content model.
+- Preserve shared content, routes, actions, layout modes, persistence, accessibility, responsive behavior, and static deployment.
 
 ## Extension Configuration
 
-| Extension              | Enabled | Decision                                                                 |
-| ---------------------- | ------- | ------------------------------------------------------------------------ |
-| Security Baseline      | No      | Reconfirmed at Youthful and Artistic requirements analysis on 2026-08-05 |
-| Property-Based Testing | No      | Reconfirmed at Youthful and Artistic requirements analysis on 2026-08-05 |
+| Extension              | Enabled | Decision                                                                      |
+| ---------------------- | ------- | ----------------------------------------------------------------------------- |
+| Security Baseline      | No      | Reconfirmed at Sleek Three-Theme Redesign requirements analysis on 2026-08-25 |
+| Property-Based Testing | No      | Reconfirmed at Sleek Three-Theme Redesign requirements analysis on 2026-08-25 |
 
 ## Active Stage Progress
+
+### Sleek Three-Theme Redesign Amendment
+
+- [x] Workspace Detection - Reused the current brownfield React/Vite workspace and retained the uncommitted Artistic data cleanup as the review baseline
+- [x] Requirements Analysis - A/A/A/A/A/A/A/A/B/C requirements approved on 2026-08-25
+- [x] User Stories Assessment - Execute six focused stories for the visitor-facing three-theme redesign
+- [x] User Stories Part 1 - Six-story generation plan approved on 2026-08-25
+- [x] User Stories Part 2 - Three personas and six traceable stories approved on 2026-08-25
+- [x] Workflow Planning - Focused execution plan approved on 2026-08-25
+- [x] Application Design - Focused design approved on 2026-08-25
+- [x] Units Generation Assessment - Skip; one cohesive React/Vite application unit
+- [x] Functional Design - Skip; no complex business logic or schema
+- [x] NFR Requirements and Design - Skip; approved STR-NFR requirements and existing mechanisms are sufficient
+- [x] Infrastructure Design - Skip; no infrastructure or deployment change
+- [x] Code Generation Part 1 - Complete eleven-step plan approved on 2026-08-25
+- [x] Code Generation Part 2 - Artistic selector option hidden with code and runtime compatibility preserved; approved on 2026-08-25
+- [x] Build and Test - Build, 98 tests, lint, production preview, static performance evidence, and validated instructions complete on 2026-08-25
+- [x] Operations - Placeholder acknowledged on 2026-08-25; no deployment or external state change performed
+
+### Artistic Data Module Removal Amendment
+
+- [x] Workspace Detection - Reused the current brownfield React/Vite workspace and existing reverse-engineering context
+- [x] Requirements Analysis - Content-preserving removal and non-technical README simplification approved on 2026-08-16
+- [x] User Stories - Skipped; internal refactor with no intended user-facing content or workflow change
+- [x] Workflow Planning - Approved on 2026-08-24
+- [x] Application Design - Skipped; existing data and presentation boundaries are sufficient
+- [x] Units Generation - Skipped; one cohesive cleanup unit
+- [x] Functional Design - Skipped; no new business logic
+- [x] NFR Requirements and Design - Skipped; approved constraints and existing quality setup are sufficient
+- [x] Infrastructure Design - Skipped; no deployment changes
+- [x] Code Generation Part 1 - Eight-step plan approved on 2026-08-24
+- [ ] Code Generation Part 2 - Implementation retained as the working baseline; review reopened by the Sleek Three-Theme Redesign request
+- [ ] Build and Test
 
 ### Youthful Themes and Artistic Template Amendment
 

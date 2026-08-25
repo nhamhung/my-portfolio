@@ -2,7 +2,24 @@
 
 ## Active Change
 
-- **Change**: Youthful Theme Refresh and Artistic Student Template
+- **Change**: Sleek Three-Theme Redesign
+- **Active requirement questions**: `inception/requirements/sleek-three-theme-redesign-requirement-questions.md`
+- **Active requirements**: `inception/requirements/sleek-three-theme-redesign-requirements.md`
+- **Active user-stories assessment**: `inception/plans/sleek-three-theme-redesign-user-stories-assessment.md`
+- **Active story-generation plan**: `inception/plans/sleek-three-theme-redesign-story-generation-plan.md`
+- **Active personas**: `inception/user-stories/sleek-three-theme-redesign-personas.md`
+- **Active user stories**: `inception/user-stories/sleek-three-theme-redesign-stories.md`
+- **Active execution plan**: `inception/plans/sleek-three-theme-redesign-execution-plan.md`
+- **Active application-design plan**: `inception/plans/sleek-three-theme-redesign-application-design-plan.md`
+- **Active application design**: `inception/application-design/sleek-three-theme-redesign/`
+- **Active code-generation plan**: `construction/plans/sleek-three-theme-redesign-code-generation-plan.md`
+- **Active code-generation summary**: `construction/sleek-three-theme-redesign/code/code-generation-summary.md`
+- **Working implementation baseline**: Artistic Data Module Removal and README Simplification
+- **Active amendment requirements**: `inception/requirements/youthful-artistic-template-requirements.md` (2026-08-16 removal amendment)
+- **Active amendment execution plan**: `inception/plans/artistic-data-module-removal-execution-plan.md`
+- **Active amendment code-generation plan**: `construction/plans/artistic-data-module-removal-code-generation-plan.md`
+- **Active amendment code-generation summary**: `construction/artistic-data-module-removal/code/code-generation-summary.md`
+- **Implementation baseline**: Youthful Theme Refresh and Artistic Student Template
 - **Active requirement questions**: `inception/requirements/youthful-artistic-template-requirement-questions.md`
 - **Active requirements**: `inception/requirements/youthful-artistic-template-requirements.md`
 - **Active user-stories assessment**: `inception/plans/youthful-artistic-template-user-stories-assessment.md`
@@ -14,7 +31,7 @@
 - **Active application design**: `inception/application-design/youthful-artistic-template/`
 - **Active code-generation plan**: `construction/plans/youthful-artistic-template-code-generation-plan.md`
 - **Active code-generation summary**: `construction/youthful-artistic-template/code/code-generation-summary.md`
-- **Implementation baseline**: Neutral and Business Layout Variety
+- **Earlier implementation baseline**: Neutral and Business Layout Variety
 - **Requirements questions**: `inception/requirements/neutral-business-layout-variety-requirement-questions.md`
 - **Runtime-selector amendment questions**: `inception/requirements/runtime-template-selector-requirement-questions.md`
 - **Student-friendly amendment questions**: `inception/requirements/student-friendly-template-refresh-requirement-questions.md`

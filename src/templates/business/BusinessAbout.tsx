@@ -13,7 +13,8 @@ function BusinessAbout() {
   return (
     <Box
       id="about"
-      className="business-about business-report-chapter"
+      className="business-about business-casebook-section business-profile-spread"
+      data-presentation="business-about"
       py={{ base: 16, md: 24 }}
       data-testid="about-section"
     >
@@ -36,13 +37,14 @@ function BusinessAbout() {
               Chapter 02
             </Text>
             <Text mt={2} color="var(--text-300)" fontSize="sm">
-              My story
+              {sectionContent.about.eyebrow}
             </Text>
           </Box>
           <Heading
             as="h2"
             tabIndex={-1}
             data-chapter-heading
+            className="business-section-title"
             fontSize={{ base: "4xl", md: "6xl" }}
             lineHeight="1"
             color="var(--text-100)"

@@ -407,29 +407,6 @@ describe("src/data/portfolio.ts", () => {
     }
   });
 
-  it("keeps Artistic student-life content editable and honest", () => {
-    expectNonEmpty(
-      portfolio.artistic.introduction.headline,
-      "src/data/artistic.ts introduction.headline is required",
-    );
-    expect(portfolio.artistic.interests.length).toBeGreaterThan(0);
-    expect(portfolio.artistic.currentLearning.length).toBeGreaterThan(0);
-    expect(portfolio.artistic.hobbies.length).toBeGreaterThan(0);
-    expect(portfolio.artistic.personalGoals.length).toBeGreaterThan(0);
-
-    for (const activity of portfolio.artistic.activities) {
-      expectNonEmpty(
-        activity.title,
-        "src/data/artistic.ts activity.title is required",
-      );
-      expectNonEmpty(
-        activity.organization,
-        `src/data/artistic.ts activity "${activity.title}" needs an organization`,
-      );
-      expect(activity.description.length).toBeGreaterThan(0);
-    }
-  });
-
   it("includes the resume-backed Sea and PSA internship experience", () => {
     const seaInternship = portfolio.experience.find(
       (entry) =>

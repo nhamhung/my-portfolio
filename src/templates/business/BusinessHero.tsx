@@ -19,7 +19,8 @@ function BusinessHero() {
   return (
     <Box
       id="home"
-      className="business-hero business-report-cover"
+      className="business-hero business-casebook-cover"
+      data-presentation="business-home"
       py={{ base: 12, md: 18 }}
     >
       <Container maxW="1180px" px={{ base: 4, md: 8 }}>
@@ -38,7 +39,7 @@ function BusinessHero() {
               fontWeight={800}
               textTransform="uppercase"
             >
-              Student project showcase
+              Editorial casebook
             </Text>
             <Text mt={2} color="var(--text-300)" fontSize="sm">
               A quick introduction and a few things I have made
@@ -87,7 +88,7 @@ function BusinessHero() {
             </Box>
 
             <Box
-              className="business-executive-brief"
+              className="business-opening-statement"
               pl={{ base: 0, md: 6 }}
               borderLeft={{ base: "0", md: "4px solid" }}
               borderColor="var(--accent-500)"

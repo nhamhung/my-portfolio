@@ -1,16 +1,33 @@
-import { Badge, Box, Flex, Heading, HStack, Image, SimpleGrid, Text, VStack } from '@chakra-ui/react'
+import {
+  Badge,
+  Box,
+  Flex,
+  Heading,
+  HStack,
+  Image,
+  SimpleGrid,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
-import ContentCard from './shared/ContentCard'
-import ExternalAction from './shared/ExternalAction'
-import SectionShell from './shared/SectionShell'
-import { sectionContent, videos, writing } from '../data/portfolio'
-import type { WritingEntry } from '../types/portfolio'
-import { getAnimationDelayClass } from '../utils/animation'
-import { getYouTubeEmbedUrl } from '../utils/media'
+import ContentCard from "./shared/ContentCard";
+import ExternalAction from "./shared/ExternalAction";
+import SectionShell from "./shared/SectionShell";
+import {
+  sectionContent,
+  subsectionContent,
+  videos,
+  writing,
+} from "../data/portfolio";
+import type { WritingEntry } from "../types/portfolio";
+import { getAnimationDelayClass } from "../utils/animation";
+import { getYouTubeEmbedUrl } from "../utils/media";
 
-const getSourceBadgeLabel = (post: WritingEntry): string => (post.source === 'local' ? 'IN_SITE' : 'WORDPRESS')
+const getSourceBadgeLabel = (post: WritingEntry): string =>
+  post.source === "local" ? "IN_SITE" : "WORDPRESS";
 
-const getPostActionLabel = (post: WritingEntry): string => (post.source === 'local' ? 'READ_HERE' : 'READ_POST')
+const getPostActionLabel = (post: WritingEntry): string =>
+  post.source === "local" ? "READ_HERE" : "READ_POST";
 
 function Journal() {
   return (
@@ -24,11 +41,20 @@ function Journal() {
       <VStack align="stretch" gap={{ base: 10, md: 14 }}>
         <VStack align="stretch" gap={5}>
           <Box>
-            <Text className="code-font" color="var(--accent-300)" fontSize="sm" mb={2}>
-              VIDEO_FEED
+            <Text
+              className="code-font"
+              color="var(--accent-300)"
+              fontSize="sm"
+              mb={2}
+            >
+              {subsectionContent.journal.videosEyebrow}
             </Text>
-            <Heading as="h3" fontSize={{ base: 'xl', md: '2xl' }} color="var(--text-100)">
-              Educational Videos
+            <Heading
+              as="h3"
+              fontSize={{ base: "xl", md: "2xl" }}
+              color="var(--text-100)"
+            >
+              {subsectionContent.journal.videosTitle}
             </Heading>
           </Box>
 
@@ -43,21 +69,27 @@ function Journal() {
                 borderColor="var(--line-700)"
                 className={`reveal-up ${getAnimationDelayClass(index)}`}
                 _hover={{
-                  transform: 'translateY(-3px)',
-                  borderColor: 'rgba(98, 240, 213, 0.45)',
-                  boxShadow: 'var(--card-hover-shadow)',
+                  transform: "translateY(-3px)",
+                  borderColor: "rgba(98, 240, 213, 0.45)",
+                  boxShadow: "var(--card-hover-shadow)",
                 }}
                 transition="all 0.25s ease"
               >
-                <Box position="relative" paddingBottom="56.25%" height="0" overflow="hidden" bg="var(--media-shell-bg)">
+                <Box
+                  position="relative"
+                  paddingBottom="56.25%"
+                  height="0"
+                  overflow="hidden"
+                  bg="var(--media-shell-bg)"
+                >
                   <iframe
                     style={{
-                      position: 'absolute',
+                      position: "absolute",
                       top: 0,
                       left: 0,
-                      width: '100%',
-                      height: '100%',
-                      border: 'none',
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
                     }}
                     src={getYouTubeEmbedUrl(video.videoId)}
                     title={video.title}
@@ -69,7 +101,12 @@ function Journal() {
                   <Heading as="h4" fontSize="lg" mb={2} color="var(--text-100)">
                     {video.title}
                   </Heading>
-                  <Text color="var(--text-300)" mb={4} lineHeight="1.75" fontSize="sm">
+                  <Text
+                    color="var(--text-300)"
+                    mb={4}
+                    lineHeight="1.75"
+                    fontSize="sm"
+                  >
                     {video.description}
                   </Text>
                   <ExternalAction
@@ -87,11 +124,20 @@ function Journal() {
 
         <VStack align="stretch" gap={5}>
           <Box>
-            <Text className="code-font" color="var(--accent-300)" fontSize="sm" mb={2}>
-              WRITING_LOG
+            <Text
+              className="code-font"
+              color="var(--accent-300)"
+              fontSize="sm"
+              mb={2}
+            >
+              {subsectionContent.journal.writingEyebrow}
             </Text>
-            <Heading as="h3" fontSize={{ base: 'xl', md: '2xl' }} color="var(--text-100)">
-              Writing and Technical Notes
+            <Heading
+              as="h3"
+              fontSize={{ base: "xl", md: "2xl" }}
+              color="var(--text-100)"
+            >
+              {subsectionContent.journal.writingTitle}
             </Heading>
           </Box>
 
@@ -106,9 +152,9 @@ function Journal() {
                 overflow="hidden"
                 className={`reveal-up ${getAnimationDelayClass(index)}`}
                 _hover={{
-                  transform: 'translateY(-4px)',
-                  borderColor: 'rgba(98, 240, 213, 0.45)',
-                  boxShadow: 'var(--card-hover-shadow)',
+                  transform: "translateY(-4px)",
+                  borderColor: "rgba(98, 240, 213, 0.45)",
+                  boxShadow: "var(--card-hover-shadow)",
                 }}
               >
                 <Box
@@ -129,8 +175,17 @@ function Journal() {
                   />
                 </Box>
                 <VStack align="stretch" gap={4} p={6} flex="1">
-                  <HStack justify="space-between" align="start" gap={3} flexWrap="wrap">
-                    <Text className="code-font" color="var(--text-300)" fontSize="xs">
+                  <HStack
+                    justify="space-between"
+                    align="start"
+                    gap={3}
+                    flexWrap="wrap"
+                  >
+                    <Text
+                      className="code-font"
+                      color="var(--text-300)"
+                      fontSize="xs"
+                    >
                       {post.publishedDate}
                     </Text>
                     <Badge
@@ -153,9 +208,17 @@ function Journal() {
                       py={1}
                       borderRadius="md"
                       className="code-font"
-                      bg={post.source === 'local' ? 'var(--accent-control-bg)' : 'rgba(34, 128, 235, 0.18)'}
+                      bg={
+                        post.source === "local"
+                          ? "var(--accent-control-bg)"
+                          : "rgba(34, 128, 235, 0.18)"
+                      }
                       border="1px solid"
-                      borderColor={post.source === 'local' ? 'rgba(98, 240, 213, 0.34)' : 'rgba(69, 162, 255, 0.38)'}
+                      borderColor={
+                        post.source === "local"
+                          ? "rgba(98, 240, 213, 0.34)"
+                          : "rgba(69, 162, 255, 0.38)"
+                      }
                       color="var(--text-100)"
                       fontSize="0.68rem"
                       fontWeight={500}
@@ -166,7 +229,12 @@ function Journal() {
                     </Badge>
                   </HStack>
 
-                  <Heading as="h4" fontSize="xl" color="var(--text-100)" lineHeight="1.25">
+                  <Heading
+                    as="h4"
+                    fontSize="xl"
+                    color="var(--text-100)"
+                    lineHeight="1.25"
+                  >
                     {post.title}
                   </Heading>
                   <Text color="var(--text-300)" lineHeight="1.8">
@@ -220,7 +288,7 @@ function Journal() {
         </VStack>
       </VStack>
     </SectionShell>
-  )
+  );
 }
 
-export default Journal
+export default Journal;

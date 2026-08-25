@@ -66,26 +66,6 @@ export type AboutSection = {
   metrics: Metric[];
 };
 
-export type ArtisticActivity = {
-  title: string;
-  organization: string;
-  period?: string;
-  description: string[];
-};
-
-export type ArtisticContent = {
-  introduction: {
-    eyebrow: string;
-    headline: string;
-    intro: string;
-  };
-  interests: string[];
-  currentLearning: string[];
-  hobbies: string[];
-  activities: ArtisticActivity[];
-  personalGoals: string[];
-};
-
 export type ContentSectionId = Exclude<SectionId, "home">;
 
 export type SectionCopy = {
@@ -211,7 +191,6 @@ export type Portfolio = {
   navigation: NavigationItem[];
   sectionContent: SectionContent;
   about: AboutSection;
-  artistic: ArtisticContent;
   education: EducationEntry[];
   experience: ExperienceEntry[];
   awards: AwardEntry[];

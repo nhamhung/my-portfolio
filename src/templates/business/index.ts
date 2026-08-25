@@ -1,17 +1,19 @@
-import Awards from "../../components/Awards";
-import Contact from "../../components/Contact";
-import Education from "../../components/Education";
-import Experience from "../../components/Experience";
-import Gallery from "../../components/Gallery";
-import Journal from "../../components/Journal";
-import JournalPostPage from "../../components/JournalPostPage";
-import Skills from "../../components/Skills";
+import "./business.css";
+
 import { portfolioTemplateOptions } from "../options";
 import type { PortfolioTemplate } from "../types";
 import BusinessAbout from "./BusinessAbout";
+import BusinessAwards from "./BusinessAwards";
+import BusinessContact from "./BusinessContact";
+import BusinessEducation from "./BusinessEducation";
+import BusinessExperience from "./BusinessExperience";
+import BusinessGallery from "./BusinessGallery";
 import BusinessHero from "./BusinessHero";
+import BusinessJournal from "./BusinessJournal";
+import BusinessJournalPostPage from "./BusinessJournalPostPage";
 import BusinessProjects from "./BusinessProjects";
 import BusinessShell from "./BusinessShell";
+import BusinessSkills from "./BusinessSkills";
 
 export const businessChapterLabels = {
   home: "Welcome",
@@ -29,18 +31,18 @@ export const businessChapterLabels = {
 export const businessTemplate = {
   ...portfolioTemplateOptions.business,
   ShellComponent: BusinessShell,
-  JournalPostComponent: JournalPostPage,
+  JournalPostComponent: BusinessJournalPostPage,
   chapterLabels: businessChapterLabels,
   sectionComponents: {
     home: BusinessHero,
     about: BusinessAbout,
-    education: Education,
-    experience: Experience,
-    awards: Awards,
+    education: BusinessEducation,
+    experience: BusinessExperience,
+    awards: BusinessAwards,
     projects: BusinessProjects,
-    gallery: Gallery,
-    journal: Journal,
-    skills: Skills,
-    contact: Contact,
+    gallery: BusinessGallery,
+    journal: BusinessJournal,
+    skills: BusinessSkills,
+    contact: BusinessContact,
   },
 } satisfies PortfolioTemplate;

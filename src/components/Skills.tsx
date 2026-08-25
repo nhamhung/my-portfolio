@@ -1,12 +1,26 @@
-import { useEffect, useState } from 'react'
-import { Badge, Box, Button, Heading, HStack, SimpleGrid, Text, VStack } from '@chakra-ui/react'
+import { useEffect, useState } from "react";
+import {
+  Badge,
+  Box,
+  Button,
+  Heading,
+  HStack,
+  SimpleGrid,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
-import ContentCard from './shared/ContentCard'
-import LogoMark from './shared/LogoMark'
-import SectionShell from './shared/SectionShell'
-import { certificates, sectionContent, skills } from '../data/portfolio'
-import type { CertificateEntry, SkillEntry } from '../types/portfolio'
-import { getAnimationDelayClass } from '../utils/animation'
+import ContentCard from "./shared/ContentCard";
+import LogoMark from "./shared/LogoMark";
+import SectionShell from "./shared/SectionShell";
+import {
+  certificates,
+  sectionContent,
+  skills,
+  subsectionContent,
+} from "../data/portfolio";
+import type { CertificateEntry, SkillEntry } from "../types/portfolio";
+import { getAnimationDelayClass } from "../utils/animation";
 
 function SkillTile({ skill }: { skill: SkillEntry }) {
   return (
@@ -24,47 +38,58 @@ function SkillTile({ skill }: { skill: SkillEntry }) {
       borderColor="var(--line-700)"
       transition="all 0.2s ease"
       _hover={{
-        transform: 'translateY(-2px)',
-        borderColor: 'rgba(98, 240, 213, 0.4)',
-        bg: 'var(--control-hover-bg)',
+        transform: "translateY(-2px)",
+        borderColor: "rgba(98, 240, 213, 0.4)",
+        bg: "var(--control-hover-bg)",
       }}
     >
-      <LogoMark logoKey={skill.logoKey} logoLabel={skill.logoLabel} logoAccent={skill.logoAccent} size="xs" />
-      <Text color="var(--text-100)" fontSize="xs" fontWeight={650} lineHeight="1.25">
+      <LogoMark
+        logoKey={skill.logoKey}
+        logoLabel={skill.logoLabel}
+        logoAccent={skill.logoAccent}
+        size="xs"
+      />
+      <Text
+        color="var(--text-100)"
+        fontSize="xs"
+        fontWeight={650}
+        lineHeight="1.25"
+      >
         {skill.label}
       </Text>
     </Box>
-  )
+  );
 }
 
 function Skills() {
-  const [selectedCertificate, setSelectedCertificate] = useState<CertificateEntry | null>(null)
+  const [selectedCertificate, setSelectedCertificate] =
+    useState<CertificateEntry | null>(null);
 
   useEffect(() => {
     if (!selectedCertificate) {
-      return undefined
+      return undefined;
     }
 
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setSelectedCertificate(null)
+      if (event.key === "Escape") {
+        setSelectedCertificate(null);
       }
-    }
+    };
 
-    window.addEventListener('keydown', handleEscape)
+    window.addEventListener("keydown", handleEscape);
 
     return () => {
-      document.body.style.overflow = originalOverflow
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [selectedCertificate])
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [selectedCertificate]);
 
   const openCertificateInNewTab = (file: string) => {
-    window.open(file, '_blank', 'noopener,noreferrer')
-  }
+    window.open(file, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <SectionShell
@@ -81,12 +106,17 @@ function Skills() {
             p={6}
             className={`reveal-up ${getAnimationDelayClass(index)}`}
             _hover={{
-              transform: 'translateY(-3px)',
-              borderColor: 'rgba(98, 240, 213, 0.45)',
-              boxShadow: 'var(--card-hover-shadow)',
+              transform: "translateY(-3px)",
+              borderColor: "rgba(98, 240, 213, 0.45)",
+              boxShadow: "var(--card-hover-shadow)",
             }}
           >
-            <Text className="code-font" color="var(--accent-300)" fontSize="sm" mb={4}>
+            <Text
+              className="code-font"
+              color="var(--accent-300)"
+              fontSize="sm"
+              mb={4}
+            >
               {category.category.toUpperCase()}
             </Text>
             <Box
@@ -109,15 +139,24 @@ function Skills() {
       <VStack align="stretch" gap={4} className="reveal-up delay-2">
         <HStack justify="space-between" align="end" flexWrap="wrap" gap={3}>
           <Box>
-            <Text className="code-font" color="var(--accent-300)" fontSize="sm" mb={2}>
-              CERTIFICATE_PREVIEW
+            <Text
+              className="code-font"
+              color="var(--accent-300)"
+              fontSize="sm"
+              mb={2}
+            >
+              {subsectionContent.skills.certificatesEyebrow}
             </Text>
-            <Heading as="h3" fontSize={{ base: 'xl', md: '2xl' }} color="var(--text-100)">
-              Certificate Gallery
+            <Heading
+              as="h3"
+              fontSize={{ base: "xl", md: "2xl" }}
+              color="var(--text-100)"
+            >
+              {subsectionContent.skills.certificatesTitle}
             </Heading>
           </Box>
           <Text color="var(--text-300)" maxW="560px" fontSize="sm">
-            Click any preview to expand the PDF. Files are configured in the shared certificate data file.
+            {subsectionContent.skills.certificatesDescription}
           </Text>
         </HStack>
 
@@ -130,9 +169,9 @@ function Skills() {
               aria-label={certificate.ariaLabel}
               onClick={() => setSelectedCertificate(certificate)}
               onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault()
-                  setSelectedCertificate(certificate)
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setSelectedCertificate(certificate);
                 }
               }}
               p={4}
@@ -143,11 +182,11 @@ function Skills() {
               transition="all 0.25s ease"
               className={`reveal-up ${getAnimationDelayClass(index)}`}
               _hover={{
-                transform: 'translateY(-4px)',
-                borderColor: 'rgba(98, 240, 213, 0.48)',
-                boxShadow: 'var(--card-hover-shadow)',
+                transform: "translateY(-4px)",
+                borderColor: "rgba(98, 240, 213, 0.48)",
+                boxShadow: "var(--card-hover-shadow)",
               }}
-              data-testid={`certificate-card-${certificate.title.toLowerCase().replaceAll(' ', '-')}`}
+              data-testid={`certificate-card-${certificate.title.toLowerCase().replaceAll(" ", "-")}`}
             >
               <Box
                 overflow="hidden"
@@ -162,11 +201,11 @@ function Skills() {
                   data={`${certificate.file}#page=1&view=FitH`}
                   type="application/pdf"
                   style={{
-                    width: '100%',
-                    height: '320px',
-                    border: '0',
-                    pointerEvents: 'none',
-                    display: 'block',
+                    width: "100%",
+                    height: "320px",
+                    border: "0",
+                    pointerEvents: "none",
+                    display: "block",
                   }}
                 >
                   <Box
@@ -225,7 +264,11 @@ function Skills() {
                 <Text color="var(--text-300)" fontSize="sm" lineHeight="1.7">
                   {certificate.description}
                 </Text>
-                <Text color="var(--accent-300)" fontSize="sm" className="code-font">
+                <Text
+                  color="var(--accent-300)"
+                  fontSize="sm"
+                  className="code-font"
+                >
                   Click to expand PDF
                 </Text>
               </VStack>
@@ -253,8 +296,8 @@ function Skills() {
         >
           <Box
             w="min(1100px, 100%)"
-            minH={{ base: 'calc(100dvh - 7rem)', md: 'calc(100dvh - 9rem)' }}
-            h={{ base: 'calc(100dvh - 7rem)', md: 'calc(100dvh - 9rem)' }}
+            minH={{ base: "calc(100dvh - 7rem)", md: "calc(100dvh - 9rem)" }}
+            h={{ base: "calc(100dvh - 7rem)", md: "calc(100dvh - 9rem)" }}
             bg="var(--surface-900)"
             border="1px solid"
             borderColor="var(--line-500)"
@@ -267,7 +310,7 @@ function Skills() {
           >
             <HStack
               justify="space-between"
-              align={{ base: 'start', md: 'center' }}
+              align={{ base: "start", md: "center" }}
               flexWrap="wrap"
               px={{ base: 4, md: 6 }}
               py={4}
@@ -283,26 +326,42 @@ function Skills() {
                   size="lg"
                 />
                 <Box>
-                  <Heading as="h3" fontSize={{ base: 'md', md: 'lg' }} color="var(--text-100)">
+                  <Heading
+                    as="h3"
+                    fontSize={{ base: "md", md: "lg" }}
+                    color="var(--text-100)"
+                  >
                     {selectedCertificate.title}
                   </Heading>
                   <Text color="var(--text-300)" fontSize="sm">
                     {selectedCertificate.issuer} - {selectedCertificate.kind}
                   </Text>
-                  <Text color="var(--text-300)" fontSize="sm" lineHeight="1.6" maxW="640px" mt={1}>
+                  <Text
+                    color="var(--text-300)"
+                    fontSize="sm"
+                    lineHeight="1.6"
+                    maxW="640px"
+                    mt={1}
+                  >
                     {selectedCertificate.description}
                   </Text>
                 </Box>
               </HStack>
-              <HStack gap={3} flexWrap="wrap" justify={{ base: 'flex-start', md: 'flex-end' }}>
+              <HStack
+                gap={3}
+                flexWrap="wrap"
+                justify={{ base: "flex-start", md: "flex-end" }}
+              >
                 <Button
                   size="sm"
                   bg="var(--active-nav-bg)"
                   border="1px solid"
                   borderColor="var(--active-nav-border)"
                   color="var(--text-100)"
-                  _hover={{ bg: 'var(--control-hover-bg)' }}
-                  onClick={() => openCertificateInNewTab(selectedCertificate.file)}
+                  _hover={{ bg: "var(--control-hover-bg)" }}
+                  onClick={() =>
+                    openCertificateInNewTab(selectedCertificate.file)
+                  }
                   data-testid="certificate-open-new-tab"
                 >
                   Open in new tab
@@ -311,7 +370,10 @@ function Skills() {
                   size="sm"
                   variant="ghost"
                   color="var(--text-300)"
-                  _hover={{ bg: 'var(--control-hover-bg)', color: 'var(--text-100)' }}
+                  _hover={{
+                    bg: "var(--control-hover-bg)",
+                    color: "var(--text-100)",
+                  }}
                   onClick={() => setSelectedCertificate(null)}
                   data-testid="certificate-close"
                 >
@@ -323,14 +385,19 @@ function Skills() {
               <iframe
                 title={`${selectedCertificate.title} expanded preview`}
                 src={`${selectedCertificate.file}#page=1&view=FitH`}
-                style={{ width: '100%', height: '100%', border: '0', display: 'block' }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  border: "0",
+                  display: "block",
+                }}
               />
             </Box>
           </Box>
         </Box>
       ) : null}
     </SectionShell>
-  )
+  );
 }
 
-export default Skills
+export default Skills;

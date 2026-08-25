@@ -1,47 +1,57 @@
-import { useState } from 'react'
-import type { ChangeEvent, FormEvent } from 'react'
-import { Box, Button, HStack, Input, Text, Textarea, VStack } from '@chakra-ui/react'
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+import {
+  Box,
+  Button,
+  HStack,
+  Input,
+  Text,
+  Textarea,
+  VStack,
+} from "@chakra-ui/react";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
-import ContentCard from './shared/ContentCard'
-import ExternalAction from './shared/ExternalAction'
-import SectionShell from './shared/SectionShell'
-import { profile, sectionContent } from '../data/portfolio'
-import type { ExternalLink } from '../types/portfolio'
-import { buildMailtoUrl } from '../utils/contact'
-import type { ContactFormInput } from '../utils/contact'
+import ContentCard from "./shared/ContentCard";
+import ExternalAction from "./shared/ExternalAction";
+import SectionShell from "./shared/SectionShell";
+import { profile, sectionContent, subsectionContent } from "../data/portfolio";
+import type { ExternalLink } from "../types/portfolio";
+import { buildMailtoUrl } from "../utils/contact";
+import type { ContactFormInput } from "../utils/contact";
 
 const emptyFormData: ContactFormInput = {
-  name: '',
-  email: '',
-  subject: '',
-  message: '',
-}
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
 
 const getSocialIcon = (link: ExternalLink) => {
-  if (link.label.toLowerCase().includes('github')) {
-    return <FaGithub size={22} />
+  if (link.label.toLowerCase().includes("github")) {
+    return <FaGithub size={22} />;
   }
 
-  if (link.label.toLowerCase().includes('linkedin')) {
-    return <FaLinkedin size={22} />
+  if (link.label.toLowerCase().includes("linkedin")) {
+    return <FaLinkedin size={22} />;
   }
 
-  return <FaEnvelope size={22} />
-}
+  return <FaEnvelope size={22} />;
+};
 
 function Contact() {
-  const [formData, setFormData] = useState<ContactFormInput>(emptyFormData)
+  const [formData, setFormData] = useState<ContactFormInput>(emptyFormData);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = event.target
-    setFormData((previousFormData) => ({ ...previousFormData, [name]: value }))
-  }
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target;
+    setFormData((previousFormData) => ({ ...previousFormData, [name]: value }));
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    window.location.href = buildMailtoUrl(formData, profile.email)
-  }
+    event.preventDefault();
+    window.location.href = buildMailtoUrl(formData, profile.email);
+  };
 
   return (
     <SectionShell
@@ -53,9 +63,18 @@ function Contact() {
       <ContentCard p={{ base: 5, md: 8 }} className="reveal-up delay-1">
         <form onSubmit={handleSubmit}>
           <VStack gap={5} align="stretch">
-            <HStack gap={4} align="stretch" flexDirection={{ base: 'column', md: 'row' }}>
+            <HStack
+              gap={4}
+              align="stretch"
+              flexDirection={{ base: "column", md: "row" }}
+            >
               <Box flex={1}>
-                <Text className="code-font" color="var(--text-300)" fontSize="xs" mb={2}>
+                <Text
+                  className="code-font"
+                  color="var(--text-300)"
+                  fontSize="xs"
+                  mb={2}
+                >
                   NAME *
                 </Text>
                 <Input
@@ -69,14 +88,19 @@ function Contact() {
                   border="1px solid"
                   borderColor="var(--line-500)"
                   _focusVisible={{
-                    borderColor: 'var(--focus-border)',
-                    boxShadow: 'var(--focus-ring)',
+                    borderColor: "var(--focus-border)",
+                    boxShadow: "var(--focus-ring)",
                   }}
                   data-testid="contact-name-input"
                 />
               </Box>
               <Box flex={1}>
-                <Text className="code-font" color="var(--text-300)" fontSize="xs" mb={2}>
+                <Text
+                  className="code-font"
+                  color="var(--text-300)"
+                  fontSize="xs"
+                  mb={2}
+                >
                   EMAIL *
                 </Text>
                 <Input
@@ -91,8 +115,8 @@ function Contact() {
                   border="1px solid"
                   borderColor="var(--line-500)"
                   _focusVisible={{
-                    borderColor: 'var(--focus-border)',
-                    boxShadow: 'var(--focus-ring)',
+                    borderColor: "var(--focus-border)",
+                    boxShadow: "var(--focus-ring)",
                   }}
                   data-testid="contact-email-input"
                 />
@@ -100,7 +124,12 @@ function Contact() {
             </HStack>
 
             <Box>
-              <Text className="code-font" color="var(--text-300)" fontSize="xs" mb={2}>
+              <Text
+                className="code-font"
+                color="var(--text-300)"
+                fontSize="xs"
+                mb={2}
+              >
                 SUBJECT
               </Text>
               <Input
@@ -113,15 +142,20 @@ function Contact() {
                 border="1px solid"
                 borderColor="var(--line-500)"
                 _focusVisible={{
-                  borderColor: 'var(--focus-border)',
-                  boxShadow: 'var(--focus-ring)',
+                  borderColor: "var(--focus-border)",
+                  boxShadow: "var(--focus-ring)",
                 }}
                 data-testid="contact-subject-input"
               />
             </Box>
 
             <Box>
-              <Text className="code-font" color="var(--text-300)" fontSize="xs" mb={2}>
+              <Text
+                className="code-font"
+                color="var(--text-300)"
+                fontSize="xs"
+                mb={2}
+              >
                 MESSAGE *
               </Text>
               <Textarea
@@ -137,8 +171,8 @@ function Contact() {
                 border="1px solid"
                 borderColor="var(--line-500)"
                 _focusVisible={{
-                  borderColor: 'var(--focus-border)',
-                  boxShadow: 'var(--focus-ring)',
+                  borderColor: "var(--focus-border)",
+                  boxShadow: "var(--focus-ring)",
                 }}
                 data-testid="contact-message-input"
               />
@@ -150,7 +184,7 @@ function Contact() {
               color="var(--primary-text)"
               border="1px solid"
               borderColor="rgba(118, 168, 255, 0.58)"
-              _hover={{ bg: 'var(--primary-hover-bg)' }}
+              _hover={{ bg: "var(--primary-hover-bg)" }}
               data-testid="contact-submit"
             >
               Send Message
@@ -158,9 +192,20 @@ function Contact() {
           </VStack>
         </form>
 
-        <Box mt={8} pt={6} borderTop="1px solid" borderColor="rgba(118, 168, 255, 0.24)" textAlign="center">
-          <Text className="code-font" color="var(--text-300)" fontSize="xs" mb={3}>
-            CONNECT_CHANNELS
+        <Box
+          mt={8}
+          pt={6}
+          borderTop="1px solid"
+          borderColor="rgba(118, 168, 255, 0.24)"
+          textAlign="center"
+        >
+          <Text
+            className="code-font"
+            color="var(--text-300)"
+            fontSize="xs"
+            mb={3}
+          >
+            {subsectionContent.contact.channelsTitle}
           </Text>
           <HStack gap={4} flexWrap="wrap" justify="center" w="100%">
             {profile.socialLinks.map((link) => (
@@ -178,7 +223,7 @@ function Contact() {
         </Box>
       </ContentCard>
     </SectionShell>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

@@ -1,6 +1,5 @@
 import type { Portfolio } from "../types/portfolio";
 import { about } from "./about";
-import { artisticContent } from "./artistic";
 import { awards } from "./awards";
 import { blog } from "./blog";
 import { certificates } from "./certificates";
@@ -11,7 +10,7 @@ import { journalPosts, writing } from "./journalPosts";
 import { navigation, sectionIds } from "./navigation";
 import { hero, profile } from "./profile";
 import { projects } from "./projects";
-import { sectionContent } from "./sectionContent";
+import { sectionContent, subsectionContent } from "./sectionContent";
 import { skills } from "./skills";
 import { videos } from "./videos";
 
@@ -21,7 +20,6 @@ export const portfolio = {
   navigation,
   sectionContent,
   about,
-  artistic: artisticContent,
   education,
   experience,
   awards,
@@ -37,7 +35,6 @@ export const portfolio = {
 
 export {
   about,
-  artisticContent,
   awards,
   blog,
   certificates,
@@ -50,6 +47,7 @@ export {
   profile,
   projects,
   sectionContent,
+  subsectionContent,
   sectionIds,
   skills,
   videos,

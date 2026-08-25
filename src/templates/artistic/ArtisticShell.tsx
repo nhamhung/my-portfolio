@@ -9,7 +9,7 @@ import {
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
-import { LuMenu, LuNotebookPen, LuPanelLeft, LuX } from "react-icons/lu";
+import { LuGalleryHorizontal, LuMenu, LuPanelLeft, LuX } from "react-icons/lu";
 
 import { PortfolioStyleSelector } from "../../components/shared/PortfolioStyleSelector";
 import { ColorModeButton } from "../../components/ui/color-mode";
@@ -80,10 +80,17 @@ function ArtisticShell({
       w="100%"
       className="portfolio-template portfolio-template-artistic artistic-shell"
       data-template-id="artistic"
+      position="relative"
+      isolation="isolate"
     >
+      <Box className="artistic-background" aria-hidden="true">
+        <Box className="artistic-background-bloom artistic-background-bloom-a" />
+        <Box className="artistic-background-bloom artistic-background-bloom-b" />
+        <Box className="artistic-background-grain" />
+      </Box>
       <Link
         href="#portfolio-main"
-        className="skip-link"
+        className="artistic-skip-link"
         position="fixed"
         top={2}
         left={2}
@@ -94,7 +101,7 @@ function ArtisticShell({
 
       <Box
         as="header"
-        className="artistic-notebook-header"
+        className="artistic-gallery-header"
         position="sticky"
         top={0}
         zIndex={1000}
@@ -136,7 +143,7 @@ function ArtisticShell({
               borderRadius="4px"
               aria-hidden="true"
             >
-              <LuNotebookPen />
+              <LuGalleryHorizontal />
             </Flex>
             <Box minW={0}>
               <Text
@@ -155,7 +162,7 @@ function ArtisticShell({
                 fontSize="xs"
                 display={{ base: "none", sm: "block" }}
               >
-                Creative notebook
+                Portfolio gallery
               </Text>
             </Box>
           </Link>
@@ -203,14 +210,14 @@ function ArtisticShell({
         </Flex>
 
         <Box
-          className="artistic-notebook-nav"
+          className="artistic-gallery-nav"
           display={{ base: "none", xl: "block" }}
           borderTop="1px solid"
           borderColor="var(--line-700)"
         >
           <Box
             as="nav"
-            aria-label="Artistic creative notebook contents"
+            aria-label="Artistic portfolio sections"
             maxW="1480px"
             mx="auto"
             px={8}
@@ -251,10 +258,10 @@ function ArtisticShell({
                     fontSize="lg"
                     fontWeight={900}
                   >
-                    Notebook index
+                    Section index
                   </Text>
                   <Text mt={1} color="var(--text-300)" fontSize="xs">
-                    Learn / make / reflect
+                    {profile.role}
                   </Text>
                 </Box>
                 <IconButton
@@ -269,7 +276,7 @@ function ArtisticShell({
             </Drawer.Header>
             <Drawer.Body py={5}>
               <VStack align="stretch" gap={5}>
-                <Box as="nav" aria-label="Artistic mobile notebook navigation">
+                <Box as="nav" aria-label="Artistic mobile portfolio navigation">
                   <VStack as="ul" align="stretch" gap={1} listStyleType="none">
                     {navigationLinks("mobile")}
                   </VStack>
@@ -297,7 +304,7 @@ function ArtisticShell({
       <Box
         id="portfolio-main"
         as="main"
-        className="artistic-notebook-canvas"
+        className="artistic-gallery-canvas"
         minH="100vh"
         w="100%"
         data-layout-mode={layoutMode}

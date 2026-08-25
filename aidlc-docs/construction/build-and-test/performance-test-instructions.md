@@ -2,64 +2,50 @@
 
 ## Purpose
 
-Define lightweight performance checks appropriate for a static student portfolio template.
+Track build output and browser-delivery risks appropriate to a static GitHub Pages portfolio. Server load, throughput, concurrent-user, and API stress testing are not applicable because the project has no application server or API.
 
-## Performance Scope
+## Performance Requirements
 
-This project does not require load testing, stress testing, or server throughput testing because it is a static site hosted on GitHub Pages.
+- The production build must complete successfully.
+- Decorative theme work must not add a large external download or materially regress startup size.
+- The built entry page and assets must be servable from the local production preview.
+- Background decoration must remain CSS-based, pointer-inert, and free of scroll-linked processing.
 
-Relevant performance checks are:
-
-- Local test suite remains fast.
-- Production build completes successfully.
-- Built app can be previewed locally.
-- Large asset warnings are understood and tracked.
-
-## Commands
-
-### Test Suite Runtime
-
-```bash
-npm run test
-```
-
-Expected current result:
-
-- The suite completes in a few seconds on a normal development machine.
-- Current baseline observed during code generation: 7 test files and 84 tests passed.
-
-### Production Build
+## Execute the Static Performance Check
 
 ```bash
 npm run build
 ```
 
-Expected current result:
+Record the JavaScript and CSS sizes printed by Vite and compare them with the current baseline.
 
-- Build succeeds.
-- Vite may warn about large chunks or large assets because the portfolio includes images and PDFs.
-- Current main JavaScript output is approximately 997 kB before gzip and 299 kB after gzip.
+## Verified Baseline
 
-## Asset Size Review
+| Measure          | Observed result                                            |
+| ---------------- | ---------------------------------------------------------- |
+| Vite build time  | Approximately 3.00 seconds on the verification machine     |
+| Main JavaScript  | 998.90 kB minified; 300.39 kB gzip                         |
+| Main CSS         | 56.85 kB minified; 10.73 kB gzip                           |
+| Complete `dist/` | Approximately 8.9 MB including images and PDF certificates |
+| Preview response | HTTP 200 for `/`                                           |
 
-If performance becomes a class concern, inspect:
+The main JavaScript remains above Vite's 500 kB warning threshold. This is a tracked, non-blocking warning and is effectively unchanged from the previous approximately 997 kB baseline.
 
-- Large images in `src/assets/`.
-- Large PDFs in `src/assets/certificates/`.
-- The main JS chunk size reported by Vite.
+## Optional Browser Measurement
 
-Possible future improvements:
+For a future performance-focused change, run Lighthouse against `npm run preview` and record mobile performance, accessibility, and largest-contentful-paint results on the same machine and network profile. No Lighthouse threshold is claimed for this change because a controlled browser performance run was not part of the approved scope.
 
-- Compress images before committing.
-- Replace very large PDFs with external links.
-- Add lazy loading or code splitting if the app grows substantially.
+## Optimization Candidates if the Baseline Regresses
+
+1. Split theme code with dynamic imports.
+2. Compress the largest local images.
+3. Review whether all PDFs must ship in the initial static artifact.
+4. Lazy-load media below the fold.
+5. Rebuild and compare the same Vite output fields.
 
 ## Not Applicable
 
-The following are intentionally not part of the baseline performance test strategy:
-
-- Server load testing.
-- Concurrent user testing.
-- API throughput testing.
-- Stress testing.
-- Browser automation performance metrics.
+- Server response-time objectives under load.
+- Requests per second or concurrent-user targets.
+- API, database, queue, or cache throughput.
+- Stress testing or autoscaling validation.

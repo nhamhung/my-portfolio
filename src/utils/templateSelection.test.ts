@@ -11,7 +11,7 @@ import {
 describe("template selection persistence", () => {
   it.each([
     ["engineering", true],
-    ["neutral", true],
+    ["neutral", false],
     ["business", true],
     ["artistic", true],
     [null, false],
@@ -23,7 +23,7 @@ describe("template selection persistence", () => {
   it("uses the source default when no visitor choice exists", () => {
     const storage = { getItem: vi.fn(() => null) };
 
-    expect(getInitialPortfolioTemplateId("neutral", storage)).toBe("neutral");
+    expect(getInitialPortfolioTemplateId("artistic", storage)).toBe("artistic");
     expect(storage.getItem).toHaveBeenCalledWith(
       PORTFOLIO_TEMPLATE_STORAGE_KEY,
     );
@@ -45,6 +45,14 @@ describe("template selection persistence", () => {
     );
   });
 
+  it("falls back to engineering for an obsolete neutral choice", () => {
+    const storage = { getItem: vi.fn(() => "neutral") };
+
+    expect(getInitialPortfolioTemplateId("business", storage)).toBe(
+      FALLBACK_PORTFOLIO_TEMPLATE_ID,
+    );
+  });
+
   it("uses the source default when storage cannot be read", () => {
     const storage = {
       getItem: vi.fn(() => {
@@ -59,11 +67,11 @@ describe("template selection persistence", () => {
     const setItem = vi.fn();
 
     expect(() =>
-      persistPortfolioTemplateId("neutral", { setItem }),
+      persistPortfolioTemplateId("engineering", { setItem }),
     ).not.toThrow();
     expect(setItem).toHaveBeenCalledWith(
       PORTFOLIO_TEMPLATE_STORAGE_KEY,
-      "neutral",
+      "engineering",
     );
 
     expect(() =>

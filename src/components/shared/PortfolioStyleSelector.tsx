@@ -1,14 +1,16 @@
 import { Box, Button, Flex, Menu, Portal, Text } from "@chakra-ui/react";
 import type { IconType } from "react-icons";
 import {
-  LuBookOpen,
   LuBriefcaseBusiness,
   LuBrush,
   LuCode,
   LuPalette,
 } from "react-icons/lu";
 
-import { portfolioTemplateOptionList } from "../../templates/options";
+import {
+  portfolioTemplateOptionList,
+  portfolioTemplateOptions,
+} from "../../templates/options";
 import type { PortfolioTemplateId } from "../../templates/types";
 import { isPortfolioTemplateId } from "../../utils/templateSelection";
 
@@ -20,7 +22,6 @@ type PortfolioStyleSelectorProps = {
 
 const templateIcons: Record<PortfolioTemplateId, IconType> = {
   engineering: LuCode,
-  neutral: LuBookOpen,
   business: LuBriefcaseBusiness,
   artistic: LuBrush,
 };
@@ -30,10 +31,7 @@ export function PortfolioStyleSelector({
   onSelectTemplate,
   testIdPrefix,
 }: PortfolioStyleSelectorProps) {
-  const activeTemplate =
-    portfolioTemplateOptionList.find(
-      (template) => template.id === activeTemplateId,
-    ) ?? portfolioTemplateOptionList[0];
+  const activeTemplate = portfolioTemplateOptions[activeTemplateId];
 
   return (
     <Menu.Root positioning={{ placement: "bottom-end" }}>

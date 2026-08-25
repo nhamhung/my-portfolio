@@ -2,122 +2,71 @@
 
 ## Purpose
 
-Validate that the completed units work together as a single static portfolio template.
+Verify that application orchestration, theme registries, shared portfolio data, theme-owned sections, routes, persistence, and the production bundle work together as one static site.
 
-## Automated Integration Coverage
-
-The lightweight test suite covers local integration between:
-
-| Integration                                       | Covered By                                                                                          |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| App shell and provider context                    | `src/App.test.tsx`                                                                                  |
-| Runtime template state, registry, and persistence | `src/App.test.tsx`, `src/templates/templateRegistry.test.ts`, `src/utils/templateSelection.test.ts` |
-| App sections and navigation config                | `src/test/data/navigation.test.ts`                                                                  |
-| Portfolio aggregate and editable data modules     | `src/test/data/portfolio.test.ts`                                                                   |
-| Layout preference and hash routes                 | `src/App.test.tsx`, `src/hooks/usePortfolioLayout.test.ts`                                          |
-| Test command and student documentation            | README verification command list plus `package.json` script                                         |
-
-Run:
+## Automated Integration Group
 
 ```bash
-npm run test
+npx vitest run src/App.test.tsx src/templates/business/businessTemplate.test.tsx src/templates/artistic/artisticTemplate.test.tsx src/templates/journalPostPages.test.tsx
 ```
 
-## Manual Integration Checks
+Expected verified result: 4 files and 52 tests pass.
 
-### Scenario 1: Local Development Server
+| Integration boundary            | Covered behavior                                                                                                 |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| App and template registry       | Engineering default, Business switching, hidden Artistic option, direct Artistic rendering, and Neutral fallback |
+| App and browser state           | Template, route, Journal, layout, and color-mode preservation                                                    |
+| Business and shared content     | Original sections, readable detail formatting, aligned media, canonical labels, and certificate previews         |
+| Artistic and shared content     | Original sections, canonical labels, and exclusion of former theme-only prose                                    |
+| Theme Journal pages and routing | Existing post rendering, Markdown, metadata, missing-post state, and return navigation                           |
 
-Steps:
+## Manual Scenario 1: Visible Theme Selector
 
-1. Start the dev server.
+1. Run `npm run dev` and open the printed local URL.
+2. Open the Portfolio style menu in Engineering.
+3. Confirm only Engineering and Business are offered.
+4. Switch to Business and reopen the menu.
+5. Confirm the same two options appear and no Artistic option is visible.
 
-```bash
-npm run dev
-```
+Expected result: switching is immediate, the active section remains stable, and the choice survives refresh.
 
-2. Open the printed local URL.
-3. Confirm the hero, navigation, sections, gallery, videos, skills, and contact area render.
-4. Click several navigation items and confirm they scroll to the expected sections.
-5. Open **Portfolio style** and switch through Engineering, Neutral, Business, and Artistic.
-6. Confirm the current section remains selected after each switch.
+## Manual Scenario 2: Preserved Artistic Implementation
 
-Expected result:
+1. Confirm `src/templates/artistic/` remains present.
+2. Confirm the registry in `src/templates/index.ts` still includes Artistic.
+3. Run the complete automated suite.
 
-- The app renders without console-breaking errors.
-- Navigation points to visible sections.
-- Every header exposes the selector without overlapping the brand or other controls.
-- The browser restores the latest style after refresh.
+Expected result: Artistic remains directly renderable and persistence-compatible in automated coverage even though visitors cannot select it from the menu. Re-enabling it requires adding `artistic` to `selectablePortfolioTemplateIds` in `src/templates/options.ts`.
 
-### Scenario 2: Artistic Sparse Student Content
+## Manual Scenario 3: Routes, Layout, and Color Mode
 
-Steps:
+1. In Engineering, switch to multi-page mode and open Projects.
+2. Change to Business.
+3. Open a local Journal post and switch back to Engineering.
+4. Toggle light or dark mode and switch theme once more.
 
-1. Review `src/data/artistic.ts` and the shared Experience and Awards arrays.
-2. Confirm populated activities appear under Artistic Activities.
-3. In a temporary local edit, empty Artistic activities and shared Experience.
-4. Confirm Artistic omits the Activities navigation item and section.
-5. Empty shared Awards and confirm Artistic omits Awards without showing a blank panel.
-6. Restore the original data after the check.
+Expected result: the current valid section or Journal route, layout mode, and color mode remain unchanged through each switch.
 
-Expected result:
+## Manual Scenario 4: Business Certificate Gallery
 
-- Artistic shows only content backed by real entries.
-- Hidden sections have no dead navigation links.
-- An invalid hidden multi-page route resolves to Home.
+1. Open Business and navigate to Skills.
+2. Find Certificate Gallery.
+3. Confirm every certificate has a consistently sized PDF preview and readable metadata.
+4. Open each source-PDF action in a new tab.
 
-### Scenario 3: Route And Layout Preservation
+Expected result: previews align without clipping and every certificate remains accessible through its source link.
 
-Steps:
-
-1. Switch to multi-page mode and open Projects.
-2. Change the portfolio style.
-3. Open a local Journal post and change the style again.
-4. Toggle light/dark color mode and change the style.
-
-Expected result:
-
-- The `#/projects` route and multi-page mode remain active after the first switch.
-- The local Journal route and article remain open after the second switch.
-- Color mode remains unchanged.
-
-### Scenario 4: Production Preview
-
-Steps:
-
-1. Build the app.
+## Production Preview Smoke Test
 
 ```bash
 npm run build
-```
-
-2. Preview the built app.
-
-```bash
 npm run preview
 ```
 
-3. Open the printed local URL.
-4. Confirm the production build displays expected content and assets.
+Open the printed URL and confirm the application shell and static assets load. The verified preview returned HTTP 200 for `/`.
 
-Expected result:
+## External Integrations
 
-- Production preview works locally.
-- Images and certificate links resolve from the built assets.
+No backend, database, authentication provider, CMS, or API service exists in this project. Contract tests and service startup or cleanup are therefore not applicable.
 
-### Scenario 5: GitHub Pages Deployment Configuration
-
-Steps:
-
-1. Review `.github/workflows/deploy.yml`.
-2. Review `vite.config.ts`.
-3. Confirm `VITE_BASE_PATH` behavior is unchanged.
-4. Push to `main` only when local test, build, and lint pass.
-
-Expected result:
-
-- GitHub Actions remains the deployment path.
-- Unit 5 tests do not query the live site.
-
-## Cleanup
-
-Stop local dev or preview servers with `Ctrl+C` in the terminal where they are running.
+Stop a local dev or preview server with `Ctrl+C` in the terminal where it is running.

@@ -13,26 +13,24 @@ export const portfolioTemplateOptions = {
     description:
       "A structured portfolio for technical projects, problem-solving, and the tools you are learning.",
   },
-  neutral: {
-    id: "neutral",
-    label: "Neutral",
-    description:
-      "A relaxed learning journal for projects, reflections, and the things you are exploring.",
-  },
   business: {
     id: "business",
     label: "Business",
     description:
-      "An organized student showcase for projects, activities, and skills you are building.",
+      "An editorial casebook for experience, evidence, and selected work.",
   },
   artistic: {
     id: "artistic",
     label: "Artistic",
-    description:
-      "A creative notebook for interests, schoolwork, activities, and ideas still taking shape.",
+    description: "A curated gallery for work, learning, images, and writing.",
   },
 } satisfies Record<PortfolioTemplateId, PortfolioTemplateOption>;
 
-export const portfolioTemplateOptionList = Object.values(
-  portfolioTemplateOptions,
+export const selectablePortfolioTemplateIds = [
+  "engineering",
+  "business",
+] as const satisfies readonly PortfolioTemplateId[];
+
+export const portfolioTemplateOptionList = selectablePortfolioTemplateIds.map(
+  (templateId) => portfolioTemplateOptions[templateId],
 );

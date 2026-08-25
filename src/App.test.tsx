@@ -10,8 +10,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import App, { PortfolioApp } from "./App";
 import { Provider } from "./components/ui/provider";
 import {
-  artisticContent,
   journalPosts,
+  hero,
   navigation,
   profile,
   projects,
@@ -21,7 +21,6 @@ import { selectedTemplateId } from "./data/template";
 import { artisticTemplate } from "./templates/artistic";
 import { businessTemplate } from "./templates/business";
 import { engineeringTemplate } from "./templates/engineering";
-import { neutralTemplate } from "./templates/neutral";
 import type { PortfolioTemplate, PortfolioTemplateId } from "./templates/types";
 import { PORTFOLIO_TEMPLATE_STORAGE_KEY } from "./utils/templateSelection";
 
@@ -44,13 +43,6 @@ const activeTemplateControls: ActiveTemplateControls = {
     theme: "navbar-theme-toggle",
     menu: "navbar-menu-toggle",
     projectLink: "navbar-mobile-link-projects",
-  },
-  neutral: {
-    primaryAction: "neutral-hero-primary-action",
-    resume: "neutral-hero-resume-download",
-    layout: "neutral-layout-toggle",
-    theme: "neutral-theme-toggle",
-    projectLink: "neutral-nav-link-projects",
   },
   business: {
     primaryAction: "business-hero-primary-action",
@@ -85,7 +77,6 @@ const renderTemplate = (template: PortfolioTemplate) =>
 
 const templateSelectorPrefixes: Record<PortfolioTemplateId, string> = {
   engineering: "navbar",
-  neutral: "neutral",
   business: "business",
   artistic: "artistic",
 };
@@ -319,13 +310,6 @@ describe("App smoke render", () => {
       "navbar",
     ],
     [
-      "neutral",
-      neutralTemplate,
-      "neutral-layout-toggle",
-      "neutral-theme-toggle",
-      "neutral",
-    ],
-    [
       "business",
       businessTemplate,
       "business-layout-toggle",
@@ -361,12 +345,7 @@ describe("App smoke render", () => {
       fireEvent.click(
         screen.getByTestId(`${selectorPrefix}-style-selector-trigger`),
       );
-      for (const supportedTemplate of [
-        "engineering",
-        "neutral",
-        "business",
-        "artistic",
-      ] as const) {
+      for (const supportedTemplate of ["engineering", "business"] as const) {
         const option = await screen.findByTestId(
           `${selectorPrefix}-style-selector-option-${supportedTemplate}`,
         );
@@ -376,6 +355,11 @@ describe("App smoke render", () => {
           supportedTemplate === templateId ? "true" : "false",
         );
       }
+      expect(
+        screen.queryByTestId(
+          `${selectorPrefix}-style-selector-option-artistic`,
+        ),
+      ).not.toBeInTheDocument();
       for (const copy of Object.values(sectionContent)) {
         expect(screen.getByText(copy.description)).toBeInTheDocument();
       }
@@ -384,7 +368,6 @@ describe("App smoke render", () => {
 
   it.each([
     [engineeringTemplate, "hero-resume-download"],
-    [neutralTemplate, "neutral-hero-resume-download"],
     [businessTemplate, "business-hero-resume-download"],
     [artisticTemplate, "artistic-hero-resume-download"],
   ] as const)(
@@ -398,45 +381,17 @@ describe("App smoke render", () => {
     },
   );
 
-  it("composes Neutral as a full-width learning journal instead of a side-rail layout", () => {
-    renderTemplate(neutralTemplate);
-
-    expect(
-      document.querySelector(".neutral-magazine-masthead"),
-    ).toBeInTheDocument();
-    expect(
-      document.querySelector(".neutral-side-rail"),
-    ).not.toBeInTheDocument();
-    expect(
-      document.querySelector(
-        'nav[aria-label="Neutral learning journal contents"]',
-      ),
-    ).toBeInTheDocument();
-    expect(screen.getByTestId("neutral-nav-link-projects")).toBeInTheDocument();
-    expect(screen.getByText("Student journal / Hello")).toBeInTheDocument();
-    expect(screen.getByText("Projects / Things I made")).toBeInTheDocument();
-
-    const portrait = screen.getByTestId("neutral-profile-portrait");
-    expect(portrait).toHaveClass("neutral-profile-portrait");
-    expect(
-      portrait.querySelector(`img[alt="${profile.name} portrait"]`),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByTestId("neutral-hero-primary-action"),
-    ).toBeInTheDocument();
-  });
-
-  it("composes Business as a student showcase with sticky contents", () => {
+  it("composes Business as an editorial casebook with sticky contents", () => {
     renderTemplate(businessTemplate);
 
     expect(
-      document.querySelector(".business-report-header"),
+      document.querySelector(".business-casebook-header"),
     ).toBeInTheDocument();
     expect(
-      document.querySelector(".business-contents-rail"),
+      document.querySelector(".business-casebook-rail"),
     ).toBeInTheDocument();
     expect(
-      document.querySelector(".business-report-document"),
+      document.querySelector(".business-casebook-document"),
     ).toBeInTheDocument();
     expect(
       document.querySelector('nav[aria-label="Business showcase contents"]'),
@@ -444,32 +399,40 @@ describe("App smoke render", () => {
     expect(
       screen.getByTestId("business-contents-link-projects"),
     ).toBeInTheDocument();
-    expect(screen.getByText("Student project showcase")).toBeInTheDocument();
-    expect(screen.getByText("Project collection")).toBeInTheDocument();
+    expect(screen.getByText("Editorial casebook")).toBeInTheDocument();
+    expect(
+      screen.getByText(sectionContent.projects.eyebrow),
+    ).toBeInTheDocument();
     expect(screen.queryByText("Executive brief")).not.toBeInTheDocument();
     expect(screen.queryByText("Reviewed evidence")).not.toBeInTheDocument();
   });
 
-  it("composes Artistic as an honest creative notebook with real media and student content", () => {
+  it("composes Artistic as a shared-content curated gallery", () => {
     renderTemplate(artisticTemplate);
 
     expect(
-      document.querySelector(".artistic-notebook-header"),
+      document.querySelector(".artistic-gallery-header"),
     ).toBeInTheDocument();
     expect(screen.getByTestId("artistic-hero-collage")).toBeInTheDocument();
-    expect(screen.getAllByText("Creative notebook").length).toBeGreaterThan(0);
+    expect(screen.getByText("Portfolio gallery")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: hero.headline,
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(hero.intro)).toBeInTheDocument();
 
-    for (const groupId of ["interests", "learning", "hobbies", "goals"]) {
+    for (const sectionId of enabledNavigationItems.map((item) => item.id)) {
       expect(
-        screen.getByTestId(`artistic-about-group-${groupId}`),
+        document.querySelector(`[data-presentation="artistic-${sectionId}"]`),
       ).toBeInTheDocument();
     }
 
-    for (const [index, activity] of artisticContent.activities.entries()) {
-      const activityRow = screen.getByTestId(`artistic-activity-${index}`);
-      expect(activityRow).toHaveTextContent(activity.title);
-      expect(activityRow).toHaveTextContent(activity.organization);
-    }
+    expect(
+      screen.queryByText("Learning in public, making things with care."),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText("Things I notice")).not.toBeInTheDocument();
+    expect(screen.queryByText("What I am learning")).not.toBeInTheDocument();
 
     for (const project of projects) {
       const projectSheet = screen.getByTestId(`artistic-project-${project.id}`);
@@ -485,7 +448,6 @@ describe("App smoke render", () => {
   });
 
   it.each([
-    ["neutral", neutralTemplate],
     ["business", businessTemplate],
     ["artistic", artisticTemplate],
   ] as const)(
@@ -518,7 +480,6 @@ describe("App smoke render", () => {
 
   it.each([
     ["engineering", engineeringTemplate, "navbar-layout-toggle"],
-    ["neutral", neutralTemplate, "neutral-layout-toggle"],
     ["business", businessTemplate, "business-layout-toggle"],
     ["artistic", artisticTemplate, "artistic-layout-toggle"],
   ] as const)(
@@ -542,7 +503,6 @@ describe("App smoke render", () => {
 
   it.each([
     ["engineering", engineeringTemplate, "navbar-link-journal"],
-    ["neutral", neutralTemplate, "neutral-nav-link-journal"],
     ["business", businessTemplate, "business-contents-link-journal"],
     ["artistic", artisticTemplate, "artistic-nav-link-journal"],
   ] as const)(
@@ -579,31 +539,19 @@ describe("App smoke render", () => {
     ).toBeNull();
   });
 
-  it("switches immediately among all four portfolio styles and persists the latest choice", async () => {
+  it("switches immediately between both visible portfolio styles and persists the latest choice", async () => {
     renderPortfolio();
 
-    await selectPortfolioStyle("engineering", "neutral");
-    expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
-      "data-template-id",
-      "neutral",
-    );
-    expect(window.localStorage.getItem(PORTFOLIO_TEMPLATE_STORAGE_KEY)).toBe(
-      "neutral",
-    );
-
-    await selectPortfolioStyle("neutral", "business");
+    await selectPortfolioStyle("engineering", "business");
     expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
       "data-template-id",
       "business",
     );
-
-    await selectPortfolioStyle("business", "artistic");
-    expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
-      "data-template-id",
-      "artistic",
+    expect(window.localStorage.getItem(PORTFOLIO_TEMPLATE_STORAGE_KEY)).toBe(
+      "business",
     );
 
-    await selectPortfolioStyle("artistic", "engineering");
+    await selectPortfolioStyle("business", "engineering");
     expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
       "data-template-id",
       "engineering",
@@ -638,18 +586,27 @@ describe("App smoke render", () => {
     );
   });
 
+  it("falls back to Engineering when a saved style is the removed Neutral option", () => {
+    window.localStorage.setItem(PORTFOLIO_TEMPLATE_STORAGE_KEY, "neutral");
+
+    renderPortfolio();
+
+    expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
+      "data-template-id",
+      "engineering",
+    );
+  });
+
   it("preserves a multi-page section route and layout while changing styles", async () => {
     window.history.pushState(null, "", "#/projects");
 
     renderPortfolio();
-    await selectPortfolioStyle("engineering", "neutral");
-    await selectPortfolioStyle("neutral", "business");
-    await selectPortfolioStyle("business", "artistic");
+    await selectPortfolioStyle("engineering", "business");
 
     expect(window.location.hash).toBe("#/projects");
     expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
       "data-template-id",
-      "artistic",
+      "business",
     );
     expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
       "data-layout-mode",
@@ -662,14 +619,12 @@ describe("App smoke render", () => {
     window.history.pushState(null, "", journalPosts[0].href);
 
     renderPortfolio();
-    await selectPortfolioStyle("engineering", "neutral");
-    await selectPortfolioStyle("neutral", "business");
-    await selectPortfolioStyle("business", "artistic");
+    await selectPortfolioStyle("engineering", "business");
 
     expect(window.location.hash).toBe(journalPosts[0].href);
     expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
       "data-template-id",
-      "artistic",
+      "business",
     );
     expect(screen.getByTestId("journal-post-page")).toBeInTheDocument();
   });
@@ -695,11 +650,11 @@ describe("App smoke render", () => {
 
     fireEvent.click(await screen.findByTestId("navbar-theme-toggle"));
     await waitFor(() => expect(document.documentElement).toHaveClass("dark"));
-    await selectPortfolioStyle("engineering", "neutral");
+    await selectPortfolioStyle("engineering", "business");
 
     expect(document.documentElement).toHaveClass("dark");
     expect(
-      await screen.findByTestId("neutral-theme-toggle"),
+      await screen.findByTestId("business-theme-toggle"),
     ).toBeInTheDocument();
   });
 });

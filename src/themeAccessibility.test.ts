@@ -6,6 +6,14 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 const appStyles = readFileSync(resolve(process.cwd(), "src/App.css"), "utf8");
+const businessStyles = readFileSync(
+  resolve(process.cwd(), "src/templates/business/business.css"),
+  "utf8",
+);
+const artisticStyles = readFileSync(
+  resolve(process.cwd(), "src/templates/artistic/artistic.css"),
+  "utf8",
+);
 const indexStyles = readFileSync(
   resolve(process.cwd(), "src/index.css"),
   "utf8",
@@ -64,10 +72,10 @@ const contrastRatio = (foreground: string, background: string): number => {
 const themeScopes = [
   ["Engineering dark", indexStyles, ":root"],
   ["Engineering light", indexStyles, ".light"],
-  ["Neutral dark", appStyles, ".portfolio-template-neutral"],
-  ["Neutral light", appStyles, ".light .portfolio-template-neutral"],
-  ["Business dark", appStyles, ".portfolio-template-business"],
-  ["Business light", appStyles, ".light .portfolio-template-business"],
+  ["Business dark", businessStyles, ".portfolio-template-business"],
+  ["Business light", businessStyles, ".light .portfolio-template-business"],
+  ["Artistic dark", artisticStyles, ".portfolio-template-artistic"],
+  ["Artistic light", artisticStyles, ".light .portfolio-template-artistic"],
 ] as const;
 
 describe("portfolio theme accessibility safeguards", () => {
@@ -78,19 +86,33 @@ describe("portfolio theme accessibility safeguards", () => {
       const background = getHexToken(block, "bg-900");
       const primaryText = getHexToken(block, "primary-text");
 
-      expect(contrastRatio(getHexToken(block, "text-300"), background)).toBeGreaterThanOrEqual(4.5);
-      expect(contrastRatio(getHexToken(block, "accent-300"), background)).toBeGreaterThanOrEqual(4.5);
-      expect(contrastRatio(primaryText, getHexToken(block, "primary-bg"))).toBeGreaterThanOrEqual(4.5);
-      expect(contrastRatio(primaryText, getHexToken(block, "primary-hover-bg"))).toBeGreaterThanOrEqual(4.5);
+      expect(
+        contrastRatio(getHexToken(block, "text-300"), background),
+      ).toBeGreaterThanOrEqual(4.5);
+      expect(
+        contrastRatio(getHexToken(block, "accent-300"), background),
+      ).toBeGreaterThanOrEqual(4.5);
+      expect(
+        contrastRatio(primaryText, getHexToken(block, "primary-bg")),
+      ).toBeGreaterThanOrEqual(4.5);
+      expect(
+        contrastRatio(primaryText, getHexToken(block, "primary-hover-bg")),
+      ).toBeGreaterThanOrEqual(4.5);
     },
   );
 
-  it("keeps compact actions and magazine navigation clear of their edges", () => {
+  it("keeps compact actions clear of their edges", () => {
     expect(appStyles).toMatch(
       /\.portfolio-action-link\s*{[^}]*min-height:\s*2\.5rem;[^}]*padding:\s*0\.5rem 1rem;/s,
     );
-    expect(appStyles).toMatch(
-      /\.neutral-magazine-nav a\s*{[^}]*min-height:\s*56px;[^}]*padding-block:\s*0\.5rem;/s,
-    );
+  });
+
+  it("keeps theme presentation selectors isolated and motion optional", () => {
+    expect(businessStyles).not.toMatch(/\.portfolio-template-artistic/);
+    expect(artisticStyles).not.toMatch(/\.portfolio-template-business/);
+    expect(businessStyles).toContain("@media (prefers-reduced-motion: reduce)");
+    expect(artisticStyles).toContain("@media (prefers-reduced-motion: reduce)");
+    expect(businessStyles).toContain("pointer-events: none");
+    expect(artisticStyles).toContain("pointer-events: none");
   });
 });

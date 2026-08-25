@@ -3,15 +3,11 @@ import { describe, expect, it } from "vitest";
 import { selectedTemplateId } from "../data/template";
 import { sectionIds } from "../data/portfolio";
 import {
-  artisticTemplate,
-  createArtisticSectionVisibility,
-  isArtisticSectionVisible,
-} from "./artistic";
-import {
   activePortfolioTemplate,
   getPortfolioTemplate,
   portfolioTemplates,
 } from "./index";
+import { portfolioTemplateOptionList } from "./options";
 import type { PortfolioTemplateId } from "./types";
 
 describe("portfolio template registry", () => {
@@ -19,13 +15,22 @@ describe("portfolio template registry", () => {
     expect(activePortfolioTemplate.id).toBe(selectedTemplateId);
   });
 
-  it("exposes exactly the four supported template ids", () => {
+  it("exposes exactly the three supported template ids", () => {
     expect(portfolioTemplates.map((template) => template.id)).toEqual([
       "engineering",
-      "neutral",
       "business",
       "artistic",
     ]);
+  });
+
+  it("keeps Artistic registered while exposing only two selector options", () => {
+    expect(portfolioTemplateOptionList.map((option) => option.id)).toEqual([
+      "engineering",
+      "business",
+    ]);
+    expect(portfolioTemplates.map((template) => template.id)).toContain(
+      "artistic",
+    );
   });
 
   it("keeps every template aligned with the portfolio section ids", () => {
@@ -66,20 +71,15 @@ describe("portfolio template registry", () => {
     ).toBe("engineering");
   });
 
-  it("keeps Artistic complete and hides only genuinely empty formal sections", () => {
-    expect(artisticTemplate.isSectionVisible).toBe(isArtisticSectionVisible);
-    expect(isArtisticSectionVisible("home")).toBe(true);
-    expect(isArtisticSectionVisible("experience")).toBe(true);
-    expect(isArtisticSectionVisible("awards")).toBe(true);
+  it("falls back to engineering for the removed neutral template id", () => {
+    expect(getPortfolioTemplate("neutral").id).toBe("engineering");
+  });
 
-    const sparseVisibility = createArtisticSectionVisibility({
-      activities: [],
-      experiences: [],
-      awards: [],
-    });
-
-    expect(sparseVisibility("home")).toBe(true);
-    expect(sparseVisibility("experience")).toBe(false);
-    expect(sparseVisibility("awards")).toBe(false);
+  it("keeps all canonical sections available in every theme", () => {
+    for (const template of portfolioTemplates) {
+      expect(
+        "isSectionVisible" in template ? template.isSectionVisible : undefined,
+      ).toBeUndefined();
+    }
   });
 });

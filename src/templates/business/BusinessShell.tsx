@@ -94,10 +94,20 @@ function BusinessShell({
       w="100%"
       className="portfolio-template portfolio-template-business business-shell"
       data-template-id="business"
+      position="relative"
+      isolation="isolate"
     >
+      <Link className="business-skip-link" href="#portfolio-main">
+        Skip to portfolio content
+      </Link>
+      <Box className="business-background" aria-hidden="true">
+        <Box className="business-background-grid" />
+        <Box className="business-background-glow business-background-glow-a" />
+        <Box className="business-background-glow business-background-glow-b" />
+      </Box>
       <Box
         as="header"
-        className="business-report-header"
+        className="business-casebook-header"
         position="sticky"
         top={0}
         zIndex={1000}
@@ -152,7 +162,7 @@ function BusinessShell({
                 {profile.name}
               </Text>
               <Text color="var(--text-300)" fontSize="xs" truncate>
-                Student showcase / {profile.role}
+                Editorial casebook / {profile.role}
               </Text>
             </Box>
           </Link>
@@ -233,7 +243,7 @@ function BusinessShell({
             >
               <Flex justify="space-between" align="center" w="100%">
                 <Box>
-                  <Text fontWeight={800}>Project showcase</Text>
+                  <Text fontWeight={800}>Casebook index</Text>
                   <Text mt={1} color="var(--text-300)" fontSize="xs">
                     {profile.name}
                   </Text>
@@ -276,7 +286,7 @@ function BusinessShell({
       </Drawer.Root>
 
       <Box
-        className="business-report-layout"
+        className="business-casebook-layout"
         display="grid"
         gridTemplateColumns={{ base: "1fr", lg: "280px minmax(0, 1fr)" }}
         maxW="1600px"
@@ -285,7 +295,7 @@ function BusinessShell({
       >
         <Box
           as="aside"
-          className="business-contents-rail"
+          className="business-casebook-rail"
           display={{ base: "none", lg: "flex" }}
           position="sticky"
           top="64px"
@@ -308,7 +318,7 @@ function BusinessShell({
               Contents
             </Text>
             <Text mt={2} color="var(--text-300)" fontSize="sm" lineHeight="1.6">
-              A clear collection of projects, classes, and things I am learning.
+              A structured record of work, study, and ongoing learning.
             </Text>
             <Box as="nav" aria-label="Business showcase contents" mt={6}>
               <VStack as="ul" align="stretch" gap={0} listStyleType="none">
@@ -335,7 +345,8 @@ function BusinessShell({
 
         <Box
           as="main"
-          className="business-report-document"
+          className="business-casebook-document"
+          id="portfolio-main"
           minW={0}
           minH="100vh"
           data-layout-mode={layoutMode}
