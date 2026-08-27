@@ -15,15 +15,12 @@ function BusinessExperience() {
     >
       <BusinessSectionHeading sectionId="experience" />
       <Box className="business-experience-index">
-        {experience.map((entry, index) => (
+        {experience.map((entry) => (
           <Box
             as="article"
             key={`${entry.company}-${entry.period}`}
             className="business-experience-entry"
           >
-            <Text className="business-experience-number">
-              {String(index + 1).padStart(2, "0")}
-            </Text>
             <Box className="business-experience-role">
               <Text as="h3">{entry.title}</Text>
               <Text>{entry.company}</Text>

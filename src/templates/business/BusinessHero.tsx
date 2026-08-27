@@ -46,8 +46,6 @@ function BusinessHero() {
             </Text>
           </Box>
           <Text color="var(--text-300)" fontSize="xs" textAlign="right">
-            Showcase 01
-            <br />
             Current edition
           </Text>
         </Flex>
@@ -165,7 +163,7 @@ function BusinessHero() {
               src={profile.profileImage}
               alt={`${profile.name} profile`}
               w="100%"
-              aspectRatio="4 / 4.4"
+              aspectRatio="4 / 3.5"
               objectFit="cover"
             />
             <Box
@@ -233,7 +231,7 @@ function BusinessHero() {
             </Text>
           </Box>
           <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }}>
-            {hero.stackHighlights.map((capability, index) => (
+            {hero.stackHighlights.map((capability) => (
               <Flex
                 key={capability}
                 gap={3}
@@ -242,9 +240,6 @@ function BusinessHero() {
                 borderBottom={{ base: "1px solid", md: "0" }}
                 borderColor="var(--line-700)"
               >
-                <Text color="var(--accent-300)" fontSize="xs">
-                  {String(index + 1).padStart(2, "0")}
-                </Text>
                 <Text color="var(--text-100)" fontSize="sm" fontWeight={700}>
                   {capability}
                 </Text>
@@ -258,18 +253,15 @@ function BusinessHero() {
           columns={{ base: 1, sm: 3 }}
           mt={8}
         >
-          {hero.stats.map((stat, index) => (
+          {hero.stats.map((stat) => (
             <Box key={stat.label} py={5} px={{ base: 0, sm: 5 }}>
-              <Flex justify="space-between" gap={4}>
+              <Flex gap={4}>
                 <Text
                   color="var(--text-300)"
                   fontSize="xs"
                   textTransform="uppercase"
                 >
                   {stat.label}
-                </Text>
-                <Text color="var(--accent-300)" fontSize="xs">
-                  {String(index + 1).padStart(2, "0")}
                 </Text>
               </Flex>
               <Text

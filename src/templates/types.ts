@@ -3,7 +3,7 @@ import type { ComponentType, ReactNode } from "react";
 import type { LayoutMode } from "../hooks/usePortfolioLayout";
 import type { NavigationItem, SectionId } from "../types/portfolio";
 
-export type PortfolioTemplateId = "engineering" | "business" | "artistic";
+export type PortfolioTemplateId = "engineering" | "business";
 
 export type JournalPostPageProps = {
   slug: string;

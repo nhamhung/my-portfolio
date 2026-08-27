@@ -35,13 +35,6 @@ function BusinessDetailList({
             aria-label={detail}
             data-testid={`${testIdPrefix}-detail-${index}`}
           >
-            <Text
-              as="span"
-              className="business-detail-index"
-              aria-hidden="true"
-            >
-              {String(index + 1).padStart(2, "0")}
-            </Text>
             <Text as="span" className="business-detail-copy">
               {label ? (
                 <Text as="strong" className="business-detail-label">

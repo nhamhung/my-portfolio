@@ -11,14 +11,12 @@ import App, { PortfolioApp } from "./App";
 import { Provider } from "./components/ui/provider";
 import {
   journalPosts,
-  hero,
   navigation,
   profile,
   projects,
   sectionContent,
 } from "./data/portfolio";
 import { selectedTemplateId } from "./data/template";
-import { artisticTemplate } from "./templates/artistic";
 import { businessTemplate } from "./templates/business";
 import { engineeringTemplate } from "./templates/engineering";
 import type { PortfolioTemplate, PortfolioTemplateId } from "./templates/types";
@@ -51,14 +49,6 @@ const activeTemplateControls: ActiveTemplateControls = {
     theme: "business-theme-toggle",
     projectLink: "business-contents-link-projects",
   },
-  artistic: {
-    primaryAction: "artistic-hero-primary-action",
-    resume: "artistic-hero-resume-download",
-    layout: "artistic-layout-toggle",
-    theme: "artistic-theme-toggle",
-    menu: "artistic-menu-toggle",
-    projectLink: "artistic-mobile-link-projects",
-  },
 }[selectedTemplateId];
 
 const renderPortfolio = () =>
@@ -78,7 +68,6 @@ const renderTemplate = (template: PortfolioTemplate) =>
 const templateSelectorPrefixes: Record<PortfolioTemplateId, string> = {
   engineering: "navbar",
   business: "business",
-  artistic: "artistic",
 };
 
 const selectPortfolioStyle = async (
@@ -316,13 +305,6 @@ describe("App smoke render", () => {
       "business-theme-toggle",
       "business",
     ],
-    [
-      "artistic",
-      artisticTemplate,
-      "artistic-layout-toggle",
-      "artistic-theme-toggle",
-      "artistic",
-    ],
   ] as const)(
     "composes the %s template through the shared App boundary",
     async (
@@ -355,11 +337,6 @@ describe("App smoke render", () => {
           supportedTemplate === templateId ? "true" : "false",
         );
       }
-      expect(
-        screen.queryByTestId(
-          `${selectorPrefix}-style-selector-option-artistic`,
-        ),
-      ).not.toBeInTheDocument();
       for (const copy of Object.values(sectionContent)) {
         expect(screen.getByText(copy.description)).toBeInTheDocument();
       }
@@ -369,7 +346,6 @@ describe("App smoke render", () => {
   it.each([
     [engineeringTemplate, "hero-resume-download"],
     [businessTemplate, "business-hero-resume-download"],
-    [artisticTemplate, "artistic-hero-resume-download"],
   ] as const)(
     "keeps shared external actions clear of their borders",
     (template, resumeActionId) => {
@@ -407,50 +383,7 @@ describe("App smoke render", () => {
     expect(screen.queryByText("Reviewed evidence")).not.toBeInTheDocument();
   });
 
-  it("composes Artistic as a shared-content curated gallery", () => {
-    renderTemplate(artisticTemplate);
-
-    expect(
-      document.querySelector(".artistic-gallery-header"),
-    ).toBeInTheDocument();
-    expect(screen.getByTestId("artistic-hero-collage")).toBeInTheDocument();
-    expect(screen.getByText("Portfolio gallery")).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", {
-        name: hero.headline,
-      }),
-    ).toBeInTheDocument();
-    expect(screen.getByText(hero.intro)).toBeInTheDocument();
-
-    for (const sectionId of enabledNavigationItems.map((item) => item.id)) {
-      expect(
-        document.querySelector(`[data-presentation="artistic-${sectionId}"]`),
-      ).toBeInTheDocument();
-    }
-
-    expect(
-      screen.queryByText("Learning in public, making things with care."),
-    ).not.toBeInTheDocument();
-    expect(screen.queryByText("Things I notice")).not.toBeInTheDocument();
-    expect(screen.queryByText("What I am learning")).not.toBeInTheDocument();
-
-    for (const project of projects) {
-      const projectSheet = screen.getByTestId(`artistic-project-${project.id}`);
-      expect(projectSheet).toBeInTheDocument();
-      expect(
-        projectSheet.querySelector(`img[alt="${project.imageAlt}"]`),
-      ).toHaveAttribute("src", project.image);
-    }
-
-    expect(
-      screen.queryByText(/chief executive officer/i),
-    ).not.toBeInTheDocument();
-  });
-
-  it.each([
-    ["business", businessTemplate],
-    ["artistic", artisticTemplate],
-  ] as const)(
+  it.each([["business", businessTemplate]] as const)(
     "uses project-owned covers throughout the %s presentation",
     (_templateId, template) => {
       renderTemplate(template);
@@ -468,7 +401,7 @@ describe("App smoke render", () => {
     },
   );
 
-  it("gives every Business case label explicit mobile clearance", () => {
+  it("gives every Business project card explicit mobile clearance", () => {
     renderTemplate(businessTemplate);
 
     for (const project of projects) {
@@ -481,7 +414,6 @@ describe("App smoke render", () => {
   it.each([
     ["engineering", engineeringTemplate, "navbar-layout-toggle"],
     ["business", businessTemplate, "business-layout-toggle"],
-    ["artistic", artisticTemplate, "artistic-layout-toggle"],
   ] as const)(
     "keeps the %s template compatible with both layout modes",
     (_templateId, template, layoutToggleId) => {
@@ -504,7 +436,6 @@ describe("App smoke render", () => {
   it.each([
     ["engineering", engineeringTemplate, "navbar-link-journal"],
     ["business", businessTemplate, "business-contents-link-journal"],
-    ["artistic", artisticTemplate, "artistic-nav-link-journal"],
   ] as const)(
     "keeps the %s shell and journal context for local journal routes",
     (templateId, template, journalLinkId) => {
@@ -562,17 +493,17 @@ describe("App smoke render", () => {
   });
 
   it("restores a valid saved style instead of the source default", () => {
-    window.localStorage.setItem(PORTFOLIO_TEMPLATE_STORAGE_KEY, "artistic");
+    window.localStorage.setItem(PORTFOLIO_TEMPLATE_STORAGE_KEY, "business");
 
     renderPortfolio();
 
     expect(screen.getByTestId("portfolio-main")).toHaveAttribute(
       "data-template-id",
-      "artistic",
+      "business",
     );
     expect(
-      screen.getByTestId("artistic-style-selector-trigger"),
-    ).toHaveAccessibleName("Portfolio style: Artistic");
+      screen.getByTestId("business-style-selector-trigger"),
+    ).toHaveAccessibleName("Portfolio style: Business");
   });
 
   it("falls back to Engineering when a saved style is invalid", () => {

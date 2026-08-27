@@ -23,7 +23,7 @@ function BusinessGallery() {
     >
       <BusinessSectionHeading sectionId="gallery" />
       <Box className="business-gallery-grid">
-        {gallery.map((image, index) => (
+        {gallery.map((image) => (
           <button
             type="button"
             key={image.id}
@@ -35,7 +35,6 @@ function BusinessGallery() {
           >
             <Box className="business-gallery-image-wrap">
               <Image src={image.src} alt={image.alt} />
-              <Text>{String(index + 1).padStart(2, "0")}</Text>
             </Box>
             <Text as="h3">{image.title}</Text>
             <Text>{image.description}</Text>

@@ -13,7 +13,7 @@ describe("template selection persistence", () => {
     ["engineering", true],
     ["neutral", false],
     ["business", true],
-    ["artistic", true],
+    ["gallery", false],
     [null, false],
     [undefined, false],
   ])("validates %j as a supported template id", (value, expected) => {
@@ -23,7 +23,9 @@ describe("template selection persistence", () => {
   it("uses the source default when no visitor choice exists", () => {
     const storage = { getItem: vi.fn(() => null) };
 
-    expect(getInitialPortfolioTemplateId("artistic", storage)).toBe("artistic");
+    expect(getInitialPortfolioTemplateId("engineering", storage)).toBe(
+      "engineering",
+    );
     expect(storage.getItem).toHaveBeenCalledWith(
       PORTFOLIO_TEMPLATE_STORAGE_KEY,
     );
@@ -81,13 +83,5 @@ describe("template selection persistence", () => {
         },
       }),
     ).not.toThrow();
-
-    expect(() =>
-      persistPortfolioTemplateId("artistic", { setItem }),
-    ).not.toThrow();
-    expect(setItem).toHaveBeenLastCalledWith(
-      PORTFOLIO_TEMPLATE_STORAGE_KEY,
-      "artistic",
-    );
   });
 });

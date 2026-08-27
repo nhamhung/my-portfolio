@@ -21,7 +21,7 @@ const getBrowserStorage = (): TemplateSelectionStorage | undefined => {
 export const isPortfolioTemplateId = (
   value: unknown,
 ): value is PortfolioTemplateId =>
-  value === "engineering" || value === "business" || value === "artistic";
+  value === "engineering" || value === "business";
 
 export const getInitialPortfolioTemplateId = (
   defaultTemplateId: PortfolioTemplateId,

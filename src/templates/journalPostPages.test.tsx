@@ -4,13 +4,11 @@ import { afterEach, describe, expect, it } from "vitest";
 import { Provider } from "../components/ui/provider";
 import { journalPosts } from "../data/portfolio";
 import BusinessJournalPostPage from "./business/BusinessJournalPostPage";
-import ArtisticJournalPostPage from "./artistic/ArtisticJournalPostPage";
 
 afterEach(() => cleanup());
 
 const themes = [
   ["Business", BusinessJournalPostPage, "business-journal-post"],
-  ["Artistic", ArtisticJournalPostPage, "artistic-journal-post"],
 ] as const;
 
 describe.each(themes)("%s journal publication", (_name, JournalPage, seam) => {

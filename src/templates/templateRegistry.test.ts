@@ -15,21 +15,20 @@ describe("portfolio template registry", () => {
     expect(activePortfolioTemplate.id).toBe(selectedTemplateId);
   });
 
-  it("exposes exactly the three supported template ids", () => {
+  it("exposes exactly the two supported template ids", () => {
     expect(portfolioTemplates.map((template) => template.id)).toEqual([
       "engineering",
       "business",
-      "artistic",
     ]);
   });
 
-  it("keeps Artistic registered while exposing only two selector options", () => {
+  it("keeps registry and selector options aligned", () => {
     expect(portfolioTemplateOptionList.map((option) => option.id)).toEqual([
       "engineering",
       "business",
     ]);
-    expect(portfolioTemplates.map((template) => template.id)).toContain(
-      "artistic",
+    expect(portfolioTemplates.map((template) => template.id)).toEqual(
+      portfolioTemplateOptionList.map((option) => option.id),
     );
   });
 

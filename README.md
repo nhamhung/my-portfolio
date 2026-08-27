@@ -145,15 +145,13 @@ Visitors can currently switch between two styles using the **Portfolio style** b
 
 Both visible styles use the same profile, education, experience, awards, projects, gallery, writing, skills, and contact content. You do not maintain separate copies of your information for Business.
 
-The Artistic style is temporarily hidden from this menu, but its components and styling are still preserved in the project. Its selector availability is controlled by `selectablePortfolioTemplateIds` in `src/templates/options.ts`.
-
 To choose the style shown to a first-time visitor, edit `src/data/template.ts`:
 
 ```ts
 export const selectedTemplateId = "engineering";
 ```
 
-While Artistic is hidden from the menu, use `"engineering"` or `"business"` for the normal visitor experience.
+Use `"engineering"` or `"business"` for the visitor experience.
 
 A visitor's saved choice overrides this initial value. To test the initial value again, clear the site's browser data or run this in the browser console:
 

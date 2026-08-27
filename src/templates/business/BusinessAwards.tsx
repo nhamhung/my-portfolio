@@ -14,15 +14,12 @@ function BusinessAwards() {
     >
       <BusinessSectionHeading sectionId="awards" />
       <Box className="business-awards-table">
-        {awards.map((award, index) => (
+        {awards.map((award) => (
           <Box
             as="article"
             key={`${award.title}-${award.year}`}
             className="business-award-row"
           >
-            <Text className="business-award-index">
-              A{String(index + 1).padStart(2, "0")}
-            </Text>
             {award.logo ? (
               <Image src={award.logo} alt="" className="business-award-mark" />
             ) : null}

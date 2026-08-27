@@ -28,15 +28,7 @@ function BusinessAbout() {
           borderColor="var(--text-100)"
         >
           <Box>
-            <Text
-              color="var(--accent-300)"
-              fontSize="xs"
-              fontWeight={800}
-              textTransform="uppercase"
-            >
-              Chapter 02
-            </Text>
-            <Text mt={2} color="var(--text-300)" fontSize="sm">
+            <Text color="var(--text-300)" fontSize="sm">
               {sectionContent.about.eyebrow}
             </Text>
           </Box>
@@ -75,19 +67,16 @@ function BusinessAbout() {
             >
               {sectionContent.about.description}
             </Text>
-            {about.paragraphs.map((paragraph, index) => (
+            {about.paragraphs.map((paragraph) => (
               <Box
                 key={paragraph}
                 display="grid"
-                gridTemplateColumns={{ base: "1fr", sm: "44px minmax(0, 1fr)" }}
+                gridTemplateColumns="minmax(0, 1fr)"
                 gap={4}
                 py={7}
                 borderBottom="1px solid"
                 borderColor="var(--line-700)"
               >
-                <Text color="var(--accent-300)" fontSize="xs">
-                  {String(index + 1).padStart(2, "0")}
-                </Text>
                 <Text
                   color="var(--text-300)"
                   lineHeight="1.95"
@@ -105,7 +94,6 @@ function BusinessAbout() {
             borderColor="var(--accent-500)"
           >
             <Flex
-              justify="space-between"
               gap={5}
               py={4}
               borderBottom="1px solid"
@@ -114,23 +102,17 @@ function BusinessAbout() {
               <Text color="var(--text-100)" fontWeight={800}>
                 Skills I am practising
               </Text>
-              <Text color="var(--text-300)" fontSize="xs">
-                No.
-              </Text>
             </Flex>
-            {hero.stackHighlights.map((capability, index) => (
+            {hero.stackHighlights.map((capability) => (
               <Box
                 key={capability}
                 display="grid"
-                gridTemplateColumns="38px minmax(0, 1fr)"
+                gridTemplateColumns="minmax(0, 1fr)"
                 gap={3}
                 py={4}
                 borderBottom="1px solid"
                 borderColor="var(--line-700)"
               >
-                <Text color="var(--accent-300)" fontSize="xs">
-                  {String(index + 1).padStart(2, "0")}
-                </Text>
                 <Text color="var(--text-100)" fontSize="sm" fontWeight={700}>
                   {capability}
                 </Text>
@@ -147,23 +129,20 @@ function BusinessAbout() {
           borderBottom="1px solid"
           borderColor="var(--line-700)"
         >
-          {about.metrics.map((metric, index) => (
+          {about.metrics.map((metric) => (
             <Box
               key={metric.label}
               py={7}
               px={{ base: 0, md: 6 }}
               className="business-outcome-cell"
             >
-              <Flex justify="space-between" gap={4}>
+              <Flex gap={4}>
                 <Text
                   color="var(--text-300)"
                   fontSize="xs"
                   textTransform="uppercase"
                 >
                   {metric.label}
-                </Text>
-                <Text color="var(--accent-300)" fontSize="xs">
-                  O{index + 1}
                 </Text>
               </Flex>
               <Text

@@ -32,15 +32,7 @@ function BusinessProjects() {
           borderColor="var(--text-100)"
         >
           <Box>
-            <Text
-              color="var(--accent-300)"
-              fontSize="xs"
-              fontWeight={800}
-              textTransform="uppercase"
-            >
-              Chapter 06
-            </Text>
-            <Text mt={2} color="var(--text-300)" fontSize="sm">
+            <Text color="var(--text-300)" fontSize="sm">
               {sectionContent.projects.eyebrow}
             </Text>
           </Box>
@@ -69,37 +61,22 @@ function BusinessProjects() {
           borderTop="1px solid"
           borderColor="var(--line-700)"
         >
-          {projects.map((project, index) => {
+          {projects.map((project) => {
             return (
               <Box
                 key={project.id}
                 className="business-case-file"
+                data-inline-clearance="16px"
+                data-testid={`business-case-label-${project.id}`}
                 display="grid"
                 gridTemplateColumns={{
                   base: "1fr",
-                  md: "90px minmax(0, 1fr)",
-                  xl: "90px minmax(0, 1fr) minmax(280px, 0.64fr)",
+                  md: "minmax(0, 1fr)",
+                  xl: "minmax(0, 1fr) minmax(280px, 0.64fr)",
                 }}
                 borderBottom="1px solid"
                 borderColor="var(--line-700)"
               >
-                <Box
-                  py={{ base: 5, md: 8 }}
-                  px={{ base: 4, md: 3 }}
-                  data-inline-clearance="16px"
-                  data-testid={`business-case-label-${project.id}`}
-                >
-                  <Text
-                    color="var(--accent-300)"
-                    fontSize="xs"
-                    fontWeight={800}
-                  >
-                    CASE
-                    <br />
-                    {String(index + 1).padStart(2, "0")}
-                  </Text>
-                </Box>
-
                 <VStack
                   align="stretch"
                   gap={6}
@@ -107,7 +84,6 @@ function BusinessProjects() {
                   py={{ base: 0, md: 8 }}
                   px={{ base: 0, md: 7 }}
                   pb={{ base: 8, md: 8 }}
-                  borderLeft={{ base: "0", md: "1px solid" }}
                   borderRight={{ base: "0", xl: "1px solid" }}
                   borderColor="var(--line-700)"
                 >
@@ -219,8 +195,7 @@ function BusinessProjects() {
                     objectFit="cover"
                   />
                   <Text mt={3} color="var(--text-300)" fontSize="xs">
-                    Project cover {String(index + 1).padStart(2, "0")} /{" "}
-                    {project.title}
+                    Project image / {project.title}
                   </Text>
                 </Box>
               </Box>

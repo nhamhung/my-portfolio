@@ -35,7 +35,7 @@ function BusinessJournal() {
         <Text as="h3">{subsectionContent.journal.videosTitle}</Text>
       </Box>
       <Box className="business-journal-lead">
-        {videos.map((video, index) => (
+        {videos.map((video) => (
           <Box
             as="article"
             key={video.id}
@@ -51,9 +51,6 @@ function BusinessJournal() {
               />
             </Box>
             <Box className="business-video-body">
-              <Text className="business-video-number">
-                Film {String(index + 1).padStart(2, "0")}
-              </Text>
               <Text as="h3">{video.title}</Text>
               <Text
                 className="business-inline-detail business-video-description"
@@ -85,9 +82,6 @@ function BusinessJournal() {
         {writing.map((post, index) => (
           <Box as="article" key={post.href} className="business-writing-entry">
             <Image src={post.image} alt={post.imageAlt} />
-            <Text className="business-writing-number">
-              {String(index + 1).padStart(2, "0")}
-            </Text>
             <Box className="business-writing-copy">
               <Text as="h3">{post.title}</Text>
               <Box

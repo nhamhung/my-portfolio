@@ -8422,3 +8422,543 @@ Error: Failed to load native binding
 **Context**: OPERATIONS - Placeholder Acknowledged / Workflow Complete
 
 ---
+
+## Business Youthful Color Refresh - Workspace Detection
+
+**Timestamp**: 2026-08-25T09:08:43Z
+**User Input**: "for business theme, please change the color to be more youthful, modern and sleek, similar to engineering"
+**AI Response**: "Started a new AI-DLC workflow and displayed the complete welcome message. Detected the existing brownfield React/Vite static portfolio with npm, TypeScript, Vite, Vitest, isolated Business theme styling, existing reverse-engineering artifacts, and a completed prior redesign summary. The requested palette-only change does not alter the documented application architecture, so the existing reverse-engineering context remains suitable when supplemented by the current Business CSS, shell, accessibility tests, and code-generation summary. Proceeding automatically to focused Requirements Analysis."
+**Context**: INCEPTION - Workspace Detection Complete
+
+---
+
+## Business Youthful Color Refresh - Requirements Questions
+
+**Timestamp**: 2026-08-25T09:10:14Z
+**User Input**: "N/A"
+**AI Response**: "Created five validated requirement questions covering the new palette direction, full or partial recoloring scope, Engineering similarity boundary, Security Baseline opt-in, and Property-Based Testing opt-in. Awaiting answers in the dedicated question file before requirements generation."
+**Context**: INCEPTION - Requirements Analysis Question Gate
+
+---
+
+## Business Youthful Color Refresh - Status Question
+
+**Timestamp**: 2026-08-25T09:32:14Z
+**User Input**: "are you getting stuck?"
+**AI Response**: "Confirmed that work is not stuck; Requirements Analysis is paused at the mandatory answer gate. Explained that replying `use A/A/A/B/C` authorizes the recommended indigo, cyan, and teal palette direction, complete light/dark recoloring, distinct Business identity, and disabled optional Security and Property-Based Testing extensions."
+**Context**: INCEPTION - Requirements Analysis Question Gate
+
+---
+
+## Business Youthful Color Refresh - Exact Palette Direction
+
+**Timestamp**: 2026-08-25T09:36:04Z
+**User Input**: "skipping ai-dlc, I want to go straight to code edit and apply the following color palette to the business theme: [https://colorhunt.co/palette/3368a066a3bfc8dfdbf2efe7](https://colorhunt.co/palette/3368a066a3bfc8dfdbf2efe7)"
+**AI Response**: "The repository's mandatory AI-DLC workflow cannot be bypassed, but the exact palette resolved the open design questions. Recorded `#3368A0`, `#66A3BF`, `#C8DFDB`, and `#F2EFE7`; selected the complete light/dark Business recoloring scope; retained Engineering only as a youthful, sleek quality reference; preserved Business composition; and kept the optional Security and Property-Based Testing extensions disabled for this CSS-only change. Generated minimal requirements and returned to the required approval gate."
+**Context**: INCEPTION - Requirements Analysis Answers and Direction
+
+---
+
+## Business Youthful Color Refresh - Requirements Approval Prompt
+
+**Timestamp**: 2026-08-25T09:36:04Z
+**User Input**: "N/A"
+**AI Response**: "Presented the completed minimal requirements for explicit approval. Recommended skipping User Stories and proceeding directly to Workflow Planning after approval."
+**Context**: INCEPTION - Requirements Analysis Review Gate
+
+---
+
+## Business Youthful Color Refresh - Request Reconfirmed
+
+**Timestamp**: 2026-08-25T09:56:42Z
+**User Input**: "I want to apply the following color palette to the business theme, keeping the current layout and just changing the colors where relevant: [https://colorhunt.co/palette/3368a066a3bfc8dfdbf2efe7](https://colorhunt.co/palette/3368a066a3bfc8dfdbf2efe7)"
+**AI Response**: "Resumed the active Business Youthful Color Refresh at its Requirements Analysis review gate. Confirmed that the existing minimal requirements already capture the exact four-color palette, palette-only scope, current-layout preservation, theme isolation, dark/light recoloring, and accessibility verification. Re-presented the mandatory approval gate before Workflow Planning."
+**Context**: INCEPTION - Requirements Analysis Review Gate
+
+---
+
+## Business Youthful Color Refresh - Requirements Approval and Workflow Planning Start
+
+**Timestamp**: 2026-08-25T09:58:09Z
+**User Input**: "approve and continue"
+**AI Response**: "Recorded explicit approval of the exact-palette, layout-preserving requirements; marked Requirements Analysis complete; and started focused Workflow Planning using the current reverse-engineering context and approved requirements."
+**Context**: INCEPTION - Requirements Approval / Workflow Planning Start
+
+---
+
+## Business Youthful Color Refresh - Workflow Planning Completion Prompt
+
+**Timestamp**: 2026-08-25T09:58:09Z
+**User Input**: "N/A"
+**AI Response**: "Created and validated a low-risk execution plan that skips User Stories, Application Design, Units Generation, Functional Design, NFR Requirements, NFR Design, and Infrastructure Design. Proposed executing Code Generation and Build and Test for the scoped Business CSS palette mapping, accessibility assertions, and complete regression verification. Awaiting explicit plan approval."
+**Context**: INCEPTION - Workflow Planning Review Gate
+
+---
+
+## Business Youthful Color Refresh - Workflow Planning Approval and Code Generation Planning Start
+
+**Timestamp**: 2026-08-25T10:05:45Z
+**User Input**: "approve and continue"
+**AI Response**: "Recorded explicit Workflow Planning approval, marked the focused execution plan approved, skipped the approved conditional stages, and started Code Generation Part 1 for the single Business theme color-system unit."
+**Context**: INCEPTION to CONSTRUCTION - Workflow Planning Approval / Code Generation Part 1 Start
+
+---
+
+## Business Youthful Color Refresh - Code Generation Part 1 Approval Prompt
+
+**Timestamp**: 2026-08-25T10:05:45Z
+**User Input**: "N/A"
+**AI Response**: "Created and validated a six-step code-generation plan covering focused palette regression assertions, dark and light Business token replacement, direct legacy-color cleanup, focused verification, and implementation documentation. The plan preserves every layout and cross-theme boundary and awaits explicit approval before application-code edits."
+**Context**: CONSTRUCTION - Code Generation Part 1 Review Gate
+
+---
+
+## Business Youthful Color Refresh - Code Generation Part 1 Approval
+
+**Timestamp**: 2026-08-25T10:09:02Z
+**User Input**: "approve and continue"
+**AI Response**: "Recorded explicit approval of all six code-generation steps, marked Part 1 complete, and started Part 2 with the focused palette regression assertions before changing Business CSS."
+**Context**: CONSTRUCTION - Code Generation Part 1 Approval / Part 2 Step 1
+
+---
+
+## Business Youthful Color Refresh - Code Generation Part 2 Complete
+
+**Timestamp**: 2026-08-25T10:11:38Z
+**User Input**: "N/A"
+**AI Response**: "Completed all six approved steps. Added a red-first palette regression safeguard, replaced 52 Business dark/light color-token declarations with the supplied palette and accessible derived values, removed the known legacy warm palette, and preserved all layout and cross-theme boundaries. Focused Business and accessibility verification passed 16 tests across two files; Prettier, stale-color, scoped-diff, duplicate-file, and diff-integrity checks passed. Created the implementation summary and returned to the standardized Code Generation review gate before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Youthful Color Refresh - Code Generation Completion Approval Prompt
+
+**Timestamp**: 2026-08-25T10:11:38Z
+**User Input**: "N/A"
+**AI Response**: "Presented the completed Business palette implementation for explicit review. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Youthful Color Refresh - Code Generation Review Change - Text Palette
+
+**Timestamp**: 2026-08-25T10:43:57Z
+**User Input**: "good, now use the following palette for text colors: [https://colorhunt.co/palette/524646a8a492fcf2e5ec5b38](https://colorhunt.co/palette/524646a8a492fcf2e5ec5b38)"
+**AI Response**: "Reopened Code Generation review and added BYC-09, acceptance criterion 8, and Step 7. Kept the approved blue/mint background palette intact while mapping Business text roles to `#524646`, `#A8A492`, `#FCF2E5`, `#EC5B38`, and accessible gray/orange derivatives where normal-sized text requires 4.5:1 contrast."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Change / Step 7
+
+---
+
+## Business Youthful Color Refresh - Code Generation Step 7 Complete - Text Palette
+
+**Timestamp**: 2026-08-25T10:46:52Z
+**User Input**: "N/A"
+**AI Response**: "Applied the supplied `#524646`, `#A8A492`, `#FCF2E5`, and `#EC5B38` palette to Business text roles while preserving the approved blue/mint background palette. Used exact cream, muted taupe, and dark taupe where accessible; reserved exact orange for a large dark-mode display accent; and used `#FFA083`, `#6A665C`, and `#B83D22` derivatives for normal-sized text. The text-palette safeguard failed before the update and then passed. Focused Business/accessibility tests passed 16 tests across two files; both palette scans, the legacy-color scan, Prettier, scoped diff, and diff-integrity checks passed."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 7
+
+---
+
+## Business Youthful Color Refresh - Amended Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-25T10:46:52Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after completing and verifying the Business text-palette amendment. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Youthful Color Refresh - Code Generation Review Change - Complete Theme Removal
+
+**Timestamp**: 2026-08-25T11:21:24Z
+**User Input**: "remove artistic code entirely and update docs to never mention it again"
+**AI Response**: "Reopened Code Generation review and added BYC-10, acceptance criterion 9, and Step 8. Authorized complete removal of the retired third-theme source, runtime contracts, tests, and all non-audit documentation references while preserving Engineering, Business, shared content, and safe fallback behavior. Repository governance requires the append-only audit history to remain immutable, so only audit.md may retain historical wording."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Change / Step 8
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Step 8 Complete
+
+**Timestamp**: 2026-08-25T11:28:25Z
+**User Input**: "N/A"
+**AI Response**: "Deleted all 16 retired-theme source files and removed the theme from the type union, registry, option metadata, selector icons, persistence validation, App fixtures, route tests, registry tests, and accessibility tests. Obsolete saved values now fall back to Engineering. Removed 79 obsolete workflow artifacts, rebuilt the active documentation index/state, and eliminated every source, path, public-documentation, and non-audit documentation occurrence. Preserved audit.md as the mandatory append-only exception. The complete suite passed 84 tests across nine files; ESLint, TypeScript/Vite build, Prettier, stale-reference scans, and git diff integrity passed. The existing 978.01 kB minified, 296.80 kB gzip bundle-size warning remains non-blocking."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 8
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-25T11:28:25Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after complete theme removal and documentation cleanup. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 12 Final Review-Gate Validation
+
+**Timestamp**: 2026-08-27T07:12:05Z
+**User Input**: "N/A"
+**AI Response**: "Completed final Step 12 review-gate validation. All modified source and workflow files pass Prettier; the centered email alignment and responsive centered 24rem profile record are present and regression protected; the source profile JPEG SHA-256 hash remains unchanged; no retired-theme reference exists outside the append-only audit; and git diff integrity passes. The Code Generation review gate remains active pending explicit approval."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate Validation
+
+---
+
+## Business Color and Two-Theme Refresh - Step 10 Final Review-Gate Validation
+
+**Timestamp**: 2026-08-27T02:04:41Z
+**User Input**: "N/A"
+**AI Response**: "Repeated final validation after completing Step 10 documentation. All modified source and workflow files pass Prettier; decorative-number expressions, counter-only styles, deleted WebP imports, and non-audit retired-theme references are absent; all three supplied PNGs are valid and resolved; git diff integrity passes; and the Code Generation review gate remains active pending explicit approval."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate Validation
+
+---
+
+## Business Color and Two-Theme Refresh - Interrupted Project-Image Crop Request
+
+**Timestamp**: 2026-08-27T06:04:35Z
+**User Input**: "for the 3 images, only take the left part because right now they don't fit and look quite weird"
+**AI Response**: "The turn was interrupted before any action. The following corrected request superseded physical cropping with display-only left alignment."
+**Context**: CONSTRUCTION - Interrupted Code Generation Review Change
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Review Change - Left-Aligned Project Images
+
+**Timestamp**: 2026-08-27T06:04:35Z
+**User Input**: "for the 3 images, make them left aligned (displayed the left part) because right now they don't fit and look quite weird"
+**AI Response**: "Reopened Code Generation planning and added BYC-16, acceptance criterion 15, and Step 11. Scoped the change to a left-center object position on the existing Business project-image cover frame, with byte-for-byte asset preservation and complete verification. Awaiting explicit plan approval before implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Review Change / Step 11 Planning
+
+---
+
+## Business Color and Two-Theme Refresh - Step 11 Plan Approval Prompt
+
+**Timestamp**: 2026-08-27T06:06:23Z
+**User Input**: "N/A"
+**AI Response**: "Presented the validated Step 11 plan for explicit approval. The five actions cover a focused regression safeguard, a scoped left-center object-position rule, SHA-256 proof that the three supplied PNGs remain unchanged, complete quality checks, and workflow evidence updates. No application code or image asset will change until approval is received."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 11 Approval Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 11 Plan Amendment - Left Navigation Padding
+
+**Timestamp**: 2026-08-27T06:07:28Z
+**User Input**: "also for left navigation, add some padding to the text as it is currently too close to the border when selected"
+**AI Response**: "Added BYC-17, acceptance criterion 16, and a Step 11 action for consistent px={3} horizontal padding on every Business navigation row. Applying the same spacing in active and inactive states prevents label movement while keeping the text clear of the selected border. Step 11 remains at its approval gate."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 11 Plan Amendment
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Step 11 Plan Approval Prompt
+
+**Timestamp**: 2026-08-27T06:09:41Z
+**User Input**: "N/A"
+**AI Response**: "Presented the validated amended Step 11 plan for explicit approval. The six actions cover left-aligned project-image display, consistent left/mobile navigation padding, regression safeguards, byte-for-byte PNG preservation, complete quality checks, and workflow evidence updates. No application code or image asset will change until approval is received."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 11 Approval Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Step 11 Plan Approval
+
+**Timestamp**: 2026-08-27T06:18:30Z
+**User Input**: "approve and continue"
+**AI Response**: "Recorded explicit approval of the six-action amended Step 11 plan, captured pre-change SHA-256 hashes for all three supplied PNG files, and advanced Code Generation Part 2 to implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 11 Approval
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Step 11 Complete
+
+**Timestamp**: 2026-08-27T06:21:17Z
+**User Input**: "N/A"
+**AI Response**: "Added a scoped object-position: left center rule to Business project images while retaining object-fit: cover, aspect ratios, frame dimensions, project data, and responsive visibility. Replaced conditional zero padding with consistent px={3} spacing for Business left-rail and mobile navigation links so active labels remain clear of the border without shifting. Before/after SHA-256 hashes match for all three supplied PNGs, proving no asset was cropped, transformed, or overwritten. Focused tests passed 17 tests across two files; the complete suite passed 87 tests across nine files. ESLint, TypeScript/Vite build, Prettier, scoped diff inspection, asset-integrity checks, and git diff integrity passed."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 11
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-27T06:21:17Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after completing and verifying all eleven implementation steps. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 9 Final Review-Gate Validation
+
+**Timestamp**: 2026-08-26T16:32:47Z
+**User Input**: "N/A"
+**AI Response**: "Normalized the amended code-generation summary and repeated final validation. All modified source and workflow files pass Prettier, no removed label implementation or orphaned style remains, git diff integrity passes, and the Code Generation review gate remains active pending explicit approval."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate Validation
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Review Change - Decorative Numbering and Project Images
+
+**Timestamp**: 2026-08-26T16:37:42Z
+**User Input**: "actually, remove all the numbering, and replace the pictures in assets/projects"
+**AI Response**: "Reopened Code Generation planning and added BYC-14, BYC-15, acceptance criteria 13 and 14, and Step 10. Scoped all numbering to every decorative Business sequence marker while preserving meaningful dates, years, metric values, technical quantities, content, and test identifiers. Inspected the three supplied PNGs already present in src/assets/projects and mapped them one-to-one to the deleted WebP imports; no generated image is needed. Awaiting explicit plan approval before implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Review Change / Step 10 Planning
+
+---
+
+## Business Color and Two-Theme Refresh - Step 10 Plan Approval Prompt
+
+**Timestamp**: 2026-08-26T16:39:30Z
+**User Input**: "N/A"
+**AI Response**: "Presented the validated Step 10 plan for explicit approval. The seven actions cover regression safeguards, removal of all decorative Business numbering, layout cleanup, project-data wiring to the three supplied PNG assets with accurate alternative text, asset validation, complete quality checks, and workflow evidence updates. No application code will change until approval is received."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 10 Approval Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 10 Plan Approval
+
+**Timestamp**: 2026-08-26T16:56:11Z
+**User Input**: "approve and continue"
+**AI Response**: "Recorded explicit approval of the seven-action Step 10 amendment and advanced Code Generation Part 2 to implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 10 Approval
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Step 10 Complete
+
+**Timestamp**: 2026-08-26T17:03:16Z
+**User Input**: "N/A"
+**AI Response**: "Removed every decorative Business sequence marker across the hero, shell, section headings, About, Education, Experience, Awards, Projects, Gallery, Journal, Skills, and detail lists. Collapsed counter-specific grid columns and removed orphaned counter styles while preserving meaningful dates, years, metric values, technical quantities, content, links, semantic lists, and stable test identifiers. Wired the three supplied PNG files to their matching project entries and updated alternative text to describe the actual screenshots and architecture diagram. No image was generated, transformed, or overwritten. Focused tests passed 53 tests across four files; the complete suite passed 86 tests across nine files. ESLint, TypeScript/Vite build, Prettier, source/style scans, asset validation, scoped diff inspection, and git diff integrity passed."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 10
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-26T17:03:16Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after completing and verifying all ten implementation steps. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Final Review-Gate Validation
+
+**Timestamp**: 2026-08-25T11:31:16Z
+**User Input**: "N/A"
+**AI Response**: "Reformatted the active code-generation summary and repeated final validation. All active Markdown files pass Prettier, no retired-theme file paths or non-audit references remain, git diff integrity passes, and the Code Generation review gate remains active pending explicit approval."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate Validation
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Review Change - Contact and Readability Refinements
+
+**Timestamp**: 2026-08-26T16:15:01Z
+**User Input**: "make my email smaller so it's not cutoff and surround it within a box/border for clarity. Also, remove the numbering for Film 01 or C01 as it's not necessary. For the dark theme, make the text whiter as it's currently hard to read"
+**AI Response**: "Reopened Code Generation planning and added BYC-11 through BYC-13, acceptance criteria 10 through 12, and Step 9. The plan scopes a responsive bordered email, removal of only the Film NN and CNN decorative labels, and a brighter near-cream dark supporting-text token, followed by focused and complete verification. Awaiting explicit plan approval before implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Review Change / Step 9 Planning
+
+---
+
+## Business Color and Two-Theme Refresh - Step 9 Plan Approval Prompt
+
+**Timestamp**: 2026-08-26T16:16:28Z
+**User Input**: "N/A"
+**AI Response**: "Presented the validated Step 9 implementation plan for explicit approval. The six actions cover regression assertions, responsive bordered email styling, removal of the Film NN and CNN labels, brighter near-cream dark supporting text, complete verification, and workflow evidence updates. No application code will change until approval is received."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 9 Approval Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 9 Plan Approval
+
+**Timestamp**: 2026-08-26T16:28:30Z
+**User Input**: "approve and continue"
+**AI Response**: "Recorded explicit approval of the six-action Step 9 amendment and advanced Code Generation Part 2 to implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 9 Approval
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Step 9 Complete
+
+**Timestamp**: 2026-08-26T16:31:29Z
+**User Input**: "N/A"
+**AI Response**: "Implemented the approved screenshot-review amendment. The Direct Contact email now uses a smaller responsive size and a fit-content, max-width-constrained border box with padding and safe wrapping. Removed the Film NN video labels and CNN certificate labels while retaining content, links, order, and stable test identifiers. Changed dark supporting text to near-cream #E8E0D5 with 11.49:1 contrast on the dark canvas. Focused tests passed 15 tests across two files; the complete suite passed 85 tests across nine files. ESLint, TypeScript/Vite build, Prettier, stale-label scan, scoped diff inspection, and git diff integrity passed. The existing bundle-size warning remains non-blocking."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 9
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-26T16:31:29Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after completing and verifying all nine implementation steps. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 11 Final Review-Gate Validation
+
+**Timestamp**: 2026-08-27T06:24:48Z
+**User Input**: "N/A"
+**AI Response**: "Completed final Step 11 review-gate validation. All modified source and workflow files pass Prettier; the scoped left-center project-image position and consistent px={3} navigation padding are present and regression protected; all three supplied PNG SHA-256 hashes remain unchanged; no retired-theme reference exists outside the append-only audit; and git diff integrity passes. The Code Generation review gate remains active pending explicit approval."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate Validation
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Review Change - Contact Alignment and Profile Size
+
+**Timestamp**: 2026-08-27T06:43:23Z
+**User Input**: "make this box centralised. Also, reduce the size of my profile picture"
+**AI Response**: "Reopened Code Generation planning and added BYC-18, BYC-19, acceptance criteria 17 and 18, and Step 12. Scoped the contact change to centering only the existing bordered email link. Scoped the profile change to a responsive 24rem maximum width for the complete profile record so its portrait is smaller while its source asset, crop, metadata, and narrow-screen fit remain unchanged. Awaiting explicit plan approval before implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Review Change / Step 12 Planning
+
+---
+
+## Business Color and Two-Theme Refresh - Step 12 Plan Approval Prompt
+
+**Timestamp**: 2026-08-27T06:43:23Z
+**User Input**: "N/A"
+**AI Response**: "Presented the validated six-action Step 12 plan for explicit approval. The actions cover focused regression safeguards, centered email-box alignment, responsive centered profile-record sizing, byte-for-byte portrait preservation, complete quality checks, and workflow evidence updates. No application code or image asset will change until approval is received."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 12 Approval Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 12 Plan Approval
+
+**Timestamp**: 2026-08-27T07:00:27Z
+**User Input**: "approve and continue"
+**AI Response**: "Recorded explicit approval of the six-action Step 12 plan, captured the pre-change SHA-256 hash for the source profile JPEG, and advanced Code Generation Part 2 to implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 12 Approval
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Step 12 Complete
+
+**Timestamp**: 2026-08-27T07:10:03Z
+**User Input**: "N/A"
+**AI Response**: "Centered the existing bordered Direct Contact email link without changing its size, wrapping, address, or neighboring content alignment. Added responsive centered sizing to the Business profile record with width: 100% and max-width: 24rem, reducing the displayed portrait while preserving its cover crop, metadata, narrow-screen fit, and source asset. The profile JPEG's before/after SHA-256 hashes match. Focused tests passed 17 tests across two files; the complete suite passed 87 tests across nine files. ESLint, TypeScript/Vite build, Prettier, responsive-rule inspection, asset-integrity verification, and git diff integrity passed. The existing bundle-size warning remains non-blocking."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 12
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-27T07:10:03Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after completing and verifying all twelve implementation steps. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 12 Final Validation Confirmation
+
+**Timestamp**: 2026-08-27T07:13:11Z
+**User Input**: "N/A"
+**AI Response**: "Confirmed the final Step 12 review-gate result at the end of the append-only audit. Formatting, source-rule inspection, unchanged portrait hash verification, stale-reference scanning, and git diff integrity all pass."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate Validation
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Review Change - Optical Centering and Portrait Scale
+
+**Timestamp**: 2026-08-27T07:15:54Z
+**User Input**: "why does it still look not centralised and the profile picture still large?"
+**AI Response**: "Diagnosed the screenshot and current implementation. Step 12 centered only the bordered email link, leaving its label, location, and social row left-aligned, which creates visual imbalance. The retained 4 / 4.4 portrait ratio also produces an approximately 384 by 422 pixel image at the 24rem record cap, so the size reduction remains visually modest. Added BYC-20, BYC-21, acceptance criteria 19 and 20, and Step 13 to center the complete contact-card content, reduce the record cap to 20rem, and shorten the portrait frame to 4 / 3 without changing the source image. Awaiting explicit plan approval before implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Review Change / Step 13 Planning
+
+---
+
+## Business Color and Two-Theme Refresh - Step 13 Plan Approval Prompt
+
+**Timestamp**: 2026-08-27T07:15:54Z
+**User Input**: "N/A"
+**AI Response**: "Presented the validated six-action Step 13 correction plan for explicit approval. No application code or image asset will change until approval is received."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 13 Approval Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 13 Plan Approval
+
+**Timestamp**: 2026-08-27T07:19:42Z
+**User Input**: "approve and continue"
+**AI Response**: "Recorded explicit approval of the six-action Step 13 correction plan, captured the pre-change SHA-256 hash for the source profile JPEG, and advanced Code Generation Part 2 to implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 13 Approval
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Step 13 Complete
+
+**Timestamp**: 2026-08-27T07:24:04Z
+**User Input**: "N/A"
+**AI Response**: "Corrected the visual imbalance by centering the complete Direct Contact card content and its social row. Reduced the centered Business profile record from 24rem to 20rem and shortened the portrait's displayed cover frame from 4 / 4.4 to 4 / 3. The source profile JPEG remains byte-for-byte unchanged. Focused tests passed 17 tests across two files; the complete suite passed 87 tests across nine files. ESLint, TypeScript/Vite build, Prettier, responsive-rule inspection, asset-integrity verification, and git diff integrity passed. The existing bundle-size warning remains non-blocking."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 13
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-27T07:24:04Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after completing and verifying all thirteen implementation steps. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 13 Final Review-Gate Validation
+
+**Timestamp**: 2026-08-27T07:25:41Z
+**User Input**: "N/A"
+**AI Response**: "Completed final Step 13 review-gate validation. All modified source and workflow files pass Prettier; complete contact-card centering, the 20rem record cap, and the 4 / 3 portrait frame are present and regression protected; the source profile JPEG SHA-256 hash remains unchanged; no retired-theme reference exists outside the append-only audit; and git diff integrity passes."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate Validation
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Review Change - Portrait Length and Contact Highlights
+
+**Timestamp**: 2026-08-27T07:27:00Z
+**User Input**: "please lengthen my profile picture a little bit as my image seems cutoff and add some background highlight for my email + the 3 social buttons at the bottom"
+**AI Response**: "Reopened Code Generation planning and added BYC-22, BYC-23, acceptance criteria 21 and 22, and Step 14. Scoped the portrait change to a modest frame increase from 4 / 3 to 4 / 3.5 while retaining the centered 20rem record cap and unchanged source JPEG. Scoped the contact change to palette-aligned highlighted backgrounds, borders, padding, and hover feedback for the email and all three social links. Awaiting explicit plan approval before implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Review Change / Step 14 Planning
+
+---
+
+## Business Color and Two-Theme Refresh - Step 14 Plan Approval Prompt
+
+**Timestamp**: 2026-08-27T07:27:00Z
+**User Input**: "N/A"
+**AI Response**: "Presented the validated six-action Step 14 amendment plan for explicit approval. No application code or image asset will change until approval is received."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 14 Approval Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 14 Plan Approval
+
+**Timestamp**: 2026-08-27T07:40:19Z
+**User Input**: "Approve and continue"
+**AI Response**: "Recorded explicit approval of the six-action Step 14 amendment, captured the pre-change SHA-256 hash for the source profile JPEG, and advanced Code Generation Part 2 to implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 14 Approval
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Step 14 Complete
+
+**Timestamp**: 2026-08-27T07:46:44Z
+**User Input**: "N/A"
+**AI Response**: "Lengthened the compact Business portrait frame from 4 / 3 to 4 / 3.5 while retaining the centered 20rem profile-record cap, cover behavior, metadata, and unchanged source JPEG. Added translucent mint highlighted backgrounds and borders to the email and each of the three social links, individual social-link padding, and stronger hover feedback. Focused tests passed 17 tests across two files; the complete suite passed 87 tests across nine files. ESLint, TypeScript/Vite build, Prettier, scoped style inspection, asset-integrity verification, and git diff integrity passed. The existing bundle-size warning remains non-blocking."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 14
+
+---
+
+## Business Color and Two-Theme Refresh - Amended Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-27T07:46:44Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after completing and verifying all fourteen implementation steps. Awaiting Request Changes or Continue to Next Stage before Build and Test."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---
+
+## Business Color and Two-Theme Refresh - Step 14 Final Review-Gate Validation
+
+**Timestamp**: 2026-08-27T07:48:44Z
+**User Input**: "N/A"
+**AI Response**: "Completed final Step 14 review-gate validation. All modified source and workflow files pass Prettier; the 4 / 3.5 portrait frame and highlighted email/social surfaces with hover feedback are present and regression protected; the source profile JPEG SHA-256 hash remains unchanged; no retired-theme reference exists outside the append-only audit; and git diff integrity passes."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate Validation
+
+---

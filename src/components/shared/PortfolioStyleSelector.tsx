@@ -1,11 +1,6 @@
 import { Box, Button, Flex, Menu, Portal, Text } from "@chakra-ui/react";
 import type { IconType } from "react-icons";
-import {
-  LuBriefcaseBusiness,
-  LuBrush,
-  LuCode,
-  LuPalette,
-} from "react-icons/lu";
+import { LuBriefcaseBusiness, LuCode, LuPalette } from "react-icons/lu";
 
 import {
   portfolioTemplateOptionList,
@@ -23,7 +18,6 @@ type PortfolioStyleSelectorProps = {
 const templateIcons: Record<PortfolioTemplateId, IconType> = {
   engineering: LuCode,
   business: LuBriefcaseBusiness,
-  artistic: LuBrush,
 };
 
 export function PortfolioStyleSelector({

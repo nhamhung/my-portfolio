@@ -55,14 +55,12 @@ describe("usePortfolioLayout helpers", () => {
   });
 
   it("reconciles a section hidden by a template to home", () => {
-    const artisticSectionIds: SectionId[] = ["home", "about", "projects"];
+    const limitedSectionIds: SectionId[] = ["home", "about", "projects"];
 
-    expect(resolveSectionId("experience", artisticSectionIds, "home")).toBe(
+    expect(resolveSectionId("experience", limitedSectionIds, "home")).toBe(
       "home",
     );
-    expect(
-      parseSectionHash("#/experience", artisticSectionIds),
-    ).toBeUndefined();
+    expect(parseSectionHash("#/experience", limitedSectionIds)).toBeUndefined();
   });
 
   it("reads and writes valid stored layout mode values", () => {

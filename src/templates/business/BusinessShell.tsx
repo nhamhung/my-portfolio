@@ -42,7 +42,7 @@ function BusinessShell({
   };
 
   const navigationLinks = (prefix: "contents" | "mobile") =>
-    navigationItems.map((item, index) => {
+    navigationItems.map((item) => {
       const isActive = activeSection === item.id;
 
       return (
@@ -54,9 +54,9 @@ function BusinessShell({
               navigate(item.id);
             }}
             minH="46px"
-            px={prefix === "contents" ? 0 : 3}
+            px={3}
             display="grid"
-            gridTemplateColumns="32px minmax(0, 1fr)"
+            gridTemplateColumns="minmax(0, 1fr)"
             alignItems="center"
             color={isActive ? "var(--text-100)" : "var(--text-300)"}
             borderBottom="1px solid"
@@ -72,14 +72,6 @@ function BusinessShell({
             aria-current={isActive ? "page" : undefined}
             data-testid={`business-${prefix}-link-${item.id}`}
           >
-            <Text
-              as="span"
-              color={isActive ? "var(--accent-300)" : "var(--text-300)"}
-              fontSize="xs"
-              fontWeight={700}
-            >
-              {String(index + 1).padStart(2, "0")}
-            </Text>
             <Text as="span" fontSize="sm" fontWeight={isActive ? 700 : 500}>
               {item.label}
             </Text>
@@ -176,9 +168,6 @@ function BusinessShell({
               borderColor="var(--line-700)"
               textAlign="right"
             >
-              <Text color="var(--text-300)" fontSize="xs">
-                Chapter {String(activeIndex + 1).padStart(2, "0")}
-              </Text>
               <Text color="var(--text-100)" fontSize="sm" fontWeight={700}>
                 {activeLabel}
               </Text>

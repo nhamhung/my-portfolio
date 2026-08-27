@@ -10,14 +10,69 @@ const businessStyles = readFileSync(
   resolve(process.cwd(), "src/templates/business/business.css"),
   "utf8",
 );
-const artisticStyles = readFileSync(
-  resolve(process.cwd(), "src/templates/artistic/artistic.css"),
-  "utf8",
-);
 const indexStyles = readFileSync(
   resolve(process.cwd(), "src/index.css"),
   "utf8",
 );
+const businessPresentationSources = [
+  "BusinessAbout.tsx",
+  "BusinessAwards.tsx",
+  "BusinessDetailList.tsx",
+  "BusinessEducation.tsx",
+  "BusinessExperience.tsx",
+  "BusinessGallery.tsx",
+  "BusinessHero.tsx",
+  "BusinessJournal.tsx",
+  "BusinessProjects.tsx",
+  "BusinessSectionHeading.tsx",
+  "BusinessShell.tsx",
+  "BusinessSkills.tsx",
+].map((fileName) =>
+  readFileSync(
+    resolve(process.cwd(), "src/templates/business", fileName),
+    "utf8",
+  ),
+);
+const businessProjectsSource = readFileSync(
+  resolve(process.cwd(), "src/templates/business/BusinessProjects.tsx"),
+  "utf8",
+);
+const businessHeroSource = readFileSync(
+  resolve(process.cwd(), "src/templates/business/BusinessHero.tsx"),
+  "utf8",
+);
+const businessShellSource = readFileSync(
+  resolve(process.cwd(), "src/templates/business/BusinessShell.tsx"),
+  "utf8",
+);
+
+const businessPalette = ["#3368a0", "#66a3bf", "#c8dfdb", "#f2efe7"];
+const businessTextPalette = ["#524646", "#fcf2e5"];
+const legacyBusinessColors = [
+  "#100f14",
+  "#18161c",
+  "#242029",
+  "#f7f0e5",
+  "#c4b9aa",
+  "#e6b86b",
+  "#cf9147",
+  "#a9642d",
+  "#8f491f",
+  "#783a17",
+  "#0e0d11",
+  "#f4efe5",
+  "#e9e0d2",
+  "#d7c8b5",
+  "#241d19",
+  "#5f574d",
+  "#85511f",
+  "#704018",
+  "#613713",
+  "#562d0e",
+  "#e5dbcc",
+  "rgba(230, 184, 107",
+  "rgba(112, 64, 24",
+];
 
 const getThemeBlock = (source: string, selector: string): string => {
   const marker = `${selector} {`;
@@ -74,11 +129,104 @@ const themeScopes = [
   ["Engineering light", indexStyles, ".light"],
   ["Business dark", businessStyles, ".portfolio-template-business"],
   ["Business light", businessStyles, ".light .portfolio-template-business"],
-  ["Artistic dark", artisticStyles, ".portfolio-template-artistic"],
-  ["Artistic light", artisticStyles, ".light .portfolio-template-artistic"],
 ] as const;
 
 describe("portfolio theme accessibility safeguards", () => {
+  it("keeps the Business theme anchored to its approved palette", () => {
+    const normalizedBusinessStyles = businessStyles.toLowerCase();
+
+    businessPalette.forEach((color) => {
+      expect(normalizedBusinessStyles).toContain(color);
+    });
+    businessTextPalette.forEach((color) => {
+      expect(normalizedBusinessStyles).toContain(color);
+    });
+    legacyBusinessColors.forEach((color) => {
+      expect(normalizedBusinessStyles).not.toContain(color);
+    });
+  });
+
+  it("keeps the Business contact and profile presentation readable", () => {
+    const darkTheme = getThemeBlock(
+      businessStyles,
+      ".portfolio-template-business",
+    );
+    const emailRule = getThemeBlock(
+      businessStyles,
+      ".portfolio-template-business .business-contact-email",
+    );
+    const contactCardRule = getThemeBlock(
+      businessStyles,
+      ".portfolio-template-business .business-contact-card",
+    );
+    const contactSocialsRule = getThemeBlock(
+      businessStyles,
+      ".portfolio-template-business .business-contact-socials",
+    );
+    const contactSocialLinkRule = getThemeBlock(
+      businessStyles,
+      ".portfolio-template-business .business-contact-socials a",
+    );
+    const subjectRecordRule = getThemeBlock(
+      businessStyles,
+      ".portfolio-template-business .business-subject-record",
+    );
+
+    expect(getHexToken(darkTheme, "text-300").toLowerCase()).toBe("#e8e0d5");
+    expect(emailRule).toContain("display: inline-flex;");
+    expect(emailRule).toContain("align-self: center;");
+    expect(emailRule).toContain("width: fit-content;");
+    expect(emailRule).toContain("max-width: 100%;");
+    expect(emailRule).toContain("border: 1px solid var(--line-500);");
+    expect(emailRule).toContain("background: var(--control-bg-soft);");
+    expect(emailRule).toContain("padding:");
+    expect(emailRule).toContain("overflow-wrap: anywhere;");
+    expect(contactCardRule).toContain("align-items: center;");
+    expect(contactCardRule).toContain("text-align: center;");
+    expect(contactSocialsRule).toContain("justify-content: center;");
+    expect(contactSocialLinkRule).toContain("display: inline-flex;");
+    expect(contactSocialLinkRule).toContain(
+      "border: 1px solid var(--line-500);",
+    );
+    expect(contactSocialLinkRule).toContain(
+      "background: var(--control-bg-soft);",
+    );
+    expect(contactSocialLinkRule).toContain("padding:");
+    expect(businessStyles).toMatch(
+      /business-contact-email:hover,\s*\.portfolio-template-business \.business-contact-socials a:hover\s*{[^}]*background:\s*var\(--control-hover-bg\);/s,
+    );
+    expect(subjectRecordRule).toContain("width: 100%;");
+    expect(subjectRecordRule).toContain("max-width: 20rem;");
+    expect(subjectRecordRule).toContain("justify-self: center;");
+    expect(businessHeroSource).toContain('aspectRatio="4 / 3.5"');
+    expect(businessHeroSource).not.toContain('aspectRatio="4 / 3"');
+    expect(businessHeroSource).not.toContain('aspectRatio="4 / 4.4"');
+  });
+
+  it("keeps decorative sequence numbering out of the Business presentation", () => {
+    const combinedSource = businessPresentationSources.join("\n");
+
+    expect(combinedSource).not.toMatch(/padStart\(2,\s*["']0["']\)/);
+    expect(combinedSource).not.toMatch(/Chapter\s+(?:\d{2}|\{)/);
+    expect(combinedSource).not.toContain("Showcase 01");
+    expect(combinedSource).not.toContain("No.");
+    expect(combinedSource).not.toContain("O{index + 1}");
+    expect(businessStyles).not.toMatch(
+      /business-(?:ledger-number|experience-number|award-index|detail-index|writing-number)/,
+    );
+  });
+
+  it("left-aligns Business project covers and pads navigation consistently", () => {
+    expect(businessProjectsSource).toContain('objectFit="cover"');
+    expect(businessStyles).toMatch(
+      /\.portfolio-template-business \.business-case-image\s*{[^}]*object-position:\s*left center;/s,
+    );
+    expect(businessShellSource).toContain("px={3}");
+    expect(businessShellSource).not.toContain(
+      'px={prefix === "contents" ? 0 : 3}',
+    );
+  });
+
   it.each(themeScopes)(
     "keeps critical %s text pairs at WCAG AA contrast",
     (_name, source, selector) => {
@@ -108,11 +256,8 @@ describe("portfolio theme accessibility safeguards", () => {
   });
 
   it("keeps theme presentation selectors isolated and motion optional", () => {
-    expect(businessStyles).not.toMatch(/\.portfolio-template-artistic/);
-    expect(artisticStyles).not.toMatch(/\.portfolio-template-business/);
+    expect(businessStyles).not.toMatch(/\.portfolio-template-engineering/);
     expect(businessStyles).toContain("@media (prefers-reduced-motion: reduce)");
-    expect(artisticStyles).toContain("@media (prefers-reduced-motion: reduce)");
     expect(businessStyles).toContain("pointer-events: none");
-    expect(artisticStyles).toContain("pointer-events: none");
   });
 });

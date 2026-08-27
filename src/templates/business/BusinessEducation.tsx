@@ -15,15 +15,12 @@ function BusinessEducation() {
     >
       <BusinessSectionHeading sectionId="education" />
       <Box as="ol" className="business-ledger" listStyleType="none">
-        {education.map((entry, index) => (
+        {education.map((entry) => (
           <Box
             as="li"
             key={`${entry.institution}-${entry.period}`}
             className="business-ledger-row"
           >
-            <Text className="business-ledger-number">
-              {String(index + 1).padStart(2, "0")}
-            </Text>
             <Image className="business-ledger-logo" src={entry.logo} alt="" />
             <Box className="business-ledger-title">
               <Text as="h3">{entry.degree}</Text>

@@ -1,30 +1,30 @@
 .portfolio-template-business {
-  --bg-900: #100f14;
-  --bg-800: #18161c;
-  --bg-700: #242029;
-  --surface-900: rgba(27, 24, 29, 0.88);
-  --surface-800: rgba(34, 30, 36, 0.94);
-  --line-700: rgba(230, 184, 107, 0.2);
-  --line-500: rgba(230, 184, 107, 0.42);
-  --text-100: #f7f0e5;
-  --text-300: #c4b9aa;
-  --accent-300: #e6b86b;
-  --accent-400: #cf9147;
-  --accent-500: #a9642d;
-  --primary-bg: #8f491f;
-  --primary-hover-bg: #783a17;
-  --primary-text: #ffffff;
-  --control-bg: rgba(42, 36, 41, 0.88);
-  --control-bg-soft: rgba(45, 38, 42, 0.62);
-  --control-hover-bg: rgba(65, 52, 54, 0.9);
-  --active-nav-bg: rgba(230, 184, 107, 0.12);
-  --active-nav-border: rgba(230, 184, 107, 0.58);
-  --accent-control-bg: rgba(230, 184, 107, 0.1);
-  --input-bg: rgba(20, 18, 22, 0.72);
-  --media-shell-bg: #0e0d11;
-  --modal-overlay-bg: rgba(10, 8, 10, 0.86);
-  --focus-border: #e6b86b;
-  --focus-ring: 0 0 0 3px rgba(230, 184, 107, 0.28);
+  --bg-900: #10283f;
+  --bg-800: #153652;
+  --bg-700: #1f4a70;
+  --surface-900: rgba(21, 54, 82, 0.88);
+  --surface-800: rgba(31, 74, 112, 0.94);
+  --line-700: rgba(102, 163, 191, 0.24);
+  --line-500: rgba(200, 223, 219, 0.46);
+  --text-100: #fcf2e5;
+  --text-300: #e8e0d5;
+  --accent-300: #ffa083;
+  --accent-400: #66a3bf;
+  --accent-500: #3368a0;
+  --primary-bg: #c8dfdb;
+  --primary-hover-bg: #fcf2e5;
+  --primary-text: #524646;
+  --control-bg: rgba(21, 54, 82, 0.9);
+  --control-bg-soft: rgba(51, 104, 160, 0.28);
+  --control-hover-bg: rgba(51, 104, 160, 0.58);
+  --active-nav-bg: rgba(102, 163, 191, 0.16);
+  --active-nav-border: rgba(200, 223, 219, 0.64);
+  --accent-control-bg: rgba(102, 163, 191, 0.13);
+  --input-bg: rgba(16, 40, 63, 0.78);
+  --media-shell-bg: #10283f;
+  --modal-overlay-bg: rgba(8, 23, 36, 0.86);
+  --focus-border: #c8dfdb;
+  --focus-ring: 0 0 0 3px rgba(102, 163, 191, 0.34);
   position: relative;
   overflow: clip;
   color: var(--text-100);
@@ -33,32 +33,32 @@
 }
 
 .light .portfolio-template-business {
-  --bg-900: #f4efe5;
-  --bg-800: #e9e0d2;
-  --bg-700: #d7c8b5;
-  --surface-900: rgba(255, 252, 246, 0.88);
-  --surface-800: rgba(248, 242, 232, 0.95);
-  --line-700: rgba(112, 64, 24, 0.22);
-  --line-500: rgba(112, 64, 24, 0.42);
-  --text-100: #241d19;
-  --text-300: #5f574d;
-  --accent-300: #85511f;
-  --accent-400: #704018;
-  --accent-500: #613713;
-  --primary-bg: #704018;
-  --primary-hover-bg: #562d0e;
-  --primary-text: #ffffff;
-  --control-bg: rgba(255, 251, 244, 0.92);
-  --control-bg-soft: rgba(255, 252, 247, 0.76);
-  --control-hover-bg: rgba(235, 222, 203, 0.96);
-  --active-nav-bg: rgba(112, 64, 24, 0.1);
-  --active-nav-border: rgba(112, 64, 24, 0.45);
-  --accent-control-bg: rgba(112, 64, 24, 0.08);
-  --input-bg: rgba(255, 253, 249, 0.94);
-  --media-shell-bg: #e5dbcc;
-  --modal-overlay-bg: rgba(36, 29, 25, 0.5);
-  --focus-border: #704018;
-  --focus-ring: 0 0 0 3px rgba(112, 64, 24, 0.24);
+  --bg-900: #f2efe7;
+  --bg-800: #c8dfdb;
+  --bg-700: #a8ccc9;
+  --surface-900: rgba(242, 239, 231, 0.9);
+  --surface-800: rgba(200, 223, 219, 0.94);
+  --line-700: rgba(51, 104, 160, 0.22);
+  --line-500: rgba(51, 104, 160, 0.48);
+  --text-100: #524646;
+  --text-300: #6a665c;
+  --accent-300: #b83d22;
+  --accent-400: #285681;
+  --accent-500: #1f4a70;
+  --primary-bg: #3368a0;
+  --primary-hover-bg: #285681;
+  --primary-text: #fcf2e5;
+  --control-bg: rgba(242, 239, 231, 0.94);
+  --control-bg-soft: rgba(200, 223, 219, 0.62);
+  --control-hover-bg: rgba(200, 223, 219, 0.94);
+  --active-nav-bg: rgba(102, 163, 191, 0.18);
+  --active-nav-border: rgba(51, 104, 160, 0.48);
+  --accent-control-bg: rgba(102, 163, 191, 0.13);
+  --input-bg: rgba(242, 239, 231, 0.96);
+  --media-shell-bg: #c8dfdb;
+  --modal-overlay-bg: rgba(16, 40, 63, 0.5);
+  --focus-border: #3368a0;
+  --focus-ring: 0 0 0 3px rgba(102, 163, 191, 0.38);
 }
 
 .portfolio-template-business .business-background {
@@ -150,6 +150,12 @@
   padding: clamp(5rem, 9vw, 9rem) clamp(1rem, 4vw, 3.5rem);
 }
 
+.portfolio-template-business .business-subject-record {
+  width: 100%;
+  max-width: 20rem;
+  justify-self: center;
+}
+
 .portfolio-template-business .business-chapter-heading {
   display: grid;
   grid-template-columns: 9rem minmax(0, 1fr);
@@ -188,15 +194,15 @@
 }
 .portfolio-template-business .business-ledger-row {
   display: grid;
-  grid-template-columns:
-    2.5rem 4rem minmax(13rem, 0.8fr) minmax(13rem, 0.55fr)
-    minmax(18rem, 1fr);
+  grid-template-columns: 4rem minmax(13rem, 0.8fr) minmax(13rem, 0.55fr) minmax(
+      18rem,
+      1fr
+    );
   gap: 1.25rem;
   align-items: start;
   padding: 2rem 0;
   border-bottom: 1px solid var(--line-700);
 }
-.portfolio-template-business .business-ledger-number,
 .portfolio-template-business .business-ledger-meta {
   color: var(--accent-300);
   font:
@@ -221,14 +227,10 @@
 
 .portfolio-template-business .business-experience-entry {
   display: grid;
-  grid-template-columns: 4rem minmax(13rem, 0.65fr) 8rem minmax(20rem, 1fr);
+  grid-template-columns: minmax(13rem, 0.65fr) 8rem minmax(20rem, 1fr);
   gap: 1.5rem;
   padding: 2.4rem 0;
   border-bottom: 1px solid var(--line-700);
-}
-.portfolio-template-business .business-experience-number {
-  font-size: 2rem;
-  color: var(--accent-300);
 }
 .portfolio-template-business .business-experience-role h3 {
   font-size: 1.7rem;
@@ -246,7 +248,7 @@
 }
 .portfolio-template-business .business-detail-item {
   display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.7rem;
   align-items: start;
   padding: 0.72rem 0.8rem;
@@ -254,13 +256,6 @@
   background: color-mix(in srgb, var(--surface-900) 68%, transparent);
   border-left: 2px solid var(--line-500);
   line-height: 1.65;
-}
-.portfolio-template-business .business-detail-index {
-  color: var(--accent-300);
-  font:
-    700 0.68rem/1.8 "Space Grotesk",
-    sans-serif;
-  letter-spacing: 0.08em;
 }
 .portfolio-template-business .business-detail-copy {
   display: block;
@@ -283,7 +278,7 @@
 }
 .portfolio-template-business .business-award-row {
   display: grid;
-  grid-template-columns: 3rem 3.5rem minmax(14rem, 0.8fr) 7rem 7rem minmax(
+  grid-template-columns: 3.5rem minmax(14rem, 0.8fr) 7rem 7rem minmax(
       16rem,
       1fr
     );
@@ -297,7 +292,6 @@
   height: 3rem;
   object-fit: contain;
 }
-.portfolio-template-business .business-award-index,
 .portfolio-template-business .business-award-tag,
 .portfolio-template-business .business-award-year {
   color: var(--accent-300);
@@ -312,6 +306,10 @@
 .portfolio-template-business .business-award-title p,
 .portfolio-template-business .business-award-description {
   color: var(--text-300);
+}
+
+.portfolio-template-business .business-case-image {
+  object-position: left center;
 }
 
 .portfolio-template-business .business-gallery-grid {
@@ -345,13 +343,6 @@
 }
 .portfolio-template-business .business-gallery-plate:hover img {
   transform: scale(1.025);
-}
-.portfolio-template-business .business-gallery-image-wrap p {
-  position: absolute;
-  top: 0.7rem;
-  left: 0.7rem;
-  background: var(--bg-900);
-  padding: 0.25rem 0.5rem;
 }
 .portfolio-template-business .business-gallery-plate h3 {
   font-size: 1.3rem;
@@ -438,15 +429,6 @@
   flex-direction: column;
   padding: 1.25rem;
 }
-.portfolio-template-business .business-video-number {
-  color: var(--text-300);
-}
-.portfolio-template-business .business-video-number {
-  margin-bottom: 0.55rem;
-  color: var(--accent-300);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-}
 .portfolio-template-business .business-video-feature h3 {
   color: var(--text-100);
   font-size: 1.5rem;
@@ -483,7 +465,7 @@
 }
 .portfolio-template-business .business-writing-entry {
   display: grid;
-  grid-template-columns: 10rem 2rem minmax(0, 1fr) 7rem;
+  grid-template-columns: 10rem minmax(0, 1fr) 7rem;
   gap: 1.5rem;
   align-items: center;
   padding: 1.5rem 0;
@@ -501,13 +483,9 @@
 .portfolio-template-business .business-writing-copy h3 {
   font-size: 1.4rem;
 }
-.portfolio-template-business .business-writing-number {
-  color: var(--accent-300);
-}
-
 .portfolio-template-business .business-skill-row {
   display: grid;
-  grid-template-columns: 3rem 13rem minmax(0, 1fr);
+  grid-template-columns: 13rem minmax(0, 1fr);
   gap: 1.5rem;
   padding: 1.5rem 0;
   border-bottom: 1px solid var(--line-700);
@@ -644,12 +622,16 @@
   margin-top: 3rem;
 }
 .portfolio-template-business .business-contact-card {
+  --control-bg-soft: rgba(200, 223, 219, 0.14);
+  --control-hover-bg: rgba(200, 223, 219, 0.24);
   min-height: 20rem;
   padding: 2rem;
   background: var(--accent-500);
   color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1.2rem;
 }
 .portfolio-template-business .business-contact-label {
@@ -659,19 +641,40 @@
   text-transform: uppercase;
 }
 .portfolio-template-business .business-contact-email {
-  font-size: clamp(1.05rem, 1.65vw, 1.5rem);
+  display: inline-flex;
+  align-self: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: clamp(0.45rem, 1vw, 0.65rem) clamp(0.6rem, 1.4vw, 0.9rem);
+  border: 1px solid var(--line-500);
+  background: var(--control-bg-soft);
+  font-size: clamp(0.88rem, 1.2vw, 1.1rem);
   line-height: 1.35;
   overflow-wrap: anywhere;
 }
-.portfolio-template-business .business-contact-location,
-.portfolio-template-business .business-contact-socials a {
+.portfolio-template-business .business-contact-location {
   font-size: 0.95rem;
 }
 .portfolio-template-business .business-contact-socials {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: auto;
+}
+.portfolio-template-business .business-contact-socials a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--line-500);
+  background: var(--control-bg-soft);
+  color: inherit;
+}
+.portfolio-template-business .business-contact-email:hover,
+.portfolio-template-business .business-contact-socials a:hover {
+  background: var(--control-hover-bg);
+  border-color: var(--active-nav-border);
 }
 .portfolio-template-business .business-contact-form {
   display: grid;
@@ -770,22 +773,26 @@
 
 @media (max-width: 75rem) {
   .portfolio-template-business .business-ledger-row {
-    grid-template-columns: 2rem 3.5rem 1fr 1fr;
+    grid-template-columns: 3.5rem 1fr 1fr;
   }
-  .portfolio-template-business
-    :is(.business-ledger-row, .business-experience-entry)
-    > .business-detail-list {
-    grid-column: 3/-1;
+  .portfolio-template-business .business-ledger-row > .business-detail-list {
+    grid-column: 2/-1;
   }
   .portfolio-template-business .business-gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .portfolio-template-business .business-award-row {
-    grid-template-columns: 2.5rem 3rem 1fr 7rem;
+    grid-template-columns: 3rem 1fr 7rem;
+  }
+  .portfolio-template-business .business-award-title {
+    grid-column: 2;
+  }
+  .portfolio-template-business .business-award-year {
+    grid-column: 3;
   }
   .portfolio-template-business .business-award-tag,
   .portfolio-template-business .business-award-description {
-    grid-column: 3/-1;
+    grid-column: 2/-1;
   }
 }
 
@@ -830,18 +837,22 @@
   .portfolio-template-business .business-chapter-kicker {
     grid-row: auto;
   }
-  .portfolio-template-business .business-ledger-row,
+  .portfolio-template-business .business-ledger-row {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
   .portfolio-template-business .business-experience-entry,
   .portfolio-template-business .business-award-row {
-    grid-template-columns: 2.5rem minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
   }
   .portfolio-template-business .business-ledger-logo {
     grid-column: 1;
   }
   .portfolio-template-business
+    :is(.business-ledger-title, .business-ledger-meta) {
+    grid-column: 2;
+  }
+  .portfolio-template-business
     :is(
-      .business-ledger-title,
-      .business-ledger-meta,
       .business-experience-role,
       .business-experience-period,
       .business-award-title,
@@ -849,12 +860,15 @@
       .business-award-tag,
       .business-award-description
     ) {
+    grid-column: 1;
+  }
+  .portfolio-template-business .business-ledger-row > .business-detail-list {
     grid-column: 2;
   }
   .portfolio-template-business
-    :is(.business-ledger-row, .business-experience-entry)
+    .business-experience-entry
     > .business-detail-list {
-    grid-column: 2;
+    grid-column: 1;
   }
   .portfolio-template-business .business-gallery-grid {
     grid-template-columns: 1fr;

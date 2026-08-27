@@ -15,9 +15,8 @@ function BusinessSkills() {
     >
       <BusinessSectionHeading sectionId="skills" />
       <Box className="business-skill-table">
-        {skills.map((category, categoryIndex) => (
+        {skills.map((category) => (
           <Box key={category.category} className="business-skill-row">
-            <Text>{String(categoryIndex + 1).padStart(2, "0")}</Text>
             <Text as="h3">{category.category}</Text>
             <Box as="ul">
               {category.skills.map((skill) => (
@@ -75,7 +74,6 @@ function BusinessSkills() {
                     logoAccent={certificate.logoAccent}
                   />
                   <Box>
-                    <Text>C{String(index + 1).padStart(2, "0")}</Text>
                     <Text as="h4">{certificate.title}</Text>
                   </Box>
                 </Box>

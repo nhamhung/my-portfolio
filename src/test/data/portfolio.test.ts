@@ -139,8 +139,8 @@ describe("src/data/portfolio.ts", () => {
       );
       expect(
         project.image,
-        `src/data/projects.ts project "${project.title}" cover must be a WebP asset`,
-      ).toMatch(/\.webp$/);
+        `src/data/projects.ts project "${project.title}" cover must use its supplied PNG asset`,
+      ).toMatch(/\.png$/);
       expectNonEmpty(
         project.imageAlt,
         `src/data/projects.ts project "${project.title}" needs image alt text`,
@@ -149,6 +149,10 @@ describe("src/data/portfolio.ts", () => {
         project.imageAlt.split(/\s+/).length,
         `src/data/projects.ts project "${project.title}" needs descriptive image alt text`,
       ).toBeGreaterThanOrEqual(6);
+      expect(
+        project.imageAlt,
+        `src/data/projects.ts project "${project.title}" alt text must describe the supplied screenshot or diagram`,
+      ).toMatch(/screenshot|diagram/i);
       expectNonEmpty(
         project.logoKey,
         `src/data/projects.ts project "${project.title}" needs a logo key`,

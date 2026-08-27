@@ -19,11 +19,6 @@ export const portfolioTemplateOptions = {
     description:
       "An editorial casebook for experience, evidence, and selected work.",
   },
-  artistic: {
-    id: "artistic",
-    label: "Artistic",
-    description: "A curated gallery for work, learning, images, and writing.",
-  },
 } satisfies Record<PortfolioTemplateId, PortfolioTemplateOption>;
 
 export const selectablePortfolioTemplateIds = [

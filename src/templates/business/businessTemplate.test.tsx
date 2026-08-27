@@ -138,6 +138,8 @@ describe("Business presentation ownership", () => {
     expect(
       screen.getByTestId("business-credential-details-0"),
     ).toHaveTextContent(`Issuer: ${certificates[0].issuer}`);
+    expect(screen.queryAllByText(/^Film \d{2}$/)).toHaveLength(0);
+    expect(screen.queryAllByText(/^C\d{2}$/)).toHaveLength(0);
   });
 
   it("uses Engineering names and previews every certificate", () => {
