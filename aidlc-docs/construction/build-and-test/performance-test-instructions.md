@@ -23,7 +23,7 @@ Record the JavaScript and CSS sizes printed by Vite and compare them with the cu
 
 | Measure          | Observed result                                            |
 | ---------------- | ---------------------------------------------------------- |
-| Vite build time  | Approximately 5.66 seconds on the verification machine     |
+| Vite build time  | Approximately 6.00 seconds on the verification machine     |
 | Main JavaScript  | 975.76 kB minified; 296.49 kB gzip                         |
 | Main CSS         | 34.61 kB minified; 7.43 kB gzip                            |
 | Complete `dist/` | Approximately 9.4 MB including images and PDF certificates |

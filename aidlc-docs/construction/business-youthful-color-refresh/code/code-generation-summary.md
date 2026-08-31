@@ -2,7 +2,7 @@
 
 ## Outcome
 
-The Business theme now uses the supplied `#3368A0`, `#66A3BF`, `#C8DFDB`, and `#F2EFE7` background palette together with accessible roles derived from the supplied text palette. The complete Direct Contact card composition is centered: light mode uses the same blue primary pair as the Send message button, while dark mode retains a deep-blue surface with near-white text and readable blue contact highlights. The profile record is capped at `20rem` with a balanced `4 / 3.5` portrait frame; dark supporting text is brighter; and every decorative Business sequence number is removed. The three supplied PNG project images display from their left edge, and Business navigation rows use consistent horizontal padding. The application supports exactly Engineering and Business. Its README currently provides a concise installation-to-first-deployment guide, with the template-first student journey pending Step 18 approval.
+The Business theme now uses the supplied `#3368A0`, `#66A3BF`, `#C8DFDB`, and `#F2EFE7` background palette together with accessible roles derived from the supplied text palette. The complete Direct Contact card composition is centered: light mode uses the same blue primary pair as the Send message button, while dark mode retains a deep-blue surface with near-white text and readable blue contact highlights. The profile record is capped at `20rem` with a balanced `4 / 3.5` portrait frame; dark supporting text is brighter; and every decorative Business sequence number is removed. The three supplied PNG project images display from their left edge, and Business navigation rows use consistent horizontal padding. The application supports exactly Engineering and Business. Its README now follows a template-first student journey from account creation through trusted instructor collaboration, GitHub Pages, local editing, the first push, Actions monitoring, and live-site verification.
 
 ## Modified Application Files
 
@@ -33,14 +33,14 @@ The Business theme now uses the supplied `#3368A0`, `#66A3BF`, `#C8DFDB`, and `#
   - Added regression assertions that both removed label patterns stay absent.
 - `src/test/data/portfolio.test.ts`
   - Requires supplied PNG project assets and screenshot-or-diagram alternative text.
-  - Protects the essential VS Code, Git identity, npm, safe first-commit, Actions, and Pages instructions in `README.md`.
+  - Protects the ordered account, template, collaborator, Pages, VS Code, Git identity, npm, safe first-commit, Actions, and live-site instructions in `README.md`.
 - `src/themeAccessibility.test.ts`
   - Added focused palette-identity, decorative-number, complete contact-centering and highlighting, profile-size and aspect-ratio, text-readability, project-position, and navigation-padding safeguards.
   - Added regression coverage rejecting the known legacy warm Business palette.
   - Preserved the existing contrast, scope-isolation, reduced-motion, and pointer-event assertions.
 - `README.md`
-  - Reorganized the guide into a concise, numbered first-use path from tool installation and Git identity through customization, verification, the first commit, and GitHub Pages deployment.
-  - Added copyable `user.name` and `user.email` configuration, safe staging, GitHub authentication, Actions status, and beginner recovery guidance.
+  - Reorganized the guide into a concise path from GitHub account creation and **Use this template** through a public `<username>.github.io` repository, Pages setup, local customization, the first commit, and updated deployment verification.
+  - Added trusted instructor collaborator invitation, write-access disclosure and removal guidance, repository About website setup, manual workflow fallback, copyable Git identity commands, safe staging, authentication, Actions status, and beginner recovery guidance.
 
 ## Supplied Project Images
 
@@ -104,27 +104,27 @@ Semantically neutral white remains only where existing logo or media treatment r
 
 ## Verification Evidence
 
-| Check                                     | Result                                                                                          |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Latest red regression baseline            | README and semantic contact-color safeguards failed before the Steps 15 and 16 amendment        |
-| Focused documentation/accessibility tests | 18 tests across 2 files passed                                                                  |
-| Complete Vitest suite                     | 88 tests across 9 files passed                                                                  |
-| ESLint                                    | Passed                                                                                          |
-| TypeScript and Vite production build      | Passed                                                                                          |
-| Legacy warm-color scan                    | Passed; no known legacy Business value remains                                                  |
-| Source and non-audit stale scan           | Passed; no retired-name content or path remains                                                 |
-| Prettier                                  | Passed for modified application and active workflow files                                       |
-| `git diff --check`                        | Passed                                                                                          |
-| Scoped application diff                   | Approved palette, theme, numbering, asset, and Business layout refinements only                 |
-| Duplicate-file check                      | Passed; no modified or replacement copy was created                                             |
-| Decorative-number source/style scan       | Passed; no Business sequence expression or counter-only style remains                           |
-| Project asset validation                  | Passed; all three supplied PNG files resolve and appear in production output                    |
-| Project asset hash comparison             | Passed; all three SHA-256 values remained unchanged                                             |
-| Project crop and navigation padding       | Passed; left-center cover position and consistent `px={3}` are regression protected             |
-| Profile asset hash comparison             | Passed; the source profile JPEG SHA-256 value remained unchanged                                |
-| Contact and profile layout                | Passed; semantic centered contact actions and centered `20rem`, `4 / 3.5` profile are protected |
-| Beginner documentation                    | Passed; installation, identity, first commit, Actions, and Pages path is regression protected   |
-| Production bundle                         | 975.76 kB minified, 296.49 kB gzip; CSS is 34.61 kB, 7.43 kB gzip; existing warning remains     |
+| Check                                     | Result                                                                                                      |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Latest red regression baseline            | Template-first student-journey safeguard failed before the Step 18 README amendment                         |
+| Focused documentation/accessibility tests | 18 tests across 2 files passed                                                                              |
+| Complete Vitest suite                     | 88 tests across 9 files passed                                                                              |
+| ESLint                                    | Passed                                                                                                      |
+| TypeScript and Vite production build      | Passed                                                                                                      |
+| Legacy warm-color scan                    | Passed; no known legacy Business value remains                                                              |
+| Source and non-audit stale scan           | Passed; no retired-name content or path remains                                                             |
+| Prettier                                  | Passed for modified application and active workflow files                                                   |
+| `git diff --check`                        | Passed                                                                                                      |
+| Scoped application diff                   | Approved palette, theme, numbering, asset, and Business layout refinements only                             |
+| Duplicate-file check                      | Passed; no modified or replacement copy was created                                                         |
+| Decorative-number source/style scan       | Passed; no Business sequence expression or counter-only style remains                                       |
+| Project asset validation                  | Passed; all three supplied PNG files resolve and appear in production output                                |
+| Project asset hash comparison             | Passed; all three SHA-256 values remained unchanged                                                         |
+| Project crop and navigation padding       | Passed; left-center cover position and consistent `px={3}` are regression protected                         |
+| Profile asset hash comparison             | Passed; the source profile JPEG SHA-256 value remained unchanged                                            |
+| Contact and profile layout                | Passed; semantic centered contact actions and centered `20rem`, `4 / 3.5` profile are protected             |
+| Beginner documentation                    | Passed; template, collaborator, Pages, local edit, first push, Actions, and live verification are protected |
+| Production bundle                         | 975.76 kB minified, 296.49 kB gzip; CSS is 34.61 kB, 7.43 kB gzip; existing warning remains                 |
 
 ## Requirements Traceability
 
@@ -138,8 +138,9 @@ Semantically neutral white remains only where existing logo or media treatment r
 - BYC-22 and BYC-23: balanced final portrait length plus highlighted email and social-link surfaces with hover feedback.
 - BYC-24 and BYC-25: concise first-time contributor documentation and shared semantic Direct Contact colors in both modes.
 - BYC-26: light Direct Contact and form button share the primary action pair; dark Direct Contact retains a deep surface, near-white text, and accessible blue highlights.
+- BYC-27: ordered template-first student onboarding, trusted instructor collaboration, root Pages setup, local editing, safe first push, and updated deployment verification.
 - BYC-NFR-01 through BYC-NFR-05: contrast, readability, scope isolation, dependency restraint, and compatibility.
-- Acceptance criteria 1 through 24: covered by palette, UI, documentation, numbering, asset, image-position, navigation-padding, optical-centering, profile-size, portrait-frame, semantic contact-color, and contact-highlight safeguards; stale scans; contrast verification; complete tests; lint; production build; scoped diff; and reproducible Build and Test instructions.
+- Acceptance criteria 1 through 26: covered by palette, UI, template-first documentation, collaborator guidance, numbering, asset, image-position, navigation-padding, optical-centering, profile-size, portrait-frame, mode-specific contact-color, and contact-highlight safeguards; stale scans; contrast verification; complete tests; lint; production build; scoped diff; and reproducible Build and Test instructions.
 
 ## Extension Compliance
 

@@ -2,13 +2,13 @@
 
 ## Outcome
 
-The concise beginner README and mode-specific Business Direct Contact color update pass all automated quality gates. No dependency, route, asset, data model, or deployment workflow changed. The template-first README amendment remains planned separately as Step 18.
+The template-first beginner README and mode-specific Business Direct Contact color update pass all automated quality gates. No dependency, route, asset, data model, or deployment workflow changed.
 
 ## Build Status
 
 - **Build tool**: TypeScript 5.9 and Vite 7 through `npm run build`
 - **Status**: Success
-- **Build time**: Approximately 5.66 seconds on the verification machine
+- **Build time**: Approximately 6.00 seconds on the verification machine
 - **Artifacts**: Static entry point, JavaScript, CSS, images, resume, and certificates under `dist/`
 - **Preview**: HTTP 200 for `/` on the local production preview
 
@@ -45,7 +45,7 @@ The existing Vite warning for a JavaScript chunk above 500 kB remains non-blocki
 
 ## Scope Validation
 
-- `README.md` now follows a short installation-to-deployment path for a first-time VS Code, Git, npm, and GitHub Actions user.
+- `README.md` now follows an ordered account-to-live-site journey with template creation, collaborator access, Pages, local editing, safe push, and deployment verification.
 - The light Business contact card uses the same primary pair as the Send message button; dark mode uses a deep surface, near-white text, and accessible blue control highlights.
 - Engineering presentation, content, assets, routes, and GitHub Pages workflow remain unchanged.
 

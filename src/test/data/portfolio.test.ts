@@ -35,12 +35,29 @@ const expectKnownSection = (sectionId: SectionId, context: string) => {
 
 describe("src/data/portfolio.ts", () => {
   it("keeps the README usable for a first-time contributor", () => {
-    [
+    const requiredInstructions = [
+      "Create your GitHub account",
+      "Use this template",
+      "Create a new repository",
+      "<username>.github.io",
+      "Settings > Collaborators",
+      "Add people",
+      "write access",
+      "Settings > Pages",
+      "Visit site",
+      "About",
+      "Website",
       "Visual Studio Code",
       "Terminal > New Terminal",
+      "git --version",
+      "node --version",
+      "npm --version",
       'git config --global user.name "Your Name"',
       'git config --global user.email "you@example.com"',
       "git config --get user.name",
+      "git clone",
+      "origin",
+      "npm install",
       "npm ci",
       "npm run dev",
       "npm test",
@@ -53,14 +70,43 @@ describe("src/data/portfolio.ts", () => {
       "git branch -M main",
       "git push -u origin main",
       "GitHub Actions",
+      "Deploy to GitHub Pages",
+      "Run workflow",
       "Settings > Pages",
       "DEPLOYMENT.md",
-    ].forEach((instruction) => {
+    ];
+
+    requiredInstructions.forEach((instruction) => {
       expect(readme).toContain(instruction);
+    });
+
+    const journeyOrder = [
+      "Create your GitHub account",
+      "Use this template",
+      "Settings > Collaborators",
+      "Settings > Pages",
+      "Install Git, Node.js, and Visual Studio Code",
+      "Tell Git who you are",
+      "Clone and open your repository",
+      "Install and preview locally",
+      "Customize and check your work",
+      "Commit and push your changes",
+      "Watch the deployment",
+      "Verify the updated live site",
+    ];
+    let previousIndex = -1;
+    journeyOrder.forEach((step) => {
+      const currentIndex = readme.indexOf(step);
+      expect(
+        currentIndex,
+        `${step} must appear in the student journey`,
+      ).toBeGreaterThan(previousIndex);
+      previousIndex = currentIndex;
     });
 
     expect(readme).toMatch(/node_modules.*dist|dist.*node_modules/s);
     expect(readme).toMatch(/secret|\.env/i);
+    expect(readme).not.toMatch(/git push[^\n]*upstream/);
   });
 
   it("keeps student-editable copy complete for every non-home section", () => {

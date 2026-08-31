@@ -9146,3 +9146,39 @@ For the connect\_channels, please make the color consistent with other component
 **Context**: CONSTRUCTION - Code Generation Part 2 Step 17 Dark-Mode Correction Complete
 
 ---
+
+## Business Color and Two-Theme Refresh - Step 18 Collaborator Guidance Amendment
+
+**Timestamp**: 2026-08-31T10:31:13Z
+**User Input**: "for readme, please include a step to guide students to add collaborators so I can support them with code edit"
+**AI Response**: "Amended BYC-27, acceptance criterion 26, Step 18, and its approval prompt to include Settings, Collaborators, Add people, invitation acceptance, trusted-instructor write-access disclosure, and later removal guidance. Verified the current steps and permission behavior against official GitHub documentation. README.md remains unchanged pending Step 18 approval."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 18 Plan Amendment
+
+---
+
+## Business Color and Two-Theme Refresh - Step 18 Approval
+
+**Timestamp**: 2026-08-31T10:40:41Z
+**User Input**: "approve"
+**AI Response**: "Recorded option A as explicit approval of the amended Step 18 template-first student onboarding README plan, including trusted instructor collaborator guidance, and advanced Code Generation Part 2 to implementation."
+**Context**: CONSTRUCTION - Code Generation Part 1 Step 18 Approval
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Step 18 Complete
+
+**Timestamp**: 2026-08-31T10:46:11Z
+**User Input**: "N/A"
+**AI Response**: "Rewrote README.md into the approved template-first student journey: GitHub account creation, a public username.github.io repository from Use this template, trusted instructor collaborator invitation and removal, GitHub Actions Pages setup, initial live-site and About-link verification, local Git/Node/npm/VS Code setup, Git identity, origin cloning, npm install and local preview, customization, automated checks, safe commit and push, Actions monitoring, and updated live-site verification. Added official GitHub links and regression protection for sequence and required instructions. Focused tests passed 18 tests across two files; the complete suite passed 88 tests across nine files; ESLint and the TypeScript/Vite production build passed. The existing bundle warning remains non-blocking."
+**Context**: CONSTRUCTION - Code Generation Part 2 Step 18
+
+---
+
+## Business Color and Two-Theme Refresh - Code Generation Completion Prompt
+
+**Timestamp**: 2026-08-31T10:46:11Z
+**User Input**: "N/A"
+**AI Response**: "Returned to the standardized Code Generation review gate after completing and verifying all eighteen implementation steps. Awaiting Request Changes or Continue to Next Stage before the final Build and Test rerun."
+**Context**: CONSTRUCTION - Code Generation Part 2 Review Gate
+
+---

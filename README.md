@@ -1,17 +1,67 @@
 # Student Portfolio Template
 
-A personal portfolio you can customize and publish free with GitHub Pages. The current version includes two switchable styles—**Engineering** and **Business**—with light and dark modes. You can change the content without knowing React or TypeScript.
+This template gives you a personal portfolio with Engineering and Business styles, light and dark modes, and automatic GitHub Pages deployment. Follow the steps in order if this is your first time using GitHub, Git, npm, or Visual Studio Code.
 
-## 1. Install the tools
+## 1. Create your GitHub account
 
-Install these once:
+Create a free account at [github.com/signup](https://github.com/signup), verify your email address, and sign in. Remember your exact username because it becomes part of your website address.
 
-- [Visual Studio Code](https://code.visualstudio.com/) to edit the project.
-- [Git](https://git-scm.com/downloads) to save and upload changes.
-- [Node.js LTS](https://nodejs.org/en/download), which includes npm, to run the website.
-- A free [GitHub account](https://github.com/signup) to host the code and website.
+## 2. Use this template to create your repository
 
-Open a terminal and check that each command prints a version:
+Open this template repository on GitHub, then:
+
+1. Select **Use this template > Create a new repository**.
+2. Choose your personal account as the owner.
+3. Name the repository exactly `<username>.github.io`, replacing `<username>` with your lowercase GitHub username. For example, `octocat` should use `octocat.github.io`.
+4. Choose **Public** so GitHub Pages works with GitHub Free.
+5. Select **Create repository**.
+
+This creates an independent repository for your portfolio. The final website address will be `https://<username>.github.io`.
+
+See GitHub's [repository template instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) if the button is difficult to find.
+
+## 3. Add a trusted collaborator
+
+Add your instructor if you want them to help edit or troubleshoot your code:
+
+1. Open your new repository and select **Settings > Collaborators**.
+2. Select **Add people**.
+3. Search for your instructor's GitHub username and send the invitation.
+4. Ask the instructor to accept the invitation.
+
+An accepted collaborator has write access: they can pull and push repository code. Invite only people you trust. When support ends, return to **Settings > Collaborators** and remove their access. See GitHub's [collaborator instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository).
+
+## 4. Enable GitHub Pages with GitHub Actions
+
+The deployment workflow is already included:
+
+1. Open **Settings > Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Open **Actions > Deploy to GitHub Pages**.
+4. If no run has started, select **Run workflow**, choose `main`, and select **Run workflow** again.
+
+Wait for the workflow to show a green check mark. Yellow means it is running; red means a step failed and should be opened for details.
+
+## 5. Verify the first live site and add its link
+
+After deployment succeeds:
+
+1. Open **Settings > Pages** and select **Visit site**, or open `https://<username>.github.io`.
+2. Return to the repository's **Code** page.
+3. Next to **About**, select the settings gear.
+4. Enter `https://<username>.github.io` in the **Website** field and save.
+
+The portfolio link now appears in the repository's About section. GitHub Pages can take up to 10 minutes to publish for the first time.
+
+## 6. Install Git, Node.js, and Visual Studio Code
+
+Install these tools locally:
+
+- [Git](https://git-scm.com/downloads) saves and uploads code changes.
+- [Node.js LTS](https://nodejs.org/en/download) includes npm, which runs the website.
+- [Visual Studio Code](https://code.visualstudio.com/) edits the project files.
+
+Open a terminal and verify Git, Node.js, and npm:
 
 ```bash
 git --version
@@ -19,60 +69,54 @@ node --version
 npm --version
 ```
 
-Use Node `20.19.0` or newer, or Node `22.12.0` or newer. If a command is missing, restart the terminal after installing its tool.
+Use Node `20.19.0` or newer, or Node `22.12.0` or newer. Restart the terminal if an installed command is not recognized.
 
-## 2. Tell Git who you are
+## 7. Tell Git who you are
 
-Git adds this name and email to your commits. Run these commands once, replacing the example values with your own:
+Configure the name and email recorded on your commits:
 
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 ```
 
-Use an email connected to your GitHub account, or your GitHub no-reply email. Confirm the settings:
+Use an email connected to your GitHub account or your GitHub no-reply email. Confirm the values:
 
 ```bash
 git config --get user.name
 git config --get user.email
 ```
 
-`--global` applies the identity to all projects on this computer. Remove it from a command if you need a different identity only for this repository.
+`--global` applies this identity to every repository on the computer. Omit it when setting a different identity only inside one repository.
 
-## 3. Copy and open the project
+## 8. Clone and open your repository
 
-On GitHub, select **Fork** to create your own copy. On your fork, select **Code**, copy the HTTPS address, and run:
+On your repository's **Code** page, copy the HTTPS URL. In a terminal, run:
 
 ```bash
-git clone https://github.com/<your-username>/<repository>.git
-cd <repository>
+git clone https://github.com/<username>/<username>.github.io.git
+cd <username>.github.io
+git remote -v
 ```
 
-Replace the placeholders with the values from your copied address.
+The remote should be named `origin`; it is your own GitHub repository. In Visual Studio Code, select **File > Open Folder**, choose the cloned folder, and select **Terminal > New Terminal**. The folder should contain `package.json`.
 
-In Visual Studio Code, select **File > Open Folder** and choose the cloned folder. Then select **Terminal > New Terminal**. The terminal should be in the folder containing `package.json`.
+## 9. Install and preview locally
 
-## 4. Install and preview
-
-Install the exact saved dependencies:
+Install the project packages and start the local site:
 
 ```bash
-npm ci
-```
-
-npm reads `package-lock.json` and creates the local `node_modules/` dependency folder for you; do not edit that folder.
-
-Start the local website:
-
-```bash
+npm install
 npm run dev
 ```
 
-Open the address printed in the terminal, usually `http://localhost:5173/`. Saving a file refreshes the preview. Press `Ctrl+C` in the terminal when you want to stop it.
+Open the address shown in the terminal, usually `http://localhost:5173/`. Keep the terminal running while editing and press `Ctrl+C` to stop it.
 
-## 5. Customize the portfolio
+npm creates `node_modules/`; do not edit or commit that folder. The GitHub Actions workflow uses `npm ci` for a locked, repeatable deployment build.
 
-Most personal content is in `src/data/`:
+## 10. Customize and check your work
+
+Most personal information is under `src/data/`:
 
 | Change                                          | File                                                |
 | ----------------------------------------------- | --------------------------------------------------- |
@@ -89,29 +133,17 @@ Most personal content is in `src/data/`:
 | Section order and visibility                    | `src/data/navigation.ts`                            |
 | First style shown                               | `src/data/template.ts`                              |
 
-Put new files in the matching folder:
+Put project images in `src/assets/projects/`, other images in `src/assets/`, the resume in `src/assets/documents/`, certificate PDFs in `src/assets/certificates/`, and journal Markdown in `src/content/journal/`. Update the matching import when a filename changes and provide useful `imageAlt` text.
 
-- Project images: `src/assets/projects/`
-- Other images: `src/assets/`
-- Resume: `src/assets/documents/`
-- Certificate PDFs: `src/assets/certificates/`
-- Journal Markdown: `src/content/journal/`
-
-If you change a filename, update its import in the related data file. Give every image useful `imageAlt` text.
-
-### Choose the first style
-
-Edit `src/data/template.ts` and use either `"engineering"` or `"business"`:
+To change the first portfolio style, edit `src/data/template.ts`:
 
 ```ts
 export const selectedTemplateId = "engineering";
 ```
 
-Visitors can still switch styles. Their browser remembers their choice, so clear the site's browser data when testing a new initial value.
+Use `"engineering"` or `"business"`. Save a small visible change and confirm it appears immediately on the local site. Then check both styles, both color modes, and a narrow browser window.
 
-## 6. Check your changes
-
-In the browser, check both styles, light and dark mode, and a narrow window. Then run:
+Run the automated checks before committing:
 
 ```bash
 npm test
@@ -119,11 +151,11 @@ npm run lint
 npm run build
 ```
 
-All three commands should finish without errors. To inspect the built version, run `npm run preview`, open its address, and press `Ctrl+C` when finished.
+The generated `dist/` build folder should not be committed.
 
-## 7. Make your first commit
+## 11. Commit and push your changes
 
-First, review which files changed:
+Review, stage, and inspect the changes:
 
 ```bash
 git status
@@ -131,7 +163,7 @@ git add .
 git diff --staged
 ```
 
-If the staged changes look correct, save them as a commit and upload them:
+If the staged files are correct, create the first commit and push it to your repository's `origin` remote:
 
 ```bash
 git commit -m "Customize my portfolio"
@@ -139,57 +171,41 @@ git branch -M main
 git push -u origin main
 ```
 
-Later updates only need `git add .`, `git commit -m "Describe the change"`, and `git push`.
+Later updates only need `git add .`, `git commit -m "Describe the change"`, and `git push`. Never commit passwords, access tokens, secret values, `.env` files, `node_modules/`, or `dist/`.
 
-Before `git add .`, always check `git status`. Never commit passwords, access tokens, secret values, or `.env` files. Generated `node_modules/` and `dist/` folders should also stay out of Git.
+On the first HTTPS push, GitHub may open a browser or Git Credential Manager. GitHub does not accept your account password in the terminal; use browser sign-in or a personal access token, and never store a token in the project.
 
-### GitHub sign-in on the first push
+## 12. Watch the deployment
 
-An HTTPS push may open a browser or Git Credential Manager for sign-in. GitHub does not accept your account password in a terminal; if prompted there, use a personal access token instead and never save that token in the project.
+Open the repository's **Actions** tab and select **Deploy to GitHub Pages**. Your push to `main` should trigger a new run automatically.
 
-## 8. Publish with GitHub Pages
+- Yellow: wait for the workflow to finish.
+- Green: the updated site deployed successfully.
+- Red: open the failed job and its first failed step, fix the reported problem locally, commit, and push again.
 
-This repository already has a GitHub Actions workflow named **Deploy to GitHub Pages**.
+## 13. Verify the updated live site
 
-1. Open your repository on GitHub.
-2. Select **Settings > Pages**.
-3. Set **Source** to **GitHub Actions**.
-4. Push a commit to `main`.
-5. Open **Actions** and select the latest workflow run.
+After the workflow succeeds, select its deployment link or open `https://<username>.github.io`. Confirm your latest visible change appears and check navigation, images, resume downloads, and both portfolio styles.
 
-A yellow icon means it is running, green means it succeeded, and red means you should open the failed step to read its message. After a successful run, GitHub shows the published website address.
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for URL settings and deployment troubleshooting.
+If old content remains, wait a few minutes, refresh without cache, or use a private browser window. See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed URL and deployment troubleshooting.
 
 ## Common problems
 
 ### `package.json` cannot be found
 
-The terminal is in the wrong folder. In VS Code, open the folder that contains `package.json`, then open a new terminal.
+The terminal is in the wrong folder. Open the cloned `<username>.github.io` folder in Visual Studio Code, then open a new terminal.
 
-### The preview does not update
+### The local site does not update
 
-Check that `npm run dev` is still running, save the file, and confirm you opened the address printed by that command.
-
-### An image or PDF is missing
-
-Check the filename, capitalization, import path, and folder. `npm run build` usually reveals broken imports.
+Confirm `npm run dev` is still running, save the file, and use the address printed by that command.
 
 ### `git push` is rejected
 
-Run `git status` and confirm you cloned your own fork. If GitHub says the remote has newer work, run `git pull --ff-only`, then try `git push` again.
+Run `git remote -v` and confirm `origin` points to your `<username>.github.io` repository. If GitHub contains newer work, run `git pull --ff-only` before pushing again.
 
-### SWC reports `Failed to load native binding`
+### The workflow or live site fails
 
-Recreate dependencies from the lock file:
-
-```bash
-mv node_modules node_modules.corrupt
-npm cache verify
-npm ci
-```
-
-On Windows PowerShell, use `Rename-Item node_modules node_modules.corrupt` for the first command. Delete the backup after the site works.
+Run `npm test`, `npm run lint`, and `npm run build` locally. Check missing assets and import capitalization, then inspect the failed Actions step. Confirm **Settings > Pages** still uses **GitHub Actions**.
 
 ## Developer notes
 

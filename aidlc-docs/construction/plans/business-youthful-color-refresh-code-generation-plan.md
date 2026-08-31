@@ -1,6 +1,6 @@
 # Code Generation Plan - Business Youthful Color Refresh
 
-> **Status: Step 17 approved for implementation; Step 18 planned and awaiting explicit approval.** This document is the single source of truth for the Business palette, two-theme boundary, and review refinements.
+> **Status: All eighteen steps implemented and verified; awaiting Code Generation review.** This document is the single source of truth for the Business palette, two-theme boundary, and review refinements.
 
 ## Unit Context
 
@@ -66,7 +66,7 @@ No User Stories stage was needed. The unit directly implements these approved re
 - [x] Obtain explicit approval for the Step 14 portrait-length and contact-highlight amendment on 2026-08-27.
 - [x] Obtain explicit approval for the amended, concise Steps 15 and 16 beginner-documentation and semantic contact-color work on 2026-08-31.
 - [x] Obtain explicit approval for the Step 17 primary-action contact-card color amendment on 2026-08-31.
-- [ ] Obtain explicit approval for the Step 18 template-first student onboarding README amendment.
+- [x] Obtain explicit approval for the amended Step 18 template-first student onboarding README work on 2026-08-31.
 
 ## Part 2 - Implementation Steps
 
@@ -237,12 +237,12 @@ Restore the prior Business root color declarations and the display-accent text r
 
 ### Step 18 - Rebuild README Around the Student Deployment Journey
 
-- [ ] Extend the README regression safeguard to require the requested GitHub account, Use this template, exact `<username>.github.io`, GitHub Actions Pages, Visit site, repository About website, local tool verification, Git identity, clone, install, preview, customization, safe commit/push, workflow monitoring, and updated-site verification path.
-- [ ] Rewrite the numbered README flow in the user's fourteen-step order, grouping only closely related clicks or commands and keeping one simple explanation with the exact action in each section.
-- [ ] Use **Use this template → Create a new repository** as the primary setup, require the public lowercase `<username>.github.io` name for a GitHub Free root user site, and describe the student's clone remote as `origin` rather than `upstream`.
-- [ ] Document initial deployment through **Settings → Pages → Source: GitHub Actions**, the included **Deploy to GitHub Pages** workflow and manual Run workflow fallback, **Visit site**, and adding `https://<username>.github.io` through the repository About gear's Website field.
-- [ ] Preserve concise local setup, customization map, asset guidance, validation commands, authentication and secret safety, troubleshooting, and `DEPLOYMENT.md`; use `npm install` for the requested beginner flow while explaining that Actions uses locked `npm ci`.
-- [ ] Validate every command, path, UI label, workflow name, URL pattern, Markdown structure, and official GitHub reference; run focused and complete tests, ESLint, build, Prettier, stale-reference scan, scoped diff inspection, and `git diff --check`.
+- [x] Extend the README regression safeguard to require the requested GitHub account, Use this template, exact `<username>.github.io`, collaborator invitation, GitHub Actions Pages, Visit site, repository About website, local tool verification, Git identity, clone, install, preview, customization, safe commit/push, workflow monitoring, and updated-site verification path.
+- [x] Rewrite the numbered README flow in the user's fourteen-step order, grouping only closely related clicks or commands and keeping one simple explanation with the exact action in each section.
+- [x] Use **Use this template → Create a new repository** as the primary setup, require the public lowercase `<username>.github.io` name for a GitHub Free root user site, document **Settings → Collaborators → Add people** for trusted instructor support, and describe the student's clone remote as `origin` rather than `upstream`.
+- [x] Document initial deployment through **Settings → Pages → Source: GitHub Actions**, the included **Deploy to GitHub Pages** workflow and manual Run workflow fallback, **Visit site**, and adding `https://<username>.github.io` through the repository About gear's Website field.
+- [x] Explain that accepted personal-repository collaborators can pull and push code, advise students to invite only trusted supporters, include the removal path, and preserve concise local setup, customization map, asset guidance, validation commands, authentication and secret safety, troubleshooting, and `DEPLOYMENT.md`; use `npm install` for the requested beginner flow while explaining that Actions uses locked `npm ci`.
+- [x] Validate every command, path, UI label, workflow name, URL pattern, Markdown structure, and official GitHub reference; run focused and complete tests, ESLint, build, Prettier, stale-reference scan, scoped diff inspection, and `git diff --check`.
 - **Traceability**: BYC-27, BYC-24, BYC-NFR-04, BYC-NFR-05, and acceptance criterion 26.
 
 ## Completion Gate
