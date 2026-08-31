@@ -23,13 +23,13 @@ Record the JavaScript and CSS sizes printed by Vite and compare them with the cu
 
 | Measure          | Observed result                                            |
 | ---------------- | ---------------------------------------------------------- |
-| Vite build time  | Approximately 3.00 seconds on the verification machine     |
-| Main JavaScript  | 998.90 kB minified; 300.39 kB gzip                         |
-| Main CSS         | 56.85 kB minified; 10.73 kB gzip                           |
-| Complete `dist/` | Approximately 8.9 MB including images and PDF certificates |
-| Preview response | HTTP 200 for `/`                                           |
+| Vite build time  | Approximately 5.66 seconds on the verification machine     |
+| Main JavaScript  | 975.76 kB minified; 296.49 kB gzip                         |
+| Main CSS         | 34.61 kB minified; 7.43 kB gzip                            |
+| Complete `dist/` | Approximately 9.4 MB including images and PDF certificates |
+| Preview response | HTTP 200 for `/` on the local Vite production preview      |
 
-The main JavaScript remains above Vite's 500 kB warning threshold. This is a tracked, non-blocking warning and is effectively unchanged from the previous approximately 997 kB baseline.
+The main JavaScript remains above Vite's 500 kB warning threshold. This is a tracked, non-blocking warning; the current bundle is smaller than the previous recorded baseline.
 
 ## Optional Browser Measurement
 

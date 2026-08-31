@@ -1,76 +1,17 @@
 # Student Portfolio Template
 
-This project gives you a personal portfolio website that you can edit and publish for free with GitHub Pages. You do not need to understand React or TypeScript to change your profile, education, projects, photos, writing, or resume.
+A personal portfolio you can customize and publish free with GitHub Pages. The current version includes two switchable styles—**Engineering** and **Business**—with light and dark modes. You can change the content without knowing React or TypeScript.
 
-## Quick Start
+## 1. Install the tools
 
-You need:
+Install these once:
 
-- [Node.js LTS](https://nodejs.org/en/download), which includes npm.
-- [Git](https://git-scm.com/downloads), unless you download the project as a ZIP file.
-- A text editor such as [Visual Studio Code](https://code.visualstudio.com/).
-- A modern web browser.
+- [Visual Studio Code](https://code.visualstudio.com/) to edit the project.
+- [Git](https://git-scm.com/downloads) to save and upload changes.
+- [Node.js LTS](https://nodejs.org/en/download), which includes npm, to run the website.
+- A free [GitHub account](https://github.com/signup) to host the code and website.
 
-Open a terminal in the project folder and run:
-
-```bash
-npm install
-npm run dev
-```
-
-Open the local address printed in the terminal, usually `http://localhost:5173/`. Keep the terminal open while editing. The browser refreshes after you save a file.
-
-Press `Ctrl+C` in the terminal to stop the local website.
-
-## Install the Tools
-
-Choose the instructions for your computer.
-
-### Windows
-
-1. Install [Git for Windows](https://git-scm.com/install/windows).
-2. Install the **LTS** version of [Node.js](https://nodejs.org/en/download).
-3. Close and reopen PowerShell, Command Prompt, or the VS Code terminal.
-
-You can also use WinGet in PowerShell:
-
-```powershell
-winget install --id Git.Git -e --source winget
-winget install --id OpenJS.NodeJS.LTS -e --source winget
-```
-
-### macOS
-
-1. Install the **LTS** version of [Node.js](https://nodejs.org/en/download).
-2. Open Terminal and install Apple's Git tools:
-
-```bash
-xcode-select --install
-```
-
-Close and reopen Terminal after installation.
-
-### Linux, WSL, or ChromeOS
-
-Install Git with your Linux package manager. On Ubuntu or Debian:
-
-```bash
-sudo apt update
-sudo apt install git
-```
-
-Install the current Node.js LTS release with a version manager such as [nvm](https://github.com/nvm-sh/nvm):
-
-```bash
-nvm install --lts
-nvm use --lts
-```
-
-For WSL, keep the project in your Linux home folder and install Git and Node inside WSL. On ChromeOS, first enable the Linux development environment. A school-managed Chromebook may require administrator help.
-
-### Check the Installation
-
-Run:
+Open a terminal and check that each command prints a version:
 
 ```bash
 git --version
@@ -78,113 +19,99 @@ node --version
 npm --version
 ```
 
-This project requires Node `20.19.0` or newer, or Node `22.12.0` or newer. A current LTS version is recommended.
+Use Node `20.19.0` or newer, or Node `22.12.0` or newer. If a command is missing, restart the terminal after installing its tool.
 
-## Get the Project
+## 2. Tell Git who you are
 
-Choose one option.
-
-### Clone with Git
-
-Copy the HTTPS address from **Code** on the GitHub repository page, then run:
+Git adds this name and email to your commits. Run these commands once, replacing the example values with your own:
 
 ```bash
-git clone https://github.com/<owner>/<repository>.git
-cd <repository>
-npm install
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
 ```
 
-Replace `<owner>` and `<repository>` with the values from the GitHub address.
+Use an email connected to your GitHub account, or your GitHub no-reply email. Confirm the settings:
 
-### Download a ZIP File
+```bash
+git config --get user.name
+git config --get user.email
+```
 
-1. Select **Code > Download ZIP** on GitHub.
-2. Extract the ZIP file.
-3. Open the extracted folder in VS Code.
-4. Select **Terminal > New Terminal**.
-5. Run `npm install`.
+`--global` applies the identity to all projects on this computer. Remove it from a command if you need a different identity only for this repository.
 
-Do not upload or edit the generated `node_modules/` folder.
+## 3. Copy and open the project
 
-## Make the Portfolio Yours
+On GitHub, select **Fork** to create your own copy. On your fork, select **Code**, copy the HTTPS address, and run:
 
-The browser is only a preview. Save changes in the project files, mainly under `src/data/`.
+```bash
+git clone https://github.com/<your-username>/<repository>.git
+cd <repository>
+```
 
-Start with these files:
+Replace the placeholders with the values from your copied address.
 
-| What you want to change                                   | File                         |
-| --------------------------------------------------------- | ---------------------------- |
-| Name, headline, location, email, resume, and social links | `src/data/profile.ts`        |
-| About text                                                | `src/data/about.ts`          |
-| Section headings and introductions                        | `src/data/sectionContent.ts` |
-| Schools and qualifications                                | `src/data/education.ts`      |
-| Work, internships, mentoring, or volunteering             | `src/data/experience.ts`     |
-| Awards and recognition                                    | `src/data/awards.ts`         |
-| Projects, project images, links, and tools                | `src/data/projects.ts`       |
-| Gallery photos                                            | `src/data/gallery.ts`        |
-| Videos                                                    | `src/data/videos.ts`         |
-| Skills                                                    | `src/data/skills.ts`         |
-| Certificates                                              | `src/data/certificates.ts`   |
-| External blog links                                       | `src/data/blog.ts`           |
-| Journal post details                                      | `src/data/journalPosts.ts`   |
-| Section order and visibility                              | `src/data/navigation.ts`     |
-| Initial portfolio style                                   | `src/data/template.ts`       |
+In Visual Studio Code, select **File > Open Folder** and choose the cloned folder. Then select **Terminal > New Terminal**. The terminal should be in the folder containing `package.json`.
 
-Save a file and check the browser preview. If the preview is not running, use:
+## 4. Install and preview
+
+Install the exact saved dependencies:
+
+```bash
+npm ci
+```
+
+npm reads `package-lock.json` and creates the local `node_modules/` dependency folder for you; do not edit that folder.
+
+Start the local website:
 
 ```bash
 npm run dev
 ```
 
-### Choose a Portfolio Style
+Open the address printed in the terminal, usually `http://localhost:5173/`. Saving a file refreshes the preview. Press `Ctrl+C` in the terminal when you want to stop it.
 
-Visitors can currently switch between two styles using the **Portfolio style** button:
+## 5. Customize the portfolio
 
-- **Engineering**: technical presentation with fixed navigation.
-- **Business**: polished editorial casebook.
+Most personal content is in `src/data/`:
 
-Both visible styles use the same profile, education, experience, awards, projects, gallery, writing, skills, and contact content. You do not maintain separate copies of your information for Business.
+| Change                                          | File                                                |
+| ----------------------------------------------- | --------------------------------------------------- |
+| Name, headline, email, resume, and social links | `src/data/profile.ts`                               |
+| About text                                      | `src/data/about.ts`                                 |
+| Section headings                                | `src/data/sectionContent.ts`                        |
+| Education                                       | `src/data/education.ts`                             |
+| Work and volunteering                           | `src/data/experience.ts`                            |
+| Awards                                          | `src/data/awards.ts`                                |
+| Projects, images, links, and tools              | `src/data/projects.ts`                              |
+| Gallery photos and videos                       | `src/data/gallery.ts` and `src/data/videos.ts`      |
+| Skills and certificates                         | `src/data/skills.ts` and `src/data/certificates.ts` |
+| Blog links and journal posts                    | `src/data/blog.ts` and `src/data/journalPosts.ts`   |
+| Section order and visibility                    | `src/data/navigation.ts`                            |
+| First style shown                               | `src/data/template.ts`                              |
 
-To choose the style shown to a first-time visitor, edit `src/data/template.ts`:
+Put new files in the matching folder:
+
+- Project images: `src/assets/projects/`
+- Other images: `src/assets/`
+- Resume: `src/assets/documents/`
+- Certificate PDFs: `src/assets/certificates/`
+- Journal Markdown: `src/content/journal/`
+
+If you change a filename, update its import in the related data file. Give every image useful `imageAlt` text.
+
+### Choose the first style
+
+Edit `src/data/template.ts` and use either `"engineering"` or `"business"`:
 
 ```ts
 export const selectedTemplateId = "engineering";
 ```
 
-Use `"engineering"` or `"business"` for the visitor experience.
+Visitors can still switch styles. Their browser remembers their choice, so clear the site's browser data when testing a new initial value.
 
-A visitor's saved choice overrides this initial value. To test the initial value again, clear the site's browser data or run this in the browser console:
+## 6. Check your changes
 
-```js
-localStorage.removeItem("portfolio-template-id");
-location.reload();
-```
-
-Older copies of the site may have saved the removed Neutral style. That old choice now opens Engineering automatically.
-
-### Add Images, a Resume, or Certificates
-
-- Put images and logos in `src/assets/`.
-- Put project covers in `src/assets/projects/`.
-- Put the resume in `src/assets/documents/`.
-- Put certificate PDFs in `src/assets/certificates/`.
-
-If you use a new filename, update the import in the matching `src/data/` file. Describe what an image shows in its `imageAlt` text so screen-reader users receive useful information.
-
-### Add Writing
-
-For a post that opens inside the portfolio:
-
-1. Add a Markdown file under `src/content/journal/`.
-2. Add its title, date, summary, topics, and content import to `src/data/journalPosts.ts`.
-
-For a post hosted elsewhere, add the link and details to `src/data/blog.ts`.
-
-## Verify Your Changes
-
-Check both visible styles in light and dark mode. Also try a narrow browser window and verify that navigation, images, links, resume downloads, and journal posts work.
-
-Then run:
+In the browser, check both styles, light and dark mode, and a narrow window. Then run:
 
 ```bash
 npm test
@@ -192,67 +119,69 @@ npm run lint
 npm run build
 ```
 
-For a final check of the production version:
+All three commands should finish without errors. To inspect the built version, run `npm run preview`, open its address, and press `Ctrl+C` when finished.
 
-```bash
-npm run preview
-```
+## 7. Make your first commit
 
-Open the printed address, inspect the site, then press `Ctrl+C`.
-
-## Publish with GitHub Pages
-
-The project already includes a GitHub Pages workflow.
-
-1. Push the project to GitHub.
-2. Open **Settings > Pages** in the repository.
-3. Set **Source** to **GitHub Actions**.
-4. Push changes to the `main` branch.
-5. Check the **Actions** tab, then open the published Pages address.
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed publishing and URL troubleshooting.
-
-## Update an Existing Copy Safely
-
-Back up or commit your edits first. For a cloned repository, run:
+First, review which files changed:
 
 ```bash
 git status
-git pull --ff-only
-npm install
+git add .
+git diff --staged
 ```
 
-If Git reports a conflict, do not discard your files. Ask a teacher, mentor, or experienced Git user to help combine the changes.
+If the staged changes look correct, save them as a commit and upload them:
 
-For a ZIP download, extract the newer version into a separate folder and copy your customized `src/data/`, `src/content/`, and `src/assets/` files carefully.
+```bash
+git commit -m "Customize my portfolio"
+git branch -M main
+git push -u origin main
+```
 
-## Common Problems
+Later updates only need `git add .`, `git commit -m "Describe the change"`, and `git push`.
 
-### A command is not recognized
+Before `git add .`, always check `git status`. Never commit passwords, access tokens, secret values, or `.env` files. Generated `node_modules/` and `dist/` folders should also stay out of Git.
 
-Close and reopen the terminal. If `git`, `node`, or `npm` is still missing, reinstall that tool. Confirm that Node meets the minimum version listed above.
+### GitHub sign-in on the first push
 
-### `npm install` cannot find `package.json`
+An HTTPS push may open a browser or Git Credential Manager for sign-in. GitHub does not accept your account password in a terminal; if prompted there, use a personal access token instead and never save that token in the project.
 
-Your terminal is in the wrong folder. Move into the folder containing this README and `package.json`, then try again.
+## 8. Publish with GitHub Pages
 
-### The page does not update
+This repository already has a GitHub Actions workflow named **Deploy to GitHub Pages**.
 
-Confirm `npm run dev` is still running, save the file, and verify that your terminal and editor opened the same project folder.
+1. Open your repository on GitHub.
+2. Select **Settings > Pages**.
+3. Set **Source** to **GitHub Actions**.
+4. Push a commit to `main`.
+5. Open **Actions** and select the latest workflow run.
 
-### The initial portfolio style does not appear
+A yellow icon means it is running, green means it succeeded, and red means you should open the failed step to read its message. After a successful run, GitHub shows the published website address.
 
-The browser may have saved a visitor choice. Clear the site's browser data or remove `portfolio-template-id` from local storage as shown above.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for URL settings and deployment troubleshooting.
+
+## Common problems
+
+### `package.json` cannot be found
+
+The terminal is in the wrong folder. In VS Code, open the folder that contains `package.json`, then open a new terminal.
+
+### The preview does not update
+
+Check that `npm run dev` is still running, save the file, and confirm you opened the address printed by that command.
 
 ### An image or PDF is missing
 
-Check the filename, capitalization, import, and folder. Run `npm run build` to catch missing files.
+Check the filename, capitalization, import path, and folder. `npm run build` usually reveals broken imports.
+
+### `git push` is rejected
+
+Run `git status` and confirm you cloned your own fork. If GitHub says the remote has newer work, run `git pull --ff-only`, then try `git push` again.
 
 ### SWC reports `Failed to load native binding`
 
-This usually means `node_modules` was copied from another computer or contains a damaged native file. Keep a recoverable backup and reinstall exactly from the lock file.
-
-macOS or Linux:
+Recreate dependencies from the lock file:
 
 ```bash
 mv node_modules node_modules.corrupt
@@ -260,26 +189,11 @@ npm cache verify
 npm ci
 ```
 
-Windows PowerShell:
+On Windows PowerShell, use `Rename-Item node_modules node_modules.corrupt` for the first command. Delete the backup after the site works.
 
-```powershell
-Rename-Item node_modules node_modules.corrupt
-npm cache verify
-npm ci
-```
+## Developer notes
 
-Confirm the repair:
-
-```bash
-node -e "require('@swc/core'); console.log('SWC OK')"
-npm run dev
-```
-
-After the site works, delete the `node_modules.corrupt` backup.
-
-## For Developers
-
-The site uses React 19, TypeScript, Vite, Chakra UI, Tailwind CSS, Vitest, ESLint, GitHub Actions, and GitHub Pages. Shared presentation components are under `src/components/`; visual templates are under `src/templates/`; shared types are in `src/types/portfolio.ts`.
+The app uses React 19, TypeScript, Vite, Chakra UI, Tailwind CSS, Vitest, ESLint, GitHub Actions, and GitHub Pages. Shared components are in `src/components/`, templates are in `src/templates/`, and shared types are in `src/types/portfolio.ts`.
 
 ## License
 

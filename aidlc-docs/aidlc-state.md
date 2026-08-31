@@ -6,14 +6,15 @@
 - **Workspace**: `/Users/nhamhhung/nhamhung.github.io`
 - **Change**: Business Color and Two-Theme Refresh
 - **Current phase**: CONSTRUCTION
-- **Current stage**: Code Generation Part 2 - Review gate
+- **Current stage**: Code Generation Part 1 - Step 18 approval
 - **Workflow status**: Active
 - **Active requirement questions**: `aidlc-docs/inception/requirements/business-youthful-color-refresh-requirement-questions.md`
 - **Active requirements**: `aidlc-docs/inception/requirements/business-youthful-color-refresh-requirements.md`
 - **Active execution plan**: `aidlc-docs/inception/plans/business-youthful-color-refresh-execution-plan.md`
 - **Active code-generation plan**: `aidlc-docs/construction/plans/business-youthful-color-refresh-code-generation-plan.md`
+- **Active approval question**: `aidlc-docs/construction/plans/business-youthful-color-refresh-step-18-approval-questions.md`
 - **Active code-generation summary**: `aidlc-docs/construction/business-youthful-color-refresh/code/code-generation-summary.md`
-- **Next action**: Await explicit Code Generation approval, then proceed to Build and Test
+- **Next action**: Await explicit approval of the Step 18 README amendment
 
 ## Current Scope
 
@@ -35,6 +36,10 @@
 - Reduce the profile record to `20rem` and shorten the portrait frame to `4 / 3`.
 - Lengthen the compact portrait frame slightly to `4 / 3.5`.
 - Add highlighted surfaces and hover feedback to the contact email and three social links.
+- Rewrite the README for a reader making their first-ever VS Code, Git, npm, GitHub Actions, and GitHub Pages contribution.
+- Normalize the Direct Contact card's blue, cream, and mint color roles across light and dark modes.
+- Match the Direct Contact card to the Send message button's background and text colors while retaining readable highlighted email and social controls.
+- Reorder the README into the requested template-first GitHub Pages, local-editing, first-push, and deployment-verification journey.
 
 ## Extension Configuration
 
@@ -50,9 +55,9 @@
 - [x] Workspace Detection - Brownfield React/Vite workspace and isolated Business style boundary confirmed on 2026-08-25
 - [x] Requirements Analysis - Background palette, text palette, layout preservation, and complete theme-removal requirements approved on 2026-08-25
 - [x] Workflow Planning - Focused execution plan approved on 2026-08-25
-- [x] Code Generation Part 1 - All fourteen steps approved
-- [ ] Code Generation Part 2 - All fourteen steps implemented and verified; awaiting explicit approval
-- [ ] Build and Test
+- [ ] Code Generation Part 1 - Steps 1 through 17 approved; Step 18 awaits approval
+- [ ] Code Generation Part 2 - Steps 1 through 17 implemented and verified; Step 18 planned
+- [x] Build and Test - Previous sixteen-step baseline passed on 2026-08-31; rerun required after Steps 17 and 18
 - [ ] Operations - Placeholder
 
 ## Reused Foundation

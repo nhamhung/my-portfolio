@@ -1,6 +1,6 @@
 # Code Generation Plan - Business Youthful Color Refresh
 
-> **Status: Step 14 amendment complete; awaiting Code Generation approval.** This document is the single source of truth for the Business palette, two-theme boundary, and review refinements.
+> **Status: Step 17 approved for implementation; Step 18 planned and awaiting explicit approval.** This document is the single source of truth for the Business palette, two-theme boundary, and review refinements.
 
 ## Unit Context
 
@@ -16,12 +16,13 @@
 
 No User Stories stage was needed. The unit directly implements these approved requirements:
 
-| Plan coverage         | Requirements                                                         |
-| --------------------- | -------------------------------------------------------------------- |
-| Palette system        | BYC-01 through BYC-05 and BYC-13                                     |
-| Preservation          | BYC-06 through BYC-10                                                |
-| Screenshot refinement | BYC-11, BYC-12, and BYC-14 through BYC-23                            |
-| Quality               | BYC-NFR-01 through BYC-NFR-05 and all twenty-two acceptance criteria |
+| Plan coverage          | Requirements                                                         |
+| ---------------------- | -------------------------------------------------------------------- |
+| Palette system         | BYC-01 through BYC-05 and BYC-13                                     |
+| Preservation           | BYC-06 through BYC-10                                                |
+| Screenshot refinement  | BYC-11, BYC-12, BYC-14 through BYC-23, BYC-25, and BYC-26            |
+| Beginner documentation | BYC-24 and BYC-27                                                    |
+| Quality                | BYC-NFR-01 through BYC-NFR-05 and all twenty-six acceptance criteria |
 
 ## Dependencies and Contracts
 
@@ -63,6 +64,9 @@ No User Stories stage was needed. The unit directly implements these approved re
 - [x] Obtain explicit approval for the Step 12 contact-alignment and profile-size amendment on 2026-08-27.
 - [x] Obtain explicit approval for the Step 13 optical-centering and portrait-frame correction on 2026-08-27.
 - [x] Obtain explicit approval for the Step 14 portrait-length and contact-highlight amendment on 2026-08-27.
+- [x] Obtain explicit approval for the amended, concise Steps 15 and 16 beginner-documentation and semantic contact-color work on 2026-08-31.
+- [x] Obtain explicit approval for the Step 17 primary-action contact-card color amendment on 2026-08-31.
+- [ ] Obtain explicit approval for the Step 18 template-first student onboarding README amendment.
 
 ## Part 2 - Implementation Steps
 
@@ -202,9 +206,48 @@ Restore the prior Business root color declarations and the display-accent text r
 - [x] Update the requirements status, code-generation summary, plan checkboxes, state, and append-only audit immediately after the amendment is implemented.
 - **Traceability**: BYC-22, BYC-23, BYC-06, BYC-NFR-01 through BYC-NFR-05, and acceptance criteria 21 and 22.
 
+### Step 15 - Rewrite README for a First-Time Contributor
+
+- [x] Add a regression test requiring the README to document Git identity setup, VS Code folder and terminal steps, `npm ci`, local preview and verification, safe staging, first commit and push, GitHub authentication, Actions monitoring, Pages setup, and beginner troubleshooting.
+- [x] Rewrite `README.md` in a concise linear first-use order, using one simple explanation plus the command or click sequence in each section, while preserving the accurate customization file map, exact Engineering/Business style boundary, asset guidance, current package scripts, and link to `DEPLOYMENT.md`.
+- [x] Include copyable `git config --global user.name` and `git config --global user.email` commands, verification commands, GitHub no-reply email guidance, and the distinction between global and repository-local identity.
+- [x] Explain VS Code's Open Folder and integrated terminal flow, how to recognize the repository root, how npm and `node_modules` work, how to stop the dev server, and why users must not commit secrets, `.env` files, `node_modules`, or generated `dist` output.
+- [x] Provide a cautious first-commit sequence using `git status`, selective staging or reviewed `git add .`, `git diff --staged`, `git commit`, `git branch -M main`, and `git push -u origin main`, followed by Actions and Pages verification and recovery guidance for common failures.
+- [x] Validate every documented path, command, script, GitHub Actions name, Pages setting, Markdown structure, and cross-reference against the current repository.
+- **Traceability**: BYC-24, BYC-NFR-04, BYC-NFR-05, and acceptance criterion 23.
+
+### Step 16 - Normalize Direct Contact Colors Across Modes
+
+- [x] Add focused regression assertions requiring the contact card to use `var(--surface-800)` and `var(--text-100)`, retain shared border/control tokens, remove its local color overrides and hard-coded `color: white`, and meet representative text contrast.
+- [x] Apply the existing semantic Business surface and text tokens to `.business-contact-card`, remove its local control-color overrides, and keep email/social borders and interactions on the shared `--line-500`, `--control-bg-soft`, and `--control-hover-bg` tokens.
+- [x] Preserve layout, centered content, email/social sizing, wrapping, hover/focus behavior, form styling, responsive behavior, and Engineering isolation.
+- [x] Run focused documentation and Business accessibility tests, the complete Vitest suite, ESLint, TypeScript/Vite production build, Prettier, stale-reference scans, contrast verification, scoped diff inspection, and `git diff --check`.
+- [x] Refresh the code-generation summary, Build and Test instructions and measurements, requirements status, plan checkboxes, state, and append-only audit with the combined amendment evidence.
+- **Traceability**: BYC-25, BYC-02, BYC-09, BYC-NFR-01 through BYC-NFR-05, and acceptance criterion 24.
+
+### Step 17 - Match Light Contact and Restore Dark Contrast
+
+- [x] Update the focused Business accessibility safeguard so light mode requires the same `var(--primary-bg)` and `var(--primary-text)` pair as the blue Send message button while dark mode requires `var(--surface-800)` and `var(--text-100)`.
+- [x] Add light-only contact-card overrides for the primary action pair while restoring the base dark card to the existing deep surface and near-white text tokens.
+- [x] Use accessible `var(--accent-500)` email/social highlights in dark mode and retain `var(--primary-hover-bg)` highlights in light mode, with existing borders and visible border-based hover feedback.
+- [x] Verify representative dark and light card/control contrast at 4.5:1 or better while preserving layout, content, wrapping, focus behavior, responsive behavior, and Engineering isolation.
+- [x] Run focused tests, the complete Vitest suite, ESLint, TypeScript/Vite build, Prettier, scoped diff inspection, stale-reference scan, and `git diff --check`.
+- [x] Refresh the summary, Build and Test evidence, requirements status, state, plan checkboxes, and append-only audit before returning to the Code Generation review gate.
+- **Traceability**: BYC-26, BYC-02, BYC-09, BYC-NFR-01 through BYC-NFR-05, and acceptance criterion 25.
+
+### Step 18 - Rebuild README Around the Student Deployment Journey
+
+- [ ] Extend the README regression safeguard to require the requested GitHub account, Use this template, exact `<username>.github.io`, GitHub Actions Pages, Visit site, repository About website, local tool verification, Git identity, clone, install, preview, customization, safe commit/push, workflow monitoring, and updated-site verification path.
+- [ ] Rewrite the numbered README flow in the user's fourteen-step order, grouping only closely related clicks or commands and keeping one simple explanation with the exact action in each section.
+- [ ] Use **Use this template → Create a new repository** as the primary setup, require the public lowercase `<username>.github.io` name for a GitHub Free root user site, and describe the student's clone remote as `origin` rather than `upstream`.
+- [ ] Document initial deployment through **Settings → Pages → Source: GitHub Actions**, the included **Deploy to GitHub Pages** workflow and manual Run workflow fallback, **Visit site**, and adding `https://<username>.github.io` through the repository About gear's Website field.
+- [ ] Preserve concise local setup, customization map, asset guidance, validation commands, authentication and secret safety, troubleshooting, and `DEPLOYMENT.md`; use `npm install` for the requested beginner flow while explaining that Actions uses locked `npm ci`.
+- [ ] Validate every command, path, UI label, workflow name, URL pattern, Markdown structure, and official GitHub reference; run focused and complete tests, ESLint, build, Prettier, stale-reference scan, scoped diff inspection, and `git diff --check`.
+- **Traceability**: BYC-27, BYC-24, BYC-NFR-04, BYC-NFR-05, and acceptance criterion 26.
+
 ## Completion Gate
 
-Part 2 is complete only when all fourteen steps are checked, verification is green, the summary is current, and the generated application-code diff is ready for explicit review before Build and Test.
+Part 2 is complete only when all eighteen steps are checked, verification is green, the README and summary are current, and the generated application-code diff is ready for explicit review before Build and Test.
 
 ## Extension Compliance
 

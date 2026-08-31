@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import { portfolio, sectionIds } from "../../data/portfolio";
@@ -8,6 +11,7 @@ import type {
 } from "../../types/portfolio";
 
 const supportedHrefPattern = /^(https?:\/\/|mailto:|#\/)/;
+const readme = readFileSync(resolve(process.cwd(), "README.md"), "utf8");
 
 const expectNonEmpty = (value: string, message: string) => {
   expect(value.trim(), message).not.toHaveLength(0);
@@ -30,6 +34,35 @@ const expectKnownSection = (sectionId: SectionId, context: string) => {
 };
 
 describe("src/data/portfolio.ts", () => {
+  it("keeps the README usable for a first-time contributor", () => {
+    [
+      "Visual Studio Code",
+      "Terminal > New Terminal",
+      'git config --global user.name "Your Name"',
+      'git config --global user.email "you@example.com"',
+      "git config --get user.name",
+      "npm ci",
+      "npm run dev",
+      "npm test",
+      "npm run lint",
+      "npm run build",
+      "git status",
+      "git add .",
+      "git diff --staged",
+      "git commit -m",
+      "git branch -M main",
+      "git push -u origin main",
+      "GitHub Actions",
+      "Settings > Pages",
+      "DEPLOYMENT.md",
+    ].forEach((instruction) => {
+      expect(readme).toContain(instruction);
+    });
+
+    expect(readme).toMatch(/node_modules.*dist|dist.*node_modules/s);
+    expect(readme).toMatch(/secret|\.env/i);
+  });
+
   it("keeps student-editable copy complete for every non-home section", () => {
     const contentSectionIds = sectionIds.filter(
       (sectionId): sectionId is ContentSectionId => sectionId !== "home",

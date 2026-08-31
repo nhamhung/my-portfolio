@@ -12,8 +12,8 @@ npm run test
 
 Expected verified result:
 
-- 10 test files pass.
-- 98 tests pass.
+- 9 test files pass.
+- 88 tests pass.
 - 0 tests fail.
 
 Vitest reports results in the terminal. Coverage reporting is not configured, so no coverage percentage or report directory should be inferred.
@@ -24,20 +24,20 @@ Vitest reports results in the terminal. Coverage reporting is not configured, so
 npx vitest run src/utils/templateSelection.test.ts src/hooks/usePortfolioLayout.test.ts src/test/data/navigation.test.ts src/test/data/portfolio.test.ts src/templates/templateRegistry.test.ts src/themeAccessibility.test.ts
 ```
 
-Expected verified result: 6 files and 46 tests pass.
+Expected verified result: 6 files and 49 tests pass.
 
 ## Test Inventory
 
-| File                                     | Main responsibility                                                                                       |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `src/utils/templateSelection.test.ts`    | Source default, saved preference, invalid and obsolete Neutral fallback, and storage failures             |
-| `src/hooks/usePortfolioLayout.test.ts`   | Layout validation, hash parsing, route creation, fallback, and persistence                                |
-| `src/test/data/navigation.test.ts`       | Unique section IDs, labels, baseline availability, and visibility filtering                               |
-| `src/test/data/portfolio.test.ts`        | Required shared content, links, actions, accessible media, resume facts, and certificates                 |
-| `src/templates/templateRegistry.test.ts` | Three registered templates, two visible selector options, complete section maps, and Engineering fallback |
-| `src/themeAccessibility.test.ts`         | Contrast-token safeguards, control clearance, scoped selectors, and reduced motion                        |
+| File                                     | Main responsibility                                                                                 |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `src/utils/templateSelection.test.ts`    | Source default, saved preference, invalid-value fallback, and storage failures                      |
+| `src/hooks/usePortfolioLayout.test.ts`   | Layout validation, hash parsing, route creation, fallback, and persistence                          |
+| `src/test/data/navigation.test.ts`       | Unique section IDs, labels, baseline availability, and visibility filtering                         |
+| `src/test/data/portfolio.test.ts`        | Beginner README, shared content, links, accessible media, resume facts, and certificates            |
+| `src/templates/templateRegistry.test.ts` | Two registered templates, visible selector options, complete section maps, and Engineering fallback |
+| `src/themeAccessibility.test.ts`         | Theme contrast, semantic contact colors, scoped selectors, control clearance, and reduced motion    |
 
-The remaining four files exercise rendered component integrations and are documented in `integration-test-instructions.md`.
+The remaining three files exercise rendered component integrations and are documented in `integration-test-instructions.md`.
 
 ## Fixing a Failure
 

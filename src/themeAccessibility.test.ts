@@ -151,6 +151,10 @@ describe("portfolio theme accessibility safeguards", () => {
       businessStyles,
       ".portfolio-template-business",
     );
+    const lightTheme = getThemeBlock(
+      businessStyles,
+      ".light .portfolio-template-business",
+    );
     const emailRule = getThemeBlock(
       businessStyles,
       ".portfolio-template-business .business-contact-email",
@@ -158,6 +162,10 @@ describe("portfolio theme accessibility safeguards", () => {
     const contactCardRule = getThemeBlock(
       businessStyles,
       ".portfolio-template-business .business-contact-card",
+    );
+    const lightContactCardRule = getThemeBlock(
+      businessStyles,
+      ".light .portfolio-template-business .business-contact-card",
     );
     const contactSocialsRule = getThemeBlock(
       businessStyles,
@@ -178,23 +186,58 @@ describe("portfolio theme accessibility safeguards", () => {
     expect(emailRule).toContain("width: fit-content;");
     expect(emailRule).toContain("max-width: 100%;");
     expect(emailRule).toContain("border: 1px solid var(--line-500);");
-    expect(emailRule).toContain("background: var(--control-bg-soft);");
+    expect(emailRule).toContain("background: var(--accent-500);");
     expect(emailRule).toContain("padding:");
     expect(emailRule).toContain("overflow-wrap: anywhere;");
     expect(contactCardRule).toContain("align-items: center;");
     expect(contactCardRule).toContain("text-align: center;");
+    expect(contactCardRule).toContain("background: var(--surface-800);");
+    expect(contactCardRule).toContain("color: var(--text-100);");
+    expect(lightContactCardRule).toContain("background: var(--primary-bg);");
+    expect(lightContactCardRule).toContain("color: var(--primary-text);");
+    expect(contactCardRule).not.toContain("color: white;");
+    expect(contactCardRule).not.toContain("--control-bg-soft:");
+    expect(contactCardRule).not.toContain("--control-hover-bg:");
+    expect(
+      contrastRatio(
+        getHexToken(darkTheme, "text-100"),
+        getHexToken(darkTheme, "bg-700"),
+      ),
+    ).toBeGreaterThanOrEqual(4.5);
+    expect(
+      contrastRatio(
+        getHexToken(lightTheme, "primary-text"),
+        getHexToken(lightTheme, "primary-bg"),
+      ),
+    ).toBeGreaterThanOrEqual(4.5);
     expect(contactSocialsRule).toContain("justify-content: center;");
     expect(contactSocialLinkRule).toContain("display: inline-flex;");
     expect(contactSocialLinkRule).toContain(
       "border: 1px solid var(--line-500);",
     );
-    expect(contactSocialLinkRule).toContain(
-      "background: var(--control-bg-soft);",
-    );
+    expect(contactSocialLinkRule).toContain("background: var(--accent-500);");
     expect(contactSocialLinkRule).toContain("padding:");
     expect(businessStyles).toMatch(
-      /business-contact-email:hover,\s*\.portfolio-template-business \.business-contact-socials a:hover\s*{[^}]*background:\s*var\(--control-hover-bg\);/s,
+      /business-contact-email:hover,\s*\.portfolio-template-business \.business-contact-socials a:hover\s*{[^}]*background:\s*var\(--accent-500\);[^}]*border-color:\s*currentColor;/s,
     );
+    expect(businessStyles).toMatch(
+      /\.light \.portfolio-template-business \.business-contact-email,\s*\.light \.portfolio-template-business \.business-contact-socials a\s*{[^}]*background:\s*var\(--primary-hover-bg\);/s,
+    );
+    expect(businessStyles).toMatch(
+      /\.light \.portfolio-template-business \.business-contact-email:hover,\s*\.light \.portfolio-template-business \.business-contact-socials a:hover\s*{[^}]*background:\s*var\(--primary-hover-bg\);[^}]*border-color:\s*currentColor;/s,
+    );
+    expect(
+      contrastRatio(
+        getHexToken(darkTheme, "text-100"),
+        getHexToken(darkTheme, "accent-500"),
+      ),
+    ).toBeGreaterThanOrEqual(4.5);
+    expect(
+      contrastRatio(
+        getHexToken(lightTheme, "primary-text"),
+        getHexToken(lightTheme, "primary-hover-bg"),
+      ),
+    ).toBeGreaterThanOrEqual(4.5);
     expect(subjectRecordRule).toContain("width: 100%;");
     expect(subjectRecordRule).toContain("max-width: 20rem;");
     expect(subjectRecordRule).toContain("justify-self: center;");

@@ -32,7 +32,7 @@ npm run test
 npm run lint
 ```
 
-Expected verified result: 10 test files and 98 tests pass, with no ESLint errors.
+Expected verified result: 9 test files and 88 tests pass, with no ESLint errors.
 
 ### 3. Build the Static Site
 
@@ -51,7 +51,7 @@ Expected results:
 - `dist/assets/` contains the bundled JavaScript, CSS, images, resume, and certificates.
 - The generated site remains compatible with static GitHub Pages hosting.
 
-The current build emits a non-blocking Vite warning because the main JavaScript chunk is larger than 500 kB. The verified output is approximately 999 kB minified and 300 kB gzip.
+The current build emits a non-blocking Vite warning because the main JavaScript chunk is larger than 500 kB. The verified output is 975.76 kB minified and 296.49 kB gzip.
 
 ### 5. Preview the Production Build
 
@@ -70,7 +70,7 @@ Open the local URL printed by Vite. The verified preview served `/` with HTTP 20
 | `dist/assets/index-*.css` | Compiled shared and theme styling                       |
 | `dist/assets/` media      | Bundled images, resume, certificates, and project media |
 
-The verified `dist/` directory is approximately 8.9 MB, including portfolio media and PDF certificates.
+The verified `dist/` directory is approximately 9.4 MB, including portfolio media and PDF certificates.
 
 ## Troubleshooting
 
